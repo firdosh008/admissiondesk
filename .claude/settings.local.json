@@ -14,7 +14,9 @@
       "WebFetch(domain:www.admissionindia.com)",
       "WebFetch(domain:upload.wikimedia.org)",
       "Bash(cd /d \"D:\\\\Development\\\\Zero\\\\edutech\\\\src\")",
-      "Bash(findstr /s /n \"svg\\\\|circle.*cx.*cy\\\\|monogram\\\\|crest\" *.tsx components\\\\*.tsx components\\\\college\\\\*.tsx)"
+      "Bash(findstr /s /n \"svg\\\\|circle.*cx.*cy\\\\|monogram\\\\|crest\" *.tsx components\\\\*.tsx components\\\\college\\\\*.tsx)",
+      "Bash(git push *)",
+      "Bash(git commit *)"
     ]
   }
 }

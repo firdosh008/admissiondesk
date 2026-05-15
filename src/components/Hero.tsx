@@ -22,7 +22,7 @@ export function Hero() {
         }}
       />
 
-      <div className="container-x pt-10 pb-16 md:pt-24 md:pb-32 relative">
+      <div className="container-x pt-10 pb-16 md:pt-5 md:pb-32 relative">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* ── Left: Headline block ── */}
           <div className="lg:col-span-7">

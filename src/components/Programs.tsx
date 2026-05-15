@@ -33,11 +33,10 @@ export function Programs() {
               key={l}
               type="button"
               onClick={() => setLevel(l)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all ${
-                level === l
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all ${level === l
                   ? "bg-[color:var(--forest-deep)] text-[color:var(--ivory)] border-[color:var(--forest-deep)]"
                   : "bg-transparent text-[color:var(--ink-soft)] border-[color:var(--rule)] hover:border-[color:var(--forest)]/40 hover:text-[color:var(--forest-deep)]"
-              }`}
+                }`}
             >
               {l === "UG" ? "UG — Undergraduate" : "PG — Postgraduate"}
             </button>
@@ -80,7 +79,7 @@ export function Programs() {
           >
             Ask a counsellor
           </button>{" "}
-          — we cover active programmes across Uttaranchal University and Graphic Era.
+          — we cover active programmes across all univeristy in Dehradun
         </p>
       </div>
     </section>
