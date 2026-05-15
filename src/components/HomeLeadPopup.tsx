@@ -52,32 +52,34 @@ export function HomeLeadPopup({ university }: { university?: string }) {
         if (e.target === e.currentTarget) setOpen(false);
       }}
     >
-      <div className="relative w-full max-w-lg max-h-[95vh] overflow-y-auto bg-[color:var(--cream)] rounded-2xl border border-[color:var(--rule-soft)] shadow-[0_1px_1px_rgba(8,36,32,0.06),0_12px_48px_-12px_rgba(8,36,32,0.3)]">
-        <button
-          type="button"
-          aria-label="Close"
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full border border-[color:var(--rule)] bg-[color:var(--ivory)] text-[color:var(--ink-soft)] hover:bg-[color:var(--rule-soft)] transition-colors text-lg leading-none z-10"
-          onClick={() => setOpen(false)}
-        >
-          &times;
-        </button>
-
-        {/* Ribbon */}
-        <div className="flex items-center gap-2 px-5 py-3 rounded-t-2xl bg-[color:var(--forest-deep)] text-[color:var(--gold-soft)] text-xs font-semibold tracking-[0.12em] uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--gold)] animate-pulse" />
-          Free counselling · 2026-27 admissions open
+      <div className="relative w-full max-w-lg max-h-[90vh] flex flex-col bg-[color:var(--cream)] rounded-2xl border border-[color:var(--rule-soft)] shadow-[0_1px_1px_rgba(8,36,32,0.06),0_12px_48px_-12px_rgba(8,36,32,0.3)]">
+        {/* Ribbon + close — always visible, never scrolls away */}
+        <div className="flex items-center justify-between px-4 sm:px-5 py-3 rounded-t-2xl bg-[color:var(--forest-deep)] text-[color:var(--gold-soft)] text-xs font-semibold tracking-[0.12em] uppercase flex-none">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--gold)] animate-pulse" />
+            Free counselling · 2026-27 admissions open
+          </div>
+          <button
+            type="button"
+            aria-label="Close"
+            className="ml-3 w-7 h-7 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors text-lg leading-none flex-none"
+            onClick={() => setOpen(false)}
+          >
+            &times;
+          </button>
         </div>
 
-        <div className="p-4 sm:p-6 md:p-8">
-          <h3 id="home-popup-title" className="font-display text-2xl md:text-3xl leading-tight text-[color:var(--forest-deep)]">
+        {/* Scrollable form body */}
+        <div className="overflow-y-auto flex-1 p-4 sm:p-6">
+          <h3 id="home-popup-title" className="font-display text-xl sm:text-2xl leading-tight text-[color:var(--forest-deep)]">
             Get free admission counselling
           </h3>
-          <p className="mt-2 text-sm text-[color:var(--ink-soft)] leading-relaxed">
+          <p className="mt-1.5 text-sm text-[color:var(--ink-soft)] leading-relaxed">
             Share your details and a senior counsellor will call within the hour —
             no fees, no obligation.
           </p>
 
-          <div className="mt-6">
+          <div className="mt-4 sm:mt-5">
             <HomePopupForm
               university={university}
               onSuccess={() => setOpen(false)}
