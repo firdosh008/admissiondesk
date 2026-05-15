@@ -163,25 +163,25 @@ export const VISIBLE_COLLEGES = COLLEGES.filter((college) =>
   ["uttaranchal-university", "graphic-era"].includes(college.slug)
 );
 
-export type CollegeStat = { feesRange: string; avgPackage: string; placement: string; naac: string };
+export type CollegeStat = { desc: string; feesRange: string; avgPackage: string; placement: string; naac: string };
 
 export const COUNSELLING_COLLEGE_INFO: Record<string, CollegeStat> = {
-  "Uttaranchal University":                  { feesRange: "₹1.5L–₹2.7L/yr",  avgPackage: "₹4.9 LPA",          placement: "80%+", naac: "A+" },
-  "Graphic Era (Deemed to be University)":   { feesRange: "₹3L–₹4.4L/yr",    avgPackage: "₹23.26 LPA (CSE)",  placement: "85%+", naac: "A+" },
-  "Graphic Era Hill University":             { feesRange: "₹2L–₹4.3L/yr",    avgPackage: "₹6–8 LPA",          placement: "75%+", naac: "A+" },
-  "UPES Dehradun":                           { feesRange: "₹3L–₹5L/yr",      avgPackage: "₹9 LPA",            placement: "92%",  naac: "A"  },
-  "DIT University":                          { feesRange: "₹2.1L–₹2.4L/yr",  avgPackage: "₹6–8 LPA",          placement: "69%+", naac: "A"  },
-  "IMS Unison University":                   { feesRange: "₹1.68L–₹4L/yr",   avgPackage: "₹5.86 LPA",         placement: "95%",  naac: "A"  },
-  "Dev Bhoomi Uttarakhand University":       { feesRange: "₹75K–₹1.65L/yr",  avgPackage: "₹6 LPA",            placement: "80%+", naac: "A+" },
-  "Doon University":                         { feesRange: "₹25K–₹50K/yr",    avgPackage: "₹3.5 LPA",          placement: "65%+", naac: "B+" },
-  "ICFAI University Dehradun":               { feesRange: "₹90K–₹1.5L/yr",   avgPackage: "₹37 LPA (highest)", placement: "93%",  naac: "A"  },
-  "Doon Business School":                    { feesRange: "₹1.8L–₹2.65L/yr", avgPackage: "₹8.15 LPA",         placement: "80%+", naac: "A+" },
-  "SGRR University":                         { feesRange: "₹60K–₹1.1L/yr",   avgPackage: "₹4–6 LPA",          placement: "75%",  naac: "A"  },
-  "Shivalik College":                        { feesRange: "₹40K–₹75K/yr",    avgPackage: "₹2.8 LPA",          placement: "60%+", naac: "B"  },
-  "Tula's Institute":                        { feesRange: "₹75K–₹1.2L/yr",   avgPackage: "₹3.5 LPA",          placement: "65%+", naac: "B+" },
-  "Himalayan Institute of Technology":       { feesRange: "₹70K–₹1.1L/yr",   avgPackage: "₹3 LPA",            placement: "62%+", naac: "B"  },
-  "Government Doon Medical College":         { feesRange: "Govt. rates",      avgPackage: "Clinical",          placement: "~85%", naac: "—"  },
-  "Institute of Hotel Management, Dehradun": { feesRange: "₹1L–₹1.8L/yr",    avgPackage: "₹4 LPA",            placement: "78%+", naac: "—"  },
+  "Uttaranchal University":                  { desc: "NAAC A+ university, first in Uttarakhand to earn it in the very first accreditation cycle.",         feesRange: "₹1.5L–₹2.7L/yr",  avgPackage: "₹4.9 LPA",          placement: "80%+", naac: "A+" },
+  "Graphic Era (Deemed to be University)":   { desc: "NIRF rank 48 deemed university with 30+ years of engineering excellence and global industry tie-ups.", feesRange: "₹3L–₹4.4L/yr",    avgPackage: "₹23.26 LPA (CSE)",  placement: "85%+", naac: "A+" },
+  "Graphic Era Hill University":             { desc: "Sister campus of Graphic Era, spread across Dehradun, Bhimtal & Clement Town with 80+ programmes.",    feesRange: "₹2L–₹4.3L/yr",    avgPackage: "₹6–8 LPA",          placement: "75%+", naac: "A+" },
+  "UPES Dehradun":                           { desc: "India's only energy-sector university, ranked 9th in QS Asia and top-100 by NIRF in Engineering.",     feesRange: "₹3L–₹5L/yr",      avgPackage: "₹9 LPA",            placement: "92%",  naac: "A"  },
+  "DIT University":                          { desc: "One of Uttarakhand's oldest private engineering institutions (est. 1998), highest placement ₹58 LPA.",  feesRange: "₹2.1L–₹2.4L/yr",  avgPackage: "₹6–8 LPA",          placement: "69%+", naac: "A"  },
+  "IMS Unison University":                   { desc: "Known for media, management and law; 204 companies visited campus in 2025 with 95% placement claims.",  feesRange: "₹1.68L–₹4L/yr",   avgPackage: "₹5.86 LPA",         placement: "95%",  naac: "A"  },
+  "Dev Bhoomi Uttarakhand University":       { desc: "Most affordable NAAC A+ university in Uttarakhand, with 850+ campus recruiters and strong IT linkages.", feesRange: "₹75K–₹1.65L/yr",  avgPackage: "₹6 LPA",            placement: "80%+", naac: "A+" },
+  "Doon University":                         { desc: "State university with very affordable fees, focused on liberal arts, science and social sciences.",       feesRange: "₹25K–₹50K/yr",    avgPackage: "₹3.5 LPA",          placement: "65%+", naac: "B+" },
+  "ICFAI University Dehradun":               { desc: "Part of the national ICFAI group; ranked 2nd in Uttarakhand and 31st nationally by India Today 2025.",  feesRange: "₹90K–₹1.5L/yr",   avgPackage: "₹37 LPA (highest)", placement: "93%",  naac: "A"  },
+  "Doon Business School":                    { desc: "AMBA-accredited business school, now a full university; strong MBA/PGDM with avg ₹8.15 LPA placements.", feesRange: "₹1.8L–₹2.65L/yr", avgPackage: "₹8.15 LPA",         placement: "80%+", naac: "A+" },
+  "SGRR University":                         { desc: "Backed by Shri Mahant Indiresh Hospital trust; excellent for medical, paramedical and clinical training.", feesRange: "₹60K–₹1.1L/yr",   avgPackage: "₹4–6 LPA",          placement: "75%",  naac: "A"  },
+  "Shivalik College":                        { desc: "Affordable Dehradun college offering engineering and management programmes with campus placement support.", feesRange: "₹40K–₹75K/yr",    avgPackage: "₹2.8 LPA",          placement: "60%+", naac: "B"  },
+  "Tula's Institute":                        { desc: "AICTE-approved private engineering college with active industry collaborations and multi-discipline programmes.", feesRange: "₹75K–₹1.2L/yr",  avgPackage: "₹3.5 LPA",         placement: "65%+", naac: "B+" },
+  "Himalayan Institute of Technology":       { desc: "Technical institute serving hill-region students with B.Tech and diploma programmes at accessible fees.",  feesRange: "₹70K–₹1.1L/yr",   avgPackage: "₹3 LPA",            placement: "62%+", naac: "B"  },
+  "Government Doon Medical College":         { desc: "State-run medical college offering MBBS and allied health programmes with attached hospital training.",    feesRange: "Govt. rates",      avgPackage: "Clinical",          placement: "~85%", naac: "—"  },
+  "Institute of Hotel Management, Dehradun": { desc: "NCHMCT-affiliated IHM offering hospitality management programmes with strong industry internship placement.", feesRange: "₹1L–₹1.8L/yr",   avgPackage: "₹4 LPA",            placement: "78%+", naac: "—"  },
 };
 
 export const DEHRADUN_COUNSELLING_COLLEGES = [

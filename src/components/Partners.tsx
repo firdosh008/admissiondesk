@@ -156,13 +156,20 @@ export function Partners() {
                   className="flex flex-col gap-3 px-4 py-3.5 rounded-xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-sm cursor-pointer"
                 >
                   {/* Name row */}
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex w-8 h-8 items-center justify-center rounded-full font-display text-[10px] font-semibold flex-none bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex w-8 h-8 items-center justify-center rounded-full font-display text-[10px] font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
                       {initials}
                     </span>
-                    <p className="text-sm font-medium text-[color:var(--ink)] leading-snug">
-                      {college}
-                    </p>
+                    <div>
+                      <p className="text-sm font-semibold text-[color:var(--ink)] leading-snug">
+                        {college}
+                      </p>
+                      {info && (
+                        <p className="mt-0.5 text-[11px] text-[color:var(--ink-soft)] leading-snug">
+                          {info.desc}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   {/* Stats row — 4 columns: fees · avg pkg · placed · NAAC */}
