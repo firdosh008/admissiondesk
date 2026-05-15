@@ -6,26 +6,26 @@
 */
 
 :root {
-  --ivory: #f6efde;
-  --ivory-deep: #efe5cd;
-  --cream: #fbf7eb;
-  --parchment: #f0e7cf;
-  --rule: #d8cca8;
-  --rule-soft: #e6dcbe;
+  --ivory: #f4f8f4;
+  --ivory-deep: #e8ede8;
+  --cream: #ffffff;
+  --parchment: #edf3ec;
+  --rule: #c6d4c3;
+  --rule-soft: #d7e3d4;
 
-  --forest: #0f3d2e;
-  --forest-deep: #082420;
-  --forest-ink: #051713;
-  --moss: #2a5a47;
-  --sage: #6f8a78;
+  --forest: #0e4332;
+  --forest-deep: #082b1f;
+  --forest-ink: #041410;
+  --moss: #2d6250;
+  --sage: #6f8f7c;
 
-  --gold: #b8893a;
-  --gold-deep: #8a6320;
-  --gold-soft: #d4ae66;
+  --gold: #c49230;
+  --gold-deep: #926c18;
+  --gold-soft: #dfba44;
 
-  --ink: #14180f;
-  --ink-soft: #2c3327;
-  --muted: #6a6855;
+  --ink: #111812;
+  --ink-soft: #2a3a2c;
+  --muted: #647569;
 
   --background: var(--ivory);
   --foreground: var(--ink);
@@ -77,25 +77,12 @@ html {
 
 body {
   background:
-    radial-gradient(1200px 700px at 80% -10%, rgba(184, 137, 58, 0.12), transparent 60%),
-    radial-gradient(900px 600px at -10% 0%, rgba(15, 61, 46, 0.08), transparent 60%),
+    radial-gradient(1200px 700px at 80% -10%, rgba(14, 67, 50, 0.04), transparent 60%),
+    radial-gradient(900px 600px at -10% 0%, rgba(14, 67, 50, 0.03), transparent 60%),
     var(--ivory);
   color: var(--ink);
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
-}
-
-/* Subtle paper grain — adds editorial warmth */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.09  0 0 0 0 0.05  0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
-  background-size: 220px 220px;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  opacity: 0.5;
-  z-index: 0;
 }
 
 /* ── Typography ── */
@@ -167,10 +154,10 @@ h3 {
   border-bottom: 1px solid var(--rule-soft);
 }
 
-/* Parchment band — warmer, more textured */
+/* Parchment band — light sage variation */
 .section-parchment {
   background: var(--parchment);
-  background-image: radial-gradient(ellipse 1200px 400px at 50% 50%, rgba(184, 137, 58, 0.06), transparent 70%);
+  background-image: radial-gradient(ellipse 1200px 400px at 50% 50%, rgba(196, 146, 48, 0.05), transparent 70%);
   border-top: 1px solid var(--rule-soft);
   border-bottom: 1px solid var(--rule-soft);
 }
@@ -186,7 +173,7 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(246, 239, 222, 0.06) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(244, 248, 244, 0.07) 1px, transparent 0);
   background-size: 28px 28px;
   pointer-events: none;
 }
@@ -411,8 +398,8 @@ h3 {
 .swash-underline {
   background-image: linear-gradient(
     transparent 60%,
-    rgba(184, 137, 58, 0.32) 60%,
-    rgba(184, 137, 58, 0.32) 92%,
+    rgba(196, 146, 48, 0.3) 60%,
+    rgba(196, 146, 48, 0.3) 92%,
     transparent 92%
   );
   padding: 0 0.05em;

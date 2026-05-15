@@ -18,7 +18,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 900px 600px at 90% -10%, rgba(184,137,58,0.12), transparent 60%), radial-gradient(ellipse 700px 500px at 10% 90%, rgba(15,61,46,0.06), transparent 60%)",
+            "radial-gradient(ellipse 900px 600px at 90% -10%, rgba(196,146,48,0.08), transparent 60%), radial-gradient(ellipse 700px 500px at 10% 90%, rgba(14,67,50,0.05), transparent 60%)",
         }}
       />
 
@@ -124,7 +124,7 @@ export function Hero() {
               className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-[40px] opacity-30"
               style={{
                 background:
-                  "radial-gradient(ellipse at center, rgba(184,137,58,0.15), transparent 70%)",
+                  "radial-gradient(ellipse at center, rgba(196,146,48,0.10), transparent 70%)",
               }}
             />
           </div>

@@ -25,12 +25,12 @@ export function CollegeCrest({
     >
       <defs>
         <linearGradient id={`${id}-fill`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0f3d2e" />
-          <stop offset="100%" stopColor="#082420" />
+          <stop offset="0%" stopColor="#0e4332" />
+          <stop offset="100%" stopColor="#082b1f" />
         </linearGradient>
         <linearGradient id={`${id}-gold`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#d4ae66" />
-          <stop offset="100%" stopColor="#b8893a" />
+          <stop offset="0%" stopColor="#dfba44" />
+          <stop offset="100%" stopColor="#c49230" />
         </linearGradient>
       </defs>
 
@@ -119,7 +119,7 @@ export function CollegeCrest({
         y="56"
         textAnchor="middle"
         dominantBaseline="middle"
-        fill="#f6efde"
+        fill="#f4f8f4"
         fontFamily="var(--font-display, Fraunces, Georgia, serif)"
         fontSize={fontSize}
         fontWeight="600"
@@ -141,7 +141,7 @@ export function CollegeCrest({
         x="50"
         y="82"
         textAnchor="middle"
-        fill="rgba(246,239,222,0.7)"
+        fill="rgba(244,248,244,0.7)"
         fontFamily="var(--font-sans, Manrope, sans-serif)"
         fontSize="6"
         letterSpacing="0.36em"

@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
+import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { PAGE_CONTACTS } from "@/lib/site";
 import "./geu.css";
 
@@ -501,19 +502,6 @@ export default function GraphicEraPage() {
               <Suspense fallback={null}>
                 <ThemedLeadForm
                   university="Graphic Era"
-                  programs={[
-                    "B.Tech CSE",
-                    "B.Tech CSE (AI/ML)",
-                    "B.Tech ECE",
-                    "B.Tech Mechanical / Civil",
-                    "BCA / MCA",
-                    "BBA / MBA",
-                    "B.Com (Hons.)",
-                    "B.Pharm / M.Pharm",
-                    "B.Sc / M.Sc",
-                    "BHMCT / Hospitality",
-                    "Other",
-                  ]}
                   buttonLabel="Submit Application"
                   successText="An admissiondesk counsellor will reach out within 24 hours with Graphic Era eligibility, GECET guidance and document checklist."
                   classes={{
@@ -603,6 +591,7 @@ export default function GraphicEraPage() {
           </div>
         </div>
       </footer>
+      <HomeLeadPopup university="Graphic Era" />
     </div>
   );
 }

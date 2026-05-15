@@ -4,93 +4,113 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { PROGRAMS, VISIBLE_COLLEGES } from "@/lib/constants";
+import { VISIBLE_COLLEGES } from "@/lib/constants";
 import { SITE, ANALYTICS } from "@/lib/site";
-import { WhatsAppIcon } from "./icons/WhatsAppIcon";
+import {
+  leadFormSchema,
+  leadFormDefaults,
+  resolveSubmittedProgram,
+  getCollegeSlug,
+  STATES,
+} from "@/lib/lead-form-schema";
+import type { LeadFormValues } from "@/lib/lead-form-schema";
+import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
+import { isUUCseParentProgramme } from "@/lib/uuPrograms";
 
-const schema = z.object({
-  name: z.string().min(2, "Please enter your full name").max(80),
-  phone: z
-    .string()
-    .regex(/^[+\d][\d\s-]{8,15}$/, "Enter a valid phone number"),
-  email: z.string().email("Enter a valid email").optional().or(z.literal("")),
-  state: z.string().min(1, "Please choose your state"),
-  program: z.string().min(1, "Pick a programme of interest"),
-  university: z.string().min(1, "Pick a preferred campus"),
-  consent: z.literal(true, {
-    error: "We need your consent to call/WhatsApp you.",
-  }),
-});
+type Props = {
+  onSuccess: () => void;
+  university?: string;
+};
 
-type FormValues = z.infer<typeof schema>;
-
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
-const STATES = [
-  "Uttarakhand", "Uttar Pradesh", "Delhi", "Haryana", "Punjab",
-  "Himachal Pradesh", "Rajasthan", "Bihar", "Madhya Pradesh",
-  "Maharashtra", "Karnataka", "Tamil Nadu", "West Bengal", "Gujarat",
-  "Kerala", "Andhra Pradesh", "Telangana", "Odisha", "Jharkhand",
-  "Assam", "Other",
-];
-
-export function HomePopupForm({ onSuccess }: { onSuccess: () => void }) {
+export function HomePopupForm({ onSuccess, university }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [serverError, setServerError] = useState<string | null>(null);
+  const [selectedUniversity, setSelectedUniversity] = useState("Help me decide");
 
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    defaultValues: { university: "Help me decide", consent: true },
+  } = useForm<LeadFormValues>({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(leadFormSchema) as any,
+    defaultValues: leadFormDefaults,
   });
 
-  const onSubmit = async (values: FormValues) => {
+  const {
+    categoryOptions,
+    programOptions,
+    cseTracks,
+    showCseSpecialization,
+  } = useCascadingPrograms(watch, setValue);
+
+  const specializationRequested = watch("specializationRequested");
+
+  const onSubmit = async (values: LeadFormValues) => {
     setServerError(null);
     try {
+      const programmeSubmitted = resolveSubmittedProgram(values);
+      const finalUniversity = university || selectedUniversity;
+      const level =
+        values.programLevel === "UG" || values.programLevel === "PG"
+          ? values.programLevel
+          : "";
+      const specFlag =
+        isUUCseParentProgramme(level, values.program) &&
+        values.specializationRequested;
+
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          name: values.name,
+          phone: values.phone,
+          email: values.email || "",
+          state: values.state,
+          program: programmeSubmitted,
+          university: finalUniversity,
+          consent: values.consent,
+          programLevel: values.programLevel,
+          specializationRequested: specFlag,
+        }),
       });
       if (!res.ok) throw new Error("Failed to submit");
 
       if (typeof window !== "undefined" && typeof window.fbq === "function") {
         window.fbq("track", "Lead", {
-          content_category: values.program,
-          content_name: values.university,
+          content_category: programmeSubmitted,
+          content_name: finalUniversity,
         });
       }
       const adsId = ANALYTICS.googleAdsId;
       const label = ANALYTICS.googleAdsConversionLabel;
-      if (typeof window !== "undefined" && typeof window.gtag === "function" && adsId && label) {
+      if (
+        typeof window !== "undefined" &&
+        typeof window.gtag === "function" &&
+        adsId &&
+        label
+      ) {
         window.gtag("event", "conversion", {
           send_to: `${adsId}/${label}`,
           event_category: "Lead",
-          event_label: values.program,
+          event_label: programmeSubmitted,
         });
       }
       if (typeof window !== "undefined" && typeof window.gtag === "function") {
         window.gtag("event", "generate_lead", {
-          program: values.program,
-          university: values.university,
+          program: programmeSubmitted,
+          university: finalUniversity,
         });
       }
 
       reset();
       onSuccess();
       const params = new URLSearchParams(searchParams.toString());
-      params.set("college", "general");
+      params.set("college", getCollegeSlug(finalUniversity));
       router.push(`/thank-you?${params.toString()}`);
     } catch {
       setServerError(
@@ -107,7 +127,9 @@ export function HomePopupForm({ onSuccess }: { onSuccess: () => void }) {
       noValidate
     >
       <div>
-        <label htmlFor="pop-name" className="field-label">Full name</label>
+        <label htmlFor="pop-name" className="field-label">
+          Full name
+        </label>
         <input
           id="pop-name"
           type="text"
@@ -121,7 +143,9 @@ export function HomePopupForm({ onSuccess }: { onSuccess: () => void }) {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="pop-phone" className="field-label">Phone (WhatsApp)</label>
+          <label htmlFor="pop-phone" className="field-label">
+            Phone (WhatsApp)
+          </label>
           <input
             id="pop-phone"
             type="tel"
@@ -131,10 +155,14 @@ export function HomePopupForm({ onSuccess }: { onSuccess: () => void }) {
             className="field-input"
             {...register("phone")}
           />
-          {errors.phone && <p className="field-error">{errors.phone.message}</p>}
+          {errors.phone && (
+            <p className="field-error">{errors.phone.message}</p>
+          )}
         </div>
         <div>
-          <label htmlFor="pop-email" className="field-label">Email ID</label>
+          <label htmlFor="pop-email" className="field-label">
+            Email ID
+          </label>
           <input
             id="pop-email"
             type="email"
@@ -143,56 +171,189 @@ export function HomePopupForm({ onSuccess }: { onSuccess: () => void }) {
             className="field-input"
             {...register("email")}
           />
-          {errors.email && <p className="field-error">{errors.email.message}</p>}
+          {errors.email && (
+            <p className="field-error">{errors.email.message}</p>
+          )}
         </div>
-      </div>
-
-      <div>
-        <label htmlFor="pop-state" className="field-label">State</label>
-        <select id="pop-state" className="field-select" defaultValue="" {...register("state")}>
-          <option value="" disabled>-- Select State --</option>
-          {STATES.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
-        </select>
-        {errors.state && <p className="field-error">{errors.state.message}</p>}
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="pop-program" className="field-label">Programme of interest</label>
-          <select id="pop-program" className="field-select" defaultValue="" {...register("program")}>
-            <option value="" disabled>Choose one</option>
-            {PROGRAMS.map((p) => (
-              <option key={p.slug} value={p.title}>{p.title}</option>
+          <label htmlFor="pop-state" className="field-label">
+            State
+          </label>
+          <select
+            id="pop-state"
+            className="field-select"
+            defaultValue=""
+            {...register("state")}
+          >
+            <option value="" disabled>
+              -- Select State --
+            </option>
+            {STATES.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
             ))}
-            <option value="Not sure yet">Not sure yet</option>
           </select>
-          {errors.program && <p className="field-error">{errors.program.message}</p>}
+          {errors.state && <p className="field-error">{errors.state.message}</p>}
         </div>
         <div>
-          <label htmlFor="pop-university" className="field-label">Preferred university</label>
-          <select id="pop-university" className="field-select" {...register("university")}>
-            <option value="Help me decide">Help me decide</option>
-            {VISIBLE_COLLEGES.map((c) => (
-              <option key={c.slug} value={c.shortName}>{c.shortName}</option>
-            ))}
+          <label htmlFor="pop-level" className="field-label">
+            Level
+          </label>
+          <select
+            id="pop-level"
+            className="field-select"
+            {...register("programLevel")}
+          >
+            <option value="" disabled>
+              -- UG or PG --
+            </option>
+            <option value="UG">UG (Undergraduate)</option>
+            <option value="PG">PG (Postgraduate)</option>
           </select>
-          {errors.university && <p className="field-error">{errors.university.message}</p>}
+          {errors.programLevel && (
+            <p className="field-error">{errors.programLevel.message}</p>
+          )}
         </div>
       </div>
 
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="pop-category" className="field-label">
+            Programme
+          </label>
+          <select
+            id="pop-category"
+            className="field-select"
+            disabled={!watch("programLevel")}
+            {...register("programCategory")}
+          >
+            <option value="" disabled>
+              {!watch("programLevel")
+                ? "-- Select level first --"
+                : "-- Select Category --"}
+            </option>
+            {categoryOptions.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+          {errors.programCategory && (
+            <p className="field-error">{errors.programCategory.message}</p>
+          )}
+        </div>
+        <div>
+          <label htmlFor="pop-program" className="field-label">
+            Specialization
+          </label>
+          <select
+            id="pop-program"
+            className="field-select"
+            disabled={!watch("programCategory")}
+            {...register("program")}
+          >
+            <option value="" disabled>
+              {!watch("programCategory")
+                ? "-- Select category first --"
+                : "-- Select Programme --"}
+            </option>
+            {programOptions.map((p) => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
+          </select>
+          {errors.program && (
+            <p className="field-error">{errors.program.message}</p>
+          )}
+        </div>
+      </div>
+
+      {showCseSpecialization && (
+        <>
+          <label className="flex gap-3 items-start text-sm text-[color:var(--ink-soft)]">
+            <input
+              type="checkbox"
+              className="mt-1 accent-[color:var(--forest)]"
+              {...register("specializationRequested")}
+            />
+            <span>Interested in a CSE specialization / track</span>
+          </label>
+
+          {specializationRequested && (
+            <div>
+              <label htmlFor="pop-cse-track" className="field-label">
+                Specialization / track
+              </label>
+              <select
+                id="pop-cse-track"
+                className="field-select"
+                defaultValue=""
+                {...register("cseTrack")}
+              >
+                <option value="" disabled>
+                  -- Select track --
+                </option>
+                {cseTracks.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+              {errors.cseTrack && (
+                <p className="field-error">{errors.cseTrack.message}</p>
+              )}
+            </div>
+          )}
+        </>
+      )}
+
+      {!university && (
+        <div>
+          <label htmlFor="pop-university" className="field-label">
+            Preferred university
+          </label>
+          <select
+            id="pop-university"
+            className="field-select"
+            value={selectedUniversity}
+            onChange={(e) => setSelectedUniversity(e.target.value)}
+          >
+            <option value="Help me decide">Help me decide</option>
+            {VISIBLE_COLLEGES.map((c) => (
+              <option key={c.slug} value={c.shortName}>
+                {c.shortName}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <label className="flex gap-3 items-start text-sm text-[color:var(--ink-soft)]">
-        <input type="checkbox" className="mt-1 accent-[color:var(--forest)]" {...register("consent")} />
+        <input
+          type="checkbox"
+          className="mt-1 accent-[color:var(--forest)]"
+          {...register("consent")}
+        />
         <span>
           I agree to be contacted by {SITE.name} via call or WhatsApp about my
           enquiry. I&apos;ve read the{" "}
-          <a href="/privacy" className="underline underline-offset-2 decoration-[color:var(--gold)] hover:text-[color:var(--forest-deep)]">
+          <a
+            href="/privacy"
+            className="underline underline-offset-2 decoration-[color:var(--gold)] hover:text-[color:var(--forest-deep)]"
+          >
             privacy policy
-          </a>.
+          </a>
+          .
         </span>
       </label>
-      {errors.consent && <p className="field-error">{errors.consent.message}</p>}
+      {errors.consent && (
+        <p className="field-error">{errors.consent.message}</p>
+      )}
 
       {serverError && (
         <p className="text-sm text-[color:#8a2418] bg-[#fae9e6] border border-[#e7c0b9] rounded-md p-3">
@@ -200,27 +361,13 @@ export function HomePopupForm({ onSuccess }: { onSuccess: () => void }) {
         </p>
       )}
 
-      <button type="submit" disabled={isSubmitting} className="btn-primary w-full text-base py-3.5">
-        {isSubmitting ? "Submitting…" : "Request my free counselling call"}
-      </button>
-
-      <div className="flex items-center gap-3">
-        <div className="flex-1 h-px bg-[color:var(--rule)]" />
-        <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--muted)]">or</span>
-        <div className="flex-1 h-px bg-[color:var(--rule)]" />
-      </div>
-
-      <a
-        href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-          "Hi, I'd like counselling for university admissions."
-        )}`}
-        className="btn-whatsapp w-full"
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="btn-primary w-full text-base py-3.5"
       >
-        <WhatsAppIcon size={18} />
-        Chat on WhatsApp instead
-      </a>
+        {isSubmitting ? "Submitting…" : "Submit"}
+      </button>
     </form>
   );
 }

@@ -30,7 +30,7 @@ export function Process() {
             <li key={s.number} className="relative flex flex-col items-start">
               {/* Step marker */}
               <div className="relative mb-6">
-                <div className="relative inline-flex w-20 h-20 items-center justify-center rounded-full bg-[color:var(--ivory)] border-2 border-[color:var(--gold)]/40 ring-4 ring-[color:var(--ivory-deep)]/30 shadow-[0_0_0_8px_rgba(240,231,207,0.3)]">
+                <div className="relative inline-flex w-20 h-20 items-center justify-center rounded-full bg-[color:var(--ivory)] border-2 border-[color:var(--gold)]/40 ring-4 ring-[color:var(--ivory-deep)]/30 shadow-[0_0_0_8px_rgba(232,237,232,0.4)]">
                   <span className="font-display text-2xl text-[color:var(--forest-deep)]">
                     {s.number}
                   </span>

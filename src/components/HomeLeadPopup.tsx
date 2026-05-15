@@ -9,13 +9,21 @@ export function dispatchHomePopup() {
   window.dispatchEvent(new Event(HOME_POPUP_EVENT));
 }
 
-export function HomeLeadPopup() {
+const OPEN_DELAY_MS = 1200;
+
+export function HomeLeadPopup({ university }: { university?: string }) {
   const [open, setOpen] = useState(false);
 
+  const showPopup = () => setOpen(true);
+
   useEffect(() => {
-    const show = () => setOpen(true);
-    window.addEventListener(HOME_POPUP_EVENT, show);
-    return () => window.removeEventListener(HOME_POPUP_EVENT, show);
+    const t = window.setTimeout(showPopup, OPEN_DELAY_MS);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener(HOME_POPUP_EVENT, showPopup);
+    return () => window.removeEventListener(HOME_POPUP_EVENT, showPopup);
   }, []);
 
   useEffect(() => {
@@ -70,7 +78,10 @@ export function HomeLeadPopup() {
           </p>
 
           <div className="mt-6">
-            <HomePopupForm onSuccess={() => setOpen(false)} />
+            <HomePopupForm
+              university={university}
+              onSuccess={() => setOpen(false)}
+            />
           </div>
         </div>
       </div>

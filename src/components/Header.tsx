@@ -78,8 +78,8 @@ export function Header({
               >
                 <defs>
                   <linearGradient id="nav-logo-fill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0f3d2e" />
-                    <stop offset="100%" stopColor="#082420" />
+                    <stop offset="0%" stopColor="#0e4332" />
+                    <stop offset="100%" stopColor="#082b1f" />
                   </linearGradient>
                 </defs>
                 <circle
@@ -87,21 +87,21 @@ export function Header({
                   cy="22"
                   r="20"
                   fill="url(#nav-logo-fill)"
-                  stroke="#b8893a"
+                  stroke="#c49230"
                   strokeWidth="0.8"
                 />
                 <text
                   x="22"
                   y="28"
                   textAnchor="middle"
-                  fill="#f6efde"
+                  fill="#f4f8f4"
                   fontFamily="var(--font-display, Fraunces, Georgia, serif)"
                   fontSize="18"
                   fontWeight="600"
                 >
                   A
                 </text>
-                <path d="M14 33 L30 33" stroke="#b8893a" strokeWidth="0.6" />
+                <path d="M14 33 L30 33" stroke="#c49230" strokeWidth="0.6" />
               </svg>
             </span>
             <span className="leading-tight">
