@@ -52,7 +52,7 @@ export function HomeLeadPopup({ university }: { university?: string }) {
         if (e.target === e.currentTarget) setOpen(false);
       }}
     >
-      <div className="relative w-full max-w-lg max-h-[90vh] flex flex-col bg-[color:var(--cream)] rounded-2xl border border-[color:var(--rule-soft)] shadow-[0_1px_1px_rgba(8,36,32,0.06),0_12px_48px_-12px_rgba(8,36,32,0.3)]">
+      <div className="relative w-full max-w-lg max-h-[75vh] sm:max-h-[90vh] flex flex-col bg-[color:var(--cream)] rounded-2xl border border-[color:var(--rule-soft)] shadow-[0_1px_1px_rgba(8,36,32,0.06),0_12px_48px_-12px_rgba(8,36,32,0.3)]">
         {/* Ribbon + close — always visible, never scrolls away */}
         <div className="flex items-center justify-between px-4 sm:px-5 py-3 rounded-t-2xl bg-[color:var(--forest-deep)] text-[color:var(--gold-soft)] text-xs font-semibold tracking-[0.12em] uppercase flex-none">
           <div className="flex items-center gap-2">
