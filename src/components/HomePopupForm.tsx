@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { VISIBLE_COLLEGES } from "@/lib/constants";
+import { DEHRADUN_COUNSELLING_COLLEGES } from "@/lib/constants";
 import { SITE, ANALYTICS } from "@/lib/site";
 import {
   leadFormSchema,
@@ -324,9 +324,9 @@ export function HomePopupForm({ onSuccess, university }: Props) {
             onChange={(e) => setSelectedUniversity(e.target.value)}
           >
             <option value="Help me decide">Help me decide</option>
-            {VISIBLE_COLLEGES.map((c) => (
-              <option key={c.slug} value={c.shortName}>
-                {c.shortName}
+            {DEHRADUN_COUNSELLING_COLLEGES.map((c) => (
+              <option key={c} value={c}>
+                {c}
               </option>
             ))}
           </select>

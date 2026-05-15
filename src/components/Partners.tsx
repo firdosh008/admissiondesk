@@ -78,26 +78,26 @@ export function Partners() {
               <div className="mt-7 grid grid-cols-3 gap-4 py-5 border-y border-[color:var(--rule-soft)]">
                 <div>
                   <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                    Highest pkg.
+                    Fees / year
                   </p>
-                  <p className="font-display text-xl text-[color:var(--forest-deep)] mt-1">
-                    {college.highestPackage}
+                  <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
+                    {college.feesRange}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
+                    {college.averagePackage ? "Avg. pkg." : "Highest pkg."}
+                  </p>
+                  <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
+                    {college.averagePackage ?? college.highestPackage}
                   </p>
                 </div>
                 <div>
                   <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
                     {college.placementRate ? "Placement" : "Programmes"}
                   </p>
-                  <p className="font-display text-xl text-[color:var(--forest-deep)] mt-1">
+                  <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
                     {college.placementRate ?? `${college.programs}+`}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                    Recruiters
-                  </p>
-                  <p className="font-display text-xl text-[color:var(--forest-deep)] mt-1">
-                    {college.topRecruiters.length}+
                   </p>
                 </div>
               </div>
@@ -146,9 +146,11 @@ export function Partners() {
               ].includes(college);
 
               return (
-                <div
+                <button
                   key={college}
-                  className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl border transition-all border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--rule)] hover:bg-[color:var(--ivory)]`}
+                  type="button"
+                  onClick={dispatchHomePopup}
+                  className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-sm cursor-pointer`}
                 >
                   {/* College initial badge */}
                   <span
@@ -163,7 +165,7 @@ export function Partners() {
                     </p>
                     
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>

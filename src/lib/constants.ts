@@ -5,6 +5,7 @@ export type College = {
   city: string;
   established: string;
   accreditation: string;
+  feesRange: string;
   highestPackage: string;
   averagePackage?: string;
   placementRate?: string;
@@ -25,6 +26,7 @@ export const COLLEGES: College[] = [
     city: "Dehradun",
     established: "2003",
     accreditation: "NAAC A · UGC Recognised",
+    feesRange: "₹2.2L–₹4.5L/yr",
     highestPackage: "₹52 LPA",
     placementRate: "92%",
     programs: 121,
@@ -43,9 +45,9 @@ export const COLLEGES: College[] = [
       "Maruti Suzuki",
     ],
     highlights: [
-      "8 schools — Engineering, CS, Business, Law, Health, Design, Media, Liberal Studies",
-      "2,444 students placed in 2025 across 800 visiting companies",
-      "Industry-integrated curriculum with global immersion options",
+      "Fees ₹2.2L–₹4.5L/yr · merit scholarships up to 100% available",
+      "92% placement rate · 2,444 students placed in 2025 across 800+ companies",
+      "8 schools including Engineering, CS, Business, Law, Health & Design",
     ],
     flagshipPrograms: [
       "B.Tech Computer Science",
@@ -61,6 +63,7 @@ export const COLLEGES: College[] = [
     city: "Dehradun",
     established: "1993",
     accreditation: "NAAC A+ · UGC Deemed University",
+    feesRange: "₹1.1L–₹2.1L/yr",
     highestPackage: "₹61.99 LPA",
     averagePackage: "₹23.26 LPA (CSE)",
     programs: 85,
@@ -78,9 +81,9 @@ export const COLLEGES: College[] = [
       "Wipro",
     ],
     highlights: [
-      "5,700+ placement offers in 2025 from 444+ recruiters",
-      "85+ UG, PG and doctoral programmes",
-      "Strong engineering, management and applied sciences ecosystem",
+      "Fees ₹1.1L–₹2.1L/yr · merit waivers and category scholarships available",
+      "5,700+ placement offers in 2025 · avg ₹23.26 LPA for CSE batch",
+      "NAAC A+ · 30+ years of excellence · Google, Adobe, Goldman Sachs on campus",
     ],
     flagshipPrograms: ["B.Tech CSE", "MBA", "BCA · MCA", "B.Pharm"],
     monogram: "GE",
@@ -92,6 +95,7 @@ export const COLLEGES: College[] = [
     city: "Dehradun",
     established: "2013",
     accreditation: "NAAC A+ · UGC Recognised",
+    feesRange: "₹75K–₹1.8L/yr",
     highestPackage: "₹1.5 Cr",
     averagePackage: "₹4.9 LPA",
     placementRate: "80%+",
@@ -111,9 +115,9 @@ export const COLLEGES: College[] = [
       "Infosys",
     ],
     highlights: [
-      "12 streams · 143 programmes including AI/ML, Cybersecurity, Cloud",
-      "NAAC A+ accreditation — among Uttarakhand's highest",
-      "Approved by UGC, AICTE, BCI, PCI and other regulators",
+      "Fees ₹75K–₹1.8L/yr · 30+ scholarship slabs including merit waivers",
+      "80%+ placement rate · avg ₹4.9 LPA · highest ₹1.5 Cr (2024–25)",
+      "NAAC A+ · 143 programmes across 12 schools · AI/ML, Law, Pharmacy & more",
     ],
     flagshipPrograms: ["B.Tech CSE (AI/ML)", "BBA · MBA", "BA LLB", "B.Pharm"],
     monogram: "UU",
@@ -125,6 +129,7 @@ export const COLLEGES: College[] = [
     city: "Dehradun",
     established: "2008",
     accreditation: "UGC Recognised · State Private University",
+    feesRange: "₹60K–₹1.5L/yr",
     highestPackage: "₹24 LPA",
     programs: 170,
     schools: 10,
@@ -142,9 +147,9 @@ export const COLLEGES: College[] = [
       "Axis Bank",
     ],
     highlights: [
+      "Fees ₹60K–₹1.5L/yr · one of Uttarakhand's most affordable accredited universities",
       "170 programmes across 17 streams — UG, PG, Diploma & PhD",
-      "Industry-aligned curriculum with strong applied focus",
-      "Multiple intakes and DBUU-CET — flexible for late applicants",
+      "Multiple intakes per year · DBUU-CET with flexible windows for late applicants",
     ],
     flagshipPrograms: ["B.Tech CSE", "B.Pharm · Pharm.D", "MBA · BBA", "BCA"],
     monogram: "DB",
