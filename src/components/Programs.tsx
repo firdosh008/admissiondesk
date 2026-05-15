@@ -1,69 +1,78 @@
 "use client";
 
-import { PROGRAMS } from "@/lib/constants";
+import { useState } from "react";
+import { getAllProgramsGrouped } from "@/lib/uuPrograms";
 import { dispatchHomePopup } from "./HomeLeadPopup";
 
 export function Programs() {
+  const [level, setLevel] = useState<"UG" | "PG">("UG");
+  const grouped = getAllProgramsGrouped(level);
+
   return (
     <section id="programs" className="section-parchment">
       <div className="container-x py-12 md:py-24 lg:py-32">
-        {/* ── Header ── */}
-        <header className="grid md:grid-cols-12 gap-8 items-end">
+        {/* Header */}
+        <header className="grid md:grid-cols-12 gap-6 items-end mb-10 md:mb-14">
           <div className="md:col-span-7">
             <p className="eyebrow">Programmes we counsel for</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
               From engineering and law{" "}
-              <span className="font-italic-serif">
-                to design and pharmacy.
-              </span>
+              <span className="font-italic-serif">to design and pharmacy.</span>
             </h2>
           </div>
           <p className="md:col-span-5 text-base md:text-lg text-[color:var(--ink-soft)] leading-relaxed">
-            Six programme families, 200+ options, active university pages — and
-            one counsellor who knows the difference between them all.
+            Click any course below to get free counselling — fees, eligibility,
+            scholarships and application steps, all in one call.
           </p>
         </header>
 
-        {/* ── Programme grid — clickable cards ── */}
-        <div className="mt-10 md:mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {PROGRAMS.map((p, i) => (
+        {/* UG / PG tabs */}
+        <div className="flex gap-2 mb-8">
+          {(["UG", "PG"] as const).map((l) => (
             <button
-              key={p.slug}
+              key={l}
               type="button"
-              onClick={dispatchHomePopup}
-              className="card-paper p-5 sm:p-7 flex flex-col gap-4 sm:gap-5 group text-left w-full cursor-pointer hover:border-[color:var(--forest)]/20 hover:-translate-y-0.5 transition-all"
+              onClick={() => setLevel(l)}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all ${
+                level === l
+                  ? "bg-[color:var(--forest-deep)] text-[color:var(--ivory)] border-[color:var(--forest-deep)]"
+                  : "bg-transparent text-[color:var(--ink-soft)] border-[color:var(--rule)] hover:border-[color:var(--forest)]/40 hover:text-[color:var(--forest-deep)]"
+              }`}
             >
-              {/* Number + duration header */}
-              <div className="flex items-baseline justify-between">
-                <span className="number-callout">
-                  {String(i + 1).padStart(2, "0")}.
-                </span>
-                <span className="text-[10px] tracking-[0.22em] uppercase text-[color:var(--muted)]">
-                  {p.durations}
-                </span>
-              </div>
-
-              <h3 className="font-display text-xl sm:text-2xl leading-tight text-[color:var(--forest-deep)] group-hover:text-[color:var(--moss)] transition-colors">
-                {p.title}
-              </h3>
-
-              <p className="text-sm leading-relaxed text-[color:var(--ink-soft)]">
-                {p.description}
-              </p>
-
-              <div className="mt-auto flex flex-wrap gap-2 pt-3 border-t border-[color:var(--rule-soft)]">
-                {p.examples.map((e) => (
-                  <span key={e} className="tag bg-white/80">
-                    {e}
-                  </span>
-                ))}
-              </div>
+              {l === "UG" ? "UG — Undergraduate" : "PG — Postgraduate"}
             </button>
           ))}
         </div>
 
-        <p className="mt-8 md:mt-10 text-center text-sm text-[color:var(--muted)]">
-          Don&apos;t see what you&apos;re looking for?{" "}
+        {/* Course grid by category */}
+        <div className="space-y-6">
+          {Object.entries(grouped)
+            .filter(([, progs]) => progs.length > 0 && !(progs.length === 1 && progs[0] === "Other"))
+            .map(([category, programs]) => (
+              <div key={category} className="card-paper p-5 sm:p-6">
+                <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[color:var(--gold-deep)] mb-4">
+                  {category}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {programs
+                    .filter((p) => p !== "Other")
+                    .map((program) => (
+                      <button
+                        key={program}
+                        type="button"
+                        onClick={dispatchHomePopup}
+                        className="px-3.5 py-2 rounded-full text-sm border border-[color:var(--rule-soft)] bg-white/70 text-[color:var(--ink)] hover:bg-[color:var(--forest-deep)] hover:text-[color:var(--ivory)] hover:border-[color:var(--forest-deep)] transition-all"
+                      >
+                        {program}
+                      </button>
+                    ))}
+                </div>
+              </div>
+            ))}
+        </div>
+
+        <p className="mt-8 text-center text-sm text-[color:var(--muted)]">
+          Don&apos;t see your programme?{" "}
           <button
             type="button"
             onClick={dispatchHomePopup}
