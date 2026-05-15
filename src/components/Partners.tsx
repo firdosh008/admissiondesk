@@ -1,13 +1,28 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   DEHRADUN_COUNSELLING_COLLEGES,
   COUNSELLING_COLLEGE_INFO,
-  VISIBLE_COLLEGES,
+  COLLEGES,
 } from "@/lib/constants";
 import { CollegeCrest } from "./CollegeCrest";
 import { dispatchHomePopup } from "./HomeLeadPopup";
+
+const COLLEGE_BG: Record<string, string> = {
+  "uttaranchal-university": "/colleges/uu/bg-uu.png",
+  "graphic-era": "/colleges/geu/bg-geu.webp",
+  "upes": "/colleges/upes/bg_upes.avif",
+  "dev-bhoomi": "/colleges/dbuu/dbuu-campus-img.webp",
+};
+
+const HAS_PAGE = new Set(["uttaranchal-university", "graphic-era"]);
+
+const DISPLAY_ORDER = ["uttaranchal-university", "graphic-era", "upes", "dev-bhoomi"];
+const FEATURED_COLLEGES = [...COLLEGES].sort(
+  (a, b) => DISPLAY_ORDER.indexOf(a.slug) - DISPLAY_ORDER.indexOf(b.slug)
+);
 
 const variants: Array<"shield" | "hex"> = ["shield", "hex"];
 
@@ -33,90 +48,115 @@ export function Partners() {
 
         {/* ── Featured college cards ── */}
         <div className="mt-8 md:mt-14 grid lg:grid-cols-2 gap-5 md:gap-8">
-          {VISIBLE_COLLEGES.map((college, index) => (
-            <article
-              key={college.slug}
-              className="card-elevated p-4 sm:p-6 md:p-10 flex flex-col h-full"
-            >
-              {/* Card header */}
-              <div className="flex items-start gap-5">
-                <CollegeCrest
-                  monogram={college.monogram}
-                  size={72}
-                  variant={variants[index]}
-                />
-                <div className="flex-1 min-w-0">
-                  <p className="text-[10px] tracking-[0.22em] uppercase text-[color:var(--gold-deep)] font-semibold">
+          {FEATURED_COLLEGES.map((college, index) => {
+            const bg = COLLEGE_BG[college.slug];
+            return (
+              <article
+                key={college.slug}
+                className="card-elevated flex flex-col h-full overflow-hidden"
+              >
+                {/* Hero banner */}
+                <div className="relative h-52 sm:h-60 w-full flex-none">
+                  {bg ? (
+                    <Image
+                      src={bg}
+                      alt={college.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-[color:var(--forest-deep)]" />
+                  )}
+                  {/* Dark gradient so text is readable */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10" />
+
+                  {/* Badge top-left */}
+                  <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 text-[10px] font-semibold text-[color:var(--gold-soft)] tracking-[0.12em] uppercase">
                     Featured landing page
-                  </p>
-                  <h3 className="mt-2 font-display text-2xl md:text-3xl leading-tight text-[color:var(--forest-deep)]">
-                    {college.name}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-[color:var(--muted)]">
-                    Est. {college.established} · {college.city},{" "}
-                    {college.programs} programmes
-                    {college.schools ? ` · ${college.schools} schools` : ""}
-                  </p>
+                  </span>
+
+                  {/* Crest + name overlaid at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end gap-4">
+                    <CollegeCrest
+                      monogram={college.monogram}
+                      size={60}
+                      variant={variants[index]}
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-display text-2xl md:text-3xl leading-tight text-white drop-shadow">
+                        {college.name}
+                      </h3>
+                      <p className="mt-1 text-xs text-white/70">
+                        Est. {college.established} · {college.city} ·{" "}
+                        {college.programs} programmes
+                        {college.schools ? ` · ${college.schools} schools` : ""}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card body */}
+                <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-1">
                   {/* Accreditation badge */}
-                  <span className="inline-flex mt-2 items-center gap-1.5 px-2.5 py-1 rounded-full bg-[color:var(--forest)]/6 border border-[color:var(--forest)]/12 text-[10px] font-semibold text-[color:var(--forest-deep)] tracking-[0.04em]">
+                  <span className="inline-flex self-start items-center gap-1.5 px-2.5 py-1 rounded-full bg-[color:var(--forest)]/6 border border-[color:var(--forest)]/12 text-[10px] font-semibold text-[color:var(--forest-deep)] tracking-[0.04em]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--gold)]" />
                     {college.accreditation}
                   </span>
-                </div>
-              </div>
 
-              {/* Highlights */}
-              <ul className="mt-7 space-y-3 text-sm text-[color:var(--ink-soft)]">
-                {college.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-3">
-                    <span className="accent-dot mt-1.5 flex-none" />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
+                  {/* Highlights */}
+                  <ul className="mt-5 space-y-3 text-sm text-[color:var(--ink-soft)]">
+                    {college.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-3">
+                        <span className="accent-dot mt-1.5 flex-none" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-              {/* Stats row */}
-              <div className="mt-7 grid grid-cols-3 gap-4 py-5 border-y border-[color:var(--rule-soft)]">
-                <div>
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                    Fees / year
-                  </p>
-                  <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
-                    {college.feesRange}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                    {college.averagePackage ? "Avg. pkg." : "Highest pkg."}
-                  </p>
-                  <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
-                    {college.averagePackage ?? college.highestPackage}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                    {college.placementRate ? "Placement" : "Programmes"}
-                  </p>
-                  <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
-                    {college.placementRate ?? `${college.programs}+`}
-                  </p>
-                </div>
-              </div>
+                  {/* Stats row */}
+                  <div className="mt-6 grid grid-cols-3 gap-4 py-5 border-y border-[color:var(--rule-soft)]">
+                    <div>
+                      <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
+                        Fees / year
+                      </p>
+                      <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
+                        {college.feesRange}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
+                        {college.averagePackage ? "Avg. pkg." : "Highest pkg."}
+                      </p>
+                      <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
+                        {college.averagePackage ?? college.highestPackage}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
+                        {college.placementRate ? "Placement" : "Programmes"}
+                      </p>
+                      <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
+                        {college.placementRate ?? `${college.programs}+`}
+                      </p>
+                    </div>
+                  </div>
 
-              {/* CTAs */}
-              <div className="mt-7 flex flex-wrap items-center gap-3">
-                <Link
-                  href={`/${college.slug}`}
-                  className="btn-primary text-sm py-3 px-5"
-                >
-                  Know more
-                </Link>
-                <button type="button" onClick={dispatchHomePopup} className="btn-secondary text-sm py-3 px-5">
-                  Ask a counsellor
-                </button>
-              </div>
-            </article>
-          ))}
+                  {/* CTAs */}
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    {HAS_PAGE.has(college.slug) && (
+                      <Link href={`/${college.slug}`} className="btn-primary text-sm py-3 px-5">
+                        Know more
+                      </Link>
+                    )}
+                    <button type="button" onClick={dispatchHomePopup} className="btn-secondary text-sm py-3 px-5">
+                      Ask a counsellor
+                    </button>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         {/* ── Also covered — college mini-cards grid ── */}
