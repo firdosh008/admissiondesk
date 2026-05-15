@@ -153,31 +153,35 @@ export function Partners() {
                   key={college}
                   type="button"
                   onClick={dispatchHomePopup}
-                  className={`flex items-start gap-3 px-4 py-3.5 rounded-xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-sm cursor-pointer`}
+                  className="flex flex-col gap-3 px-4 py-3.5 rounded-xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-sm cursor-pointer"
                 >
-                  {/* College initial badge */}
-                  <span className="inline-flex w-9 h-9 items-center justify-center rounded-full font-display text-[11px] font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
-                    {initials}
-                  </span>
-
-                  <div className="min-w-0 flex-1">
+                  {/* Name row */}
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex w-8 h-8 items-center justify-center rounded-full font-display text-[10px] font-semibold flex-none bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
+                      {initials}
+                    </span>
                     <p className="text-sm font-medium text-[color:var(--ink)] leading-snug">
                       {college}
                     </p>
-                    {info && (
-                      <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-0.5">
-                        <span className="text-[11px] text-[color:var(--muted)]">
-                          <span className="font-medium text-[color:var(--forest-deep)]">{info.feesRange}</span> fees
-                        </span>
-                        <span className="text-[11px] text-[color:var(--muted)]">
-                          <span className="font-medium text-[color:var(--forest-deep)]">{info.avgPackage}</span> avg
-                        </span>
-                        <span className="text-[11px] text-[color:var(--muted)]">
-                          <span className="font-medium text-[color:var(--forest-deep)]">{info.placement}</span> placed
-                        </span>
-                      </div>
-                    )}
                   </div>
+
+                  {/* Stats row — 3 columns, always horizontal */}
+                  {info && (
+                    <div className="grid grid-cols-3 gap-2 pt-2.5 border-t border-[color:var(--rule-soft)]">
+                      <div>
+                        <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">Fees/yr</p>
+                        <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{info.feesRange}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">Avg pkg</p>
+                        <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{info.avgPackage}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">Placed</p>
+                        <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{info.placement}</p>
+                      </div>
+                    </div>
+                  )}
                 </button>
               );
             })}
