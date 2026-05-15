@@ -24,6 +24,8 @@ const DEFAULT_NAV_LINKS: HeaderLink[] = [
   { label: "Programmes", href: "#programs" },
   { label: "How it works", href: "#process" },
   { label: "FAQ", href: "#faq" },
+  { label: "About Us", href: "#about" },
+  { label: "Contact", href: "#contact" },
   {
     label: "Legal",
     href: "#",

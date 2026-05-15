@@ -364,8 +364,8 @@ export function UUPageContent() {
                 <a href="tel:+918273625802" style={{ opacity: 0.85 }}>+91 82736 25802</a>
               </p>
               <p className="uu-footer-line">
-                <a href="mailto:admissions@admission-desk.online" style={{ opacity: 0.85 }}>
-                  admissions@admission-desk.online
+                <a href="mailto:admissions@admissiondesk.info" style={{ opacity: 0.85 }}>
+                  admissions@admissiondesk.info
                 </a>
               </p>
             </div>

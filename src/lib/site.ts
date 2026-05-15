@@ -11,9 +11,9 @@ export const SITE = {
   country: "India",
   phone: "+91 82736 25802",
   whatsapp: "918273625802",
-  email: "admissions@admission-desk.online",
+  email: "admissions@admissiondesk.info",
   address: {
-    street: "Rajpur Road",
+    street: "Doon Medical College Road, Patel Nagar",
     locality: "Dehradun",
     region: "Uttarakhand",
     postalCode: "248001",

@@ -12,6 +12,8 @@ import { Placements } from "@/components/Placements";
 import { Testimonials } from "@/components/Testimonials";
 import { Counselling } from "@/components/Counselling";
 import { FAQ } from "@/components/FAQ";
+import { HomeAbout } from "@/components/HomeAbout";
+import { HomeContact } from "@/components/HomeContact";
 import { Footer } from "@/components/Footer";
 import { StickyCTA } from "@/components/StickyCTA";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
@@ -43,6 +45,8 @@ export default function Home() {
         <Testimonials />
         <Counselling />
         <FAQ />
+        <HomeAbout />
+        <HomeContact />
       </main>
       <Footer />
       <StickyCTA />

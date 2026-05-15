@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
+const aboutStats = [
+  { value: "8+", label: "Partner Universities" },
+  { value: "Free", label: "Expert Consultation" },
+  { value: "100+", label: "Courses Covered" },
+  { value: "UGC", label: "Approved Institutions" },
+];
+
 export const metadata: Metadata = {
   title: "About Us | Admission Counselling in Dehradun",
   description:
@@ -73,6 +80,30 @@ export default function AboutUsPage() {
               </p>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="bg-[color:var(--parchment)] py-12 border-y border-[color:var(--rule)]">
+        <div className="container-x">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {aboutStats.map(({ value, label }) => (
+              <div key={label} className="text-center">
+                <p className="font-display text-4xl md:text-5xl text-[color:var(--forest-deep)]">{value}</p>
+                <p className="mt-2 text-sm text-[color:var(--ink-soft)] leading-tight">{label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-sm text-[color:var(--muted)]">
+            Based in Dehradun, Uttarakhand — serving students across the region and beyond.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <a
+              href={`#contact`}
+              className="btn-primary px-8 py-3 text-sm"
+            >
+              Talk to an Expert
+            </a>
+          </div>
         </div>
       </section>
 

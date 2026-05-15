@@ -44,7 +44,7 @@ export function Programs() {
         </div>
 
         {/* Course grid by category */}
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(grouped)
             .filter(([, progs]) => progs.length > 0 && !(progs.length === 1 && progs[0] === "Other"))
             .map(([category, programs]) => (
