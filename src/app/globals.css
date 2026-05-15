@@ -1,0 +1,333 @@
+@import "tailwindcss";
+
+/*
+  admissiondesk — premium academic theme.
+  Deep forest green + ivory + muted gold. Editorial serif/sans pairing.
+*/
+
+:root {
+  --ivory: #f6efde;
+  --ivory-deep: #efe5cd;
+  --cream: #fbf7eb;
+  --parchment: #f0e7cf;
+  --rule: #d8cca8;
+  --rule-soft: #e6dcbe;
+
+  --forest: #0f3d2e;
+  --forest-deep: #082420;
+  --forest-ink: #051713;
+  --moss: #2a5a47;
+  --sage: #6f8a78;
+
+  --gold: #b8893a;
+  --gold-deep: #8a6320;
+  --gold-soft: #d4ae66;
+
+  --ink: #14180f;
+  --ink-soft: #2c3327;
+  --muted: #6a6855;
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
+
+  --shadow-card: 0 1px 0 rgba(15, 61, 46, 0.06), 0 28px 60px -32px rgba(8, 36, 32, 0.18);
+  --shadow-soft: 0 1px 0 rgba(15, 61, 46, 0.04), 0 12px 32px -18px rgba(8, 36, 32, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ivory: var(--ivory);
+  --color-ivory-deep: var(--ivory-deep);
+  --color-cream: var(--cream);
+  --color-parchment: var(--parchment);
+  --color-rule: var(--rule);
+  --color-rule-soft: var(--rule-soft);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-forest-ink: var(--forest-ink);
+  --color-moss: var(--moss);
+  --color-sage: var(--sage);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+
+  --font-display: var(--font-fraunces), "Fraunces", "EB Garamond", "Georgia",
+    serif;
+  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+html {
+  background: var(--ivory);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(184, 137, 58, 0.12), transparent 60%),
+    radial-gradient(900px 600px at -10% 0%, rgba(15, 61, 46, 0.08), transparent 60%),
+    var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Subtle paper grain — adds editorial warmth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.09  0 0 0 0 0.05  0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+  background-size: 220px 220px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* Display headings get the variable serif w/ optical size pushed up */
+.font-display,
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-feature-settings: "ss01", "ss02", "ss03";
+  letter-spacing: -0.012em;
+  font-variation-settings: "opsz" 144, "SOFT" 35;
+}
+
+.font-italic-serif {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold-deep);
+}
+
+.rule-ornament {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--gold-deep);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.rule-ornament::before,
+.rule-ornament::after {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+/* Decorative drop-cap helper for editorial paragraphs */
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 4.4rem;
+  line-height: 0.85;
+  float: left;
+  padding: 0.45rem 0.6rem 0 0;
+  color: var(--forest);
+}
+
+/* Buttons */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.6rem;
+  background: var(--forest);
+  color: var(--ivory);
+  border: 1px solid var(--forest-deep);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+  background: var(--forest-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 32px -22px rgba(8, 36, 32, 0.5);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.92rem 1.5rem;
+  background: transparent;
+  color: var(--forest-deep);
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.btn-secondary:hover {
+  background: var(--forest);
+  color: var(--ivory);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.92rem 1.5rem;
+  background: #1f7a3a;
+  color: #fbf7eb;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 18px 32px -22px rgba(31, 122, 58, 0.5);
+}
+.btn-whatsapp:hover {
+  background: #186131;
+  transform: translateY(-1px);
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+}
+
+.container-x {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--rule) 25%,
+    var(--rule) 75%,
+    transparent
+  );
+}
+
+.card-paper {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--cream);
+}
+
+/* Editorial underline highlight */
+.swash-underline {
+  background-image: linear-gradient(
+    transparent 60%,
+    rgba(184, 137, 58, 0.32) 60%,
+    rgba(184, 137, 58, 0.32) 92%,
+    transparent 92%
+  );
+  padding: 0 0.05em;
+}
+
+/* Subtle staggered reveal */
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.18s; }
+.rise-3 { animation-delay: 0.32s; }
+.rise-4 { animation-delay: 0.48s; }
+.rise-5 { animation-delay: 0.64s; }
+
+/* Form inputs */
+.field-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+.field-input,
+.field-select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--rule);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field-input:focus,
+.field-select:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 4px rgba(15, 61, 46, 0.08);
+}
+
+.field-error {
+  color: #8a2418;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* Smooth scroll for in-page anchors */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+::selection {
+  background: rgba(15, 61, 46, 0.85);
+  color: var(--ivory);
+}

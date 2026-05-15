@@ -1,0 +1,892 @@
+/* UPES theme — navy blue + yellow + condensed sans-serif */
+@import url("https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap");
+
+body:has(.upes-root) {
+  background: #ffffff !important;
+}
+body:has(.upes-root)::before {
+  display: none !important;
+}
+
+.upes-root h1,
+.upes-root h2,
+.upes-root h3,
+.upes-root h4,
+.upes-root h5 {
+  font-family: "Saira Condensed", "Roboto Condensed", "Saira SemiCondensed",
+    -apple-system, system-ui, sans-serif !important;
+  font-variation-settings: normal !important;
+  font-feature-settings: normal !important;
+  letter-spacing: 0;
+}
+
+.upes-root {
+  --upes-navy: #0b1f52;
+  --upes-navy-deep: #081440;
+  --upes-yellow: #f8b832;
+  --upes-yellow-soft: #fde8b5;
+  --upes-gray: #eff1f4;
+  --upes-rule: #e2e7ef;
+  --upes-text: #1f2937;
+  --upes-muted: #6b7280;
+  background: #ffffff;
+  color: var(--upes-text);
+  font-family: "Saira Condensed", "Saira SemiCondensed", "Roboto",
+    -apple-system, system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 1;
+}
+.upes-root * {
+  box-sizing: border-box;
+}
+.upes-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Override global ivory background grain */
+.upes-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  z-index: -1;
+}
+
+.upes-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* Header */
+.upes-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--upes-rule);
+}
+.upes-strip {
+  background: #000;
+  color: #fff;
+  padding: 0.45rem 0;
+}
+.upes-strip a {
+  color: #fff;
+  font-weight: 500;
+}
+.upes-strip-cta {
+  font-weight: 600;
+  color: #fff !important;
+}
+
+.upes-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--upes-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.upes-logo-mark {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: conic-gradient(
+    from 0deg,
+    #f15a29 0%,
+    #f7b132 25%,
+    #2dbf6f 50%,
+    #2b8be0 75%,
+    #f15a29 100%
+  );
+  border-radius: 4px;
+  position: relative;
+}
+.upes-logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  background: #fff;
+  clip-path: polygon(0 0, 28% 0, 28% 70%, 50% 100%, 72% 70%, 72% 0, 100% 0, 100% 78%, 50% 116%, 0 78%);
+}
+.upes-logo-tag {
+  display: none;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  color: var(--upes-muted);
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .upes-logo-tag {
+    display: inline;
+  }
+}
+
+.upes-apply-btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid var(--upes-navy);
+  color: var(--upes-navy);
+  background: #fff;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.upes-apply-btn:hover {
+  background: var(--upes-navy);
+  color: #fff;
+}
+
+/* Hero */
+.upes-hero {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(11, 31, 82, 0.94) 0%,
+      rgba(11, 31, 82, 0.72) 60%,
+      rgba(8, 20, 64, 0.85) 100%
+    ),
+    url("/colleges/upes/hero.jpg") center/cover no-repeat;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.upes-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at right bottom,
+    rgba(248, 184, 50, 0.25) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+.upes-breadcrumb {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 1rem 0 0;
+  position: relative;
+  z-index: 2;
+}
+.upes-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding: 4rem 0 5rem;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 1024px) {
+  .upes-hero-inner {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: center;
+  }
+}
+.upes-hero-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--upes-yellow);
+  font-weight: 700;
+}
+.upes-hero-title {
+  font-size: clamp(3.4rem, 8vw, 6.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  margin-top: 1.5rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.upes-hero-accent {
+  color: var(--upes-yellow);
+  position: relative;
+  display: inline-block;
+}
+.upes-hero-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 50%;
+  height: 3px;
+  background: var(--upes-yellow);
+}
+.upes-hero-sub {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  max-width: 38rem;
+  font-weight: 300;
+}
+.upes-hero-cta {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+.upes-btn-primary {
+  background: var(--upes-yellow);
+  color: var(--upes-navy);
+  padding: 0.9rem 2rem;
+  border-radius: 4px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  transition: transform 0.2s, background 0.2s;
+}
+.upes-btn-primary:hover {
+  background: #ffc955;
+  transform: translateY(-1px);
+}
+.upes-btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.78rem 1.85rem;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.upes-btn-ghost:hover {
+  background: #fff;
+  color: var(--upes-navy);
+}
+
+.upes-hero-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 2rem;
+  color: #fff;
+}
+.upes-hero-card-eyebrow {
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--upes-yellow);
+  font-weight: 700;
+}
+.upes-hero-card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 0.6rem;
+  letter-spacing: -0.005em;
+}
+.upes-hero-card-line {
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+.upes-hero-card-cta {
+  display: inline-block;
+  margin-top: 1.4rem;
+  color: var(--upes-yellow);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--upes-yellow);
+  padding-bottom: 2px;
+}
+
+.upes-openday-strip {
+  background: var(--upes-navy);
+  color: #fff;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+}
+.upes-openday-strip a {
+  color: var(--upes-yellow);
+}
+.upes-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--upes-yellow);
+  border-radius: 50%;
+}
+
+/* Section foundation */
+.upes-section {
+  padding: 4.5rem 0;
+}
+.upes-section-white {
+  background: #fff;
+}
+.upes-section-gray {
+  background: var(--upes-gray);
+}
+.upes-section-apply {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(11, 31, 82, 0.94) 0%,
+      rgba(6, 19, 56, 0.92) 100%
+    ),
+    url("/colleges/upes/campus.jpg") center/cover no-repeat;
+  color: #fff;
+  position: relative;
+}
+
+.upes-section-img {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+.upes-img-fill {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.upes-pageheading {
+  background: var(--upes-gray);
+  padding: 2.5rem 0;
+}
+.upes-pageheading-sub {
+  margin-top: 0.85rem;
+  font-size: 1.05rem;
+  color: var(--upes-text);
+  max-width: 56rem;
+  font-weight: 300;
+}
+
+.upes-jump {
+  background: #e2e7ef;
+  padding: 1rem 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--upes-navy);
+  letter-spacing: 0.02em;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid #cbd5e1;
+}
+.upes-jump a:hover {
+  color: var(--upes-yellow);
+}
+
+/* Headings */
+.upes-h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: #000;
+  letter-spacing: -0.005em;
+  text-transform: capitalize;
+}
+.upes-h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--upes-navy);
+  letter-spacing: -0.005em;
+  position: relative;
+  padding-bottom: 0.65rem;
+}
+.upes-h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  background: var(--upes-yellow);
+}
+.upes-h2-light {
+  color: #fff;
+}
+.upes-h2-light::after {
+  background: var(--upes-yellow);
+}
+.upes-h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--upes-navy);
+}
+.upes-eyebrow-light {
+  color: var(--upes-yellow);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.upes-body {
+  font-family: "Roboto", -apple-system, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--upes-text);
+}
+.upes-body-light {
+  font-family: "Roboto", -apple-system, system-ui, sans-serif;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.upes-bullets,
+.upes-bullets-light {
+  font-family: "Roboto", -apple-system, system-ui, sans-serif;
+  list-style: none;
+  padding: 0;
+}
+.upes-bullets li,
+.upes-bullets-light li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.55;
+}
+.upes-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  background: var(--upes-yellow);
+  border-radius: 50%;
+}
+.upes-bullets-light li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  background: var(--upes-yellow);
+  border-radius: 50%;
+}
+.upes-bullets-light li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Stats card */
+.upes-stats-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--upes-rule);
+  border: 1px solid var(--upes-rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.upes-stat {
+  background: #fff;
+  padding: 1.6rem 1.4rem;
+}
+.upes-stat-value {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--upes-navy);
+  line-height: 1;
+}
+.upes-stat-label {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.88rem;
+  color: var(--upes-muted);
+  margin-top: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+/* Programs */
+.upes-program-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 768px) {
+  .upes-program-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.upes-program-card {
+  background: #fff;
+  border: 1px solid var(--upes-rule);
+  border-top: 4px solid var(--upes-navy);
+  border-radius: 4px;
+  padding: 1.6rem 1.4rem;
+}
+.upes-program-title {
+  font-size: 1.3rem;
+  color: var(--upes-navy);
+  font-weight: 700;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--upes-rule);
+}
+.upes-program-list {
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+.upes-program-list li {
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted var(--upes-rule);
+  font-size: 0.95rem;
+  color: var(--upes-text);
+  position: relative;
+  padding-left: 1.1rem;
+}
+.upes-program-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--upes-yellow);
+  font-weight: 700;
+}
+
+/* Schools */
+.upes-school-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+@media (min-width: 768px) {
+  .upes-school-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.upes-school-card {
+  background: #fff;
+  border: 1px solid var(--upes-rule);
+  border-radius: 4px;
+  padding: 1.1rem 1rem;
+  border-left: 3px solid var(--upes-yellow);
+  transition: all 0.2s;
+}
+.upes-school-card:hover {
+  border-left-color: var(--upes-navy);
+  transform: translateY(-2px);
+}
+.upes-school-name {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--upes-navy);
+  line-height: 1.25;
+}
+.upes-school-count {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.82rem;
+  color: var(--upes-muted);
+  margin-top: 0.35rem;
+}
+
+/* Fee */
+.upes-fee-card {
+  background: #fff;
+  border: 1px solid var(--upes-rule);
+  border-radius: 6px;
+  padding: 1.8rem;
+}
+.upes-fee-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--upes-navy);
+  margin-bottom: 1rem;
+}
+.upes-fee-table {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  border-collapse: collapse;
+}
+.upes-fee-table th {
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--upes-muted);
+  padding: 0.65rem 0.5rem 0.65rem 0;
+  border-bottom: 2px solid var(--upes-navy);
+  font-weight: 700;
+}
+.upes-fee-table td {
+  padding: 0.85rem 0.5rem 0.85rem 0;
+  border-bottom: 1px solid var(--upes-rule);
+  font-size: 0.95rem;
+  vertical-align: top;
+}
+.upes-fee-table td:last-child {
+  font-weight: 700;
+  color: var(--upes-navy);
+  text-align: right;
+}
+.upes-fee-foot {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.78rem;
+  color: var(--upes-muted);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Scholarships */
+.upes-scholar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 2.2rem;
+}
+@media (min-width: 768px) {
+  .upes-scholar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .upes-scholar-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.upes-scholar-card {
+  background: #fff;
+  padding: 1.5rem 1.3rem;
+  border-radius: 4px;
+  border-bottom: 4px solid var(--upes-yellow);
+  box-shadow: 0 1px 3px rgba(11, 31, 82, 0.06);
+}
+.upes-scholar-title {
+  font-size: 1.05rem;
+  color: var(--upes-navy);
+  font-weight: 700;
+}
+.upes-scholar-note {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.92rem;
+  color: var(--upes-text);
+  margin-top: 0.6rem;
+  line-height: 1.55;
+}
+
+/* Outcomes */
+.upes-outcomes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 640px) {
+  .upes-outcomes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .upes-outcomes-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.upes-outcome-card {
+  background: #fff;
+  border: 1px solid var(--upes-rule);
+  border-radius: 4px;
+  padding: 1.5rem 1.3rem;
+  text-align: left;
+}
+.upes-outcome-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 3px solid var(--upes-yellow);
+  position: relative;
+}
+.upes-outcome-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.upes-outcome-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--upes-text);
+}
+.upes-outcome-line {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--upes-yellow);
+  margin-top: 0.2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.upes-outcome-note {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.88rem;
+  color: var(--upes-muted);
+  margin-top: 0.7rem;
+  line-height: 1.5;
+}
+
+.upes-placement-meta {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--upes-rule);
+  border: 1px solid var(--upes-rule);
+}
+@media (min-width: 768px) {
+  .upes-placement-meta {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.upes-placement-meta > div {
+  background: var(--upes-gray);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Apply form */
+.upes-form-card {
+  background: #fff;
+  color: var(--upes-text);
+  border-radius: 8px;
+  padding: 2.2rem;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.4);
+}
+.upes-form-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--upes-navy);
+  letter-spacing: -0.005em;
+}
+.upes-form-sub {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.88rem;
+  color: var(--upes-muted);
+  margin-top: 0.45rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--upes-rule);
+  padding-bottom: 1rem;
+}
+
+/* FAQ */
+.upes-faqs {
+  margin-top: 2rem;
+  border-top: 1px solid var(--upes-rule);
+}
+.upes-faq {
+  border-bottom: 1px solid var(--upes-rule);
+  padding: 1.2rem 0;
+}
+.upes-faq summary {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--upes-navy);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 2.5rem;
+  letter-spacing: -0.005em;
+}
+.upes-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--upes-yellow);
+  color: var(--upes-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.upes-faq[open] summary::after {
+  content: "−";
+}
+.upes-faq p {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.95rem;
+  color: var(--upes-text);
+  margin-top: 0.85rem;
+  line-height: 1.65;
+}
+
+/* Footer */
+.upes-footer {
+  background: #000;
+  color: #cbd5e1;
+  padding: 3.5rem 0 1.5rem;
+}
+.upes-footer-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+.upes-footer-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--upes-yellow);
+  margin-top: 0.3rem;
+}
+.upes-footer-line {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.upes-footer-head {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.upes-footer-links {
+  list-style: none;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+}
+.upes-footer-links li {
+  padding: 0.25rem 0;
+}
+.upes-footer-links a:hover {
+  color: var(--upes-yellow);
+}
+.upes-footer-bar {
+  margin-top: 2.5rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid #1f2937;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.78rem;
+  color: #6b7280;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
