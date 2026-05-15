@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
+import { dispatchHomePopup } from "./HomeLeadPopup";
 
 type HeaderLink = {
   label: string;
@@ -9,7 +13,6 @@ type HeaderLink = {
 type HeaderProps = {
   phone?: string;
   whatsapp?: string;
-  applyHref?: string;
   applyLabel?: string;
   navLinks?: HeaderLink[];
 };
@@ -29,7 +32,6 @@ function cleanPhone(phone: string) {
 export function Header({
   phone = SITE.phone,
   whatsapp = SITE.whatsapp,
-  applyHref = "#counselling",
   applyLabel = "Apply Now",
   navLinks = DEFAULT_NAV_LINKS,
 }: HeaderProps) {
@@ -138,11 +140,12 @@ export function Header({
               target="_blank"
               rel="noopener noreferrer"
             >
+              <WhatsAppIcon size={16} />
               WhatsApp
             </a>
-            <a href={applyHref} className="btn-primary text-sm py-2.5 px-5">
+            <button type="button" onClick={dispatchHomePopup} className="btn-primary text-sm py-2.5 px-5">
               {applyLabel}
-            </a>
+            </button>
           </div>
         </div>
       </div>

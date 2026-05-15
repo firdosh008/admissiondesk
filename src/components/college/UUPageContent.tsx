@@ -105,7 +105,7 @@ export function UUPageContent() {
       <Header
         phone={PAGE_CONTACTS.uttaranchal.phone}
         whatsapp={PAGE_CONTACTS.uttaranchal.whatsapp}
-        applyHref="#apply"
+        applyLabel="Apply Now"
         navLinks={[]}
       />
       {/* Header */}

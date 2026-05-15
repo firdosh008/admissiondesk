@@ -11,7 +11,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(npm run *)",
       "WebFetch(domain:www.collegeinfoindia.com)",
-      "WebFetch(domain:www.admissionindia.com)"
+      "WebFetch(domain:www.admissionindia.com)",
+      "WebFetch(domain:upload.wikimedia.org)"
     ]
   }
 }

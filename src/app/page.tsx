@@ -14,6 +14,7 @@ import { Counselling } from "@/components/Counselling";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { StickyCTA } from "@/components/StickyCTA";
+import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { StructuredData } from "@/components/StructuredData";
 import { SITE } from "@/lib/site";
 
@@ -45,6 +46,7 @@ export default function Home() {
       </main>
       <Footer />
       <StickyCTA />
+      <HomeLeadPopup />
     </>
   );
 }

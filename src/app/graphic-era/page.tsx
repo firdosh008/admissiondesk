@@ -182,7 +182,7 @@ export default function GraphicEraPage() {
       <Header
         phone={PAGE_CONTACTS.graphicEra.phone}
         whatsapp={PAGE_CONTACTS.graphicEra.whatsapp}
-        applyHref="#apply"
+        applyLabel="Apply Now"
         navLinks={[]}
       />
       {false ? (

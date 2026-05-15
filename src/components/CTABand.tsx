@@ -1,3 +1,8 @@
+"use client";
+
+import { dispatchHomePopup } from "./HomeLeadPopup";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
+
 export function CTABand() {
   return (
     <section className="section-dark">
@@ -13,9 +18,9 @@ export function CTABand() {
           save you months of confusion.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a href="#counselling" className="btn-primary bg-[color:var(--ivory)] text-[color:var(--forest-deep)] border-[color:var(--ivory)] hover:bg-[color:var(--cream)] text-base py-3.5 px-7">
+          <button type="button" onClick={dispatchHomePopup} className="btn-primary bg-[color:var(--ivory)] text-[color:var(--forest-deep)] border-[color:var(--ivory)] hover:bg-[color:var(--cream)] text-base py-3.5 px-7">
             Get free counselling
-          </a>
+          </button>
           <a
             href={`https://wa.me/918273625802?text=${encodeURIComponent(
               "Hi, I need help choosing a college."
@@ -24,6 +29,7 @@ export function CTABand() {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <WhatsAppIcon size={20} />
             Ask on WhatsApp
           </a>
         </div>

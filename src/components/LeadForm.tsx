@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { PROGRAMS, VISIBLE_COLLEGES } from "@/lib/constants";
 import { SITE, ANALYTICS } from "@/lib/site";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 
 const schema = z.object({
   name: z
@@ -16,6 +17,8 @@ const schema = z.object({
   phone: z
     .string()
     .regex(/^[+\d][\d\s-]{8,15}$/, "Enter a valid phone number"),
+  email: z.string().email("Enter a valid email").optional().or(z.literal("")),
+  state: z.string().min(1, "Please choose your state"),
   program: z.string().min(1, "Pick a programme of interest"),
   university: z.string().min(1, "Pick a preferred campus"),
   consent: z.literal(true, {
@@ -31,6 +34,14 @@ declare global {
     gtag?: (...args: unknown[]) => void;
   }
 }
+
+const STATES = [
+  "Uttarakhand", "Uttar Pradesh", "Delhi", "Haryana", "Punjab",
+  "Himachal Pradesh", "Rajasthan", "Bihar", "Madhya Pradesh",
+  "Maharashtra", "Karnataka", "Tamil Nadu", "West Bengal", "Gujarat",
+  "Kerala", "Andhra Pradesh", "Telangana", "Odisha", "Jharkhand",
+  "Assam", "Other",
+];
 
 export function LeadForm() {
   const router = useRouter();
@@ -57,14 +68,12 @@ export function LeadForm() {
       });
       if (!res.ok) throw new Error("Failed to submit");
 
-      // Meta Pixel — Lead event
       if (typeof window !== "undefined" && typeof window.fbq === "function") {
         window.fbq("track", "Lead", {
           content_category: values.program,
           content_name: values.university,
         });
       }
-      // Google Ads conversion
       const adsId = ANALYTICS.googleAdsId;
       const label = ANALYTICS.googleAdsConversionLabel;
       if (
@@ -79,7 +88,6 @@ export function LeadForm() {
           event_label: values.program,
         });
       }
-      // GA4 lead event
       if (typeof window !== "undefined" && typeof window.gtag === "function") {
         window.gtag("event", "generate_lead", {
           program: values.program,
@@ -98,7 +106,6 @@ export function LeadForm() {
     }
   };
 
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -115,9 +122,7 @@ export function LeadForm() {
 
       <div className="space-y-5">
         <div>
-          <label htmlFor="lf-name" className="field-label">
-            Full name
-          </label>
+          <label htmlFor="lf-name" className="field-label">Full name</label>
           <input
             id="lf-name"
             type="text"
@@ -129,85 +134,77 @@ export function LeadForm() {
           {errors.name && <p className="field-error">{errors.name.message}</p>}
         </div>
 
+        <div className="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label htmlFor="lf-phone" className="field-label">Phone (WhatsApp)</label>
+            <input
+              id="lf-phone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder="+91 90000 00000"
+              className="field-input"
+              {...register("phone")}
+            />
+            {errors.phone && <p className="field-error">{errors.phone.message}</p>}
+          </div>
+          <div>
+            <label htmlFor="lf-email" className="field-label">Email ID</label>
+            <input
+              id="lf-email"
+              type="email"
+              autoComplete="email"
+              placeholder="you@email.com"
+              className="field-input"
+              {...register("email")}
+            />
+            {errors.email && <p className="field-error">{errors.email.message}</p>}
+          </div>
+        </div>
+
         <div>
-          <label htmlFor="lf-phone" className="field-label">
-            Phone (WhatsApp)
-          </label>
-          <input
-            id="lf-phone"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
-            placeholder="+91 90000 00000"
-            className="field-input"
-            {...register("phone")}
-          />
-          {errors.phone && <p className="field-error">{errors.phone.message}</p>}
+          <label htmlFor="lf-state" className="field-label">State</label>
+          <select id="lf-state" className="field-select" defaultValue="" {...register("state")}>
+            <option value="" disabled>-- Select State --</option>
+            {STATES.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+          {errors.state && <p className="field-error">{errors.state.message}</p>}
         </div>
 
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
-            <label htmlFor="lf-program" className="field-label">
-              Programme of interest
-            </label>
-            <select
-              id="lf-program"
-              className="field-select"
-              defaultValue=""
-              {...register("program")}
-            >
-              <option value="" disabled>
-                Choose one
-              </option>
+            <label htmlFor="lf-program" className="field-label">Programme of interest</label>
+            <select id="lf-program" className="field-select" defaultValue="" {...register("program")}>
+              <option value="" disabled>Choose one</option>
               {PROGRAMS.map((p) => (
-                <option key={p.slug} value={p.title}>
-                  {p.title}
-                </option>
+                <option key={p.slug} value={p.title}>{p.title}</option>
               ))}
               <option value="Not sure yet">Not sure yet</option>
             </select>
-            {errors.program && (
-              <p className="field-error">{errors.program.message}</p>
-            )}
+            {errors.program && <p className="field-error">{errors.program.message}</p>}
           </div>
           <div>
-            <label htmlFor="lf-university" className="field-label">
-              Preferred university
-            </label>
-            <select
-              id="lf-university"
-              className="field-select"
-              {...register("university")}
-            >
+            <label htmlFor="lf-university" className="field-label">Preferred university</label>
+            <select id="lf-university" className="field-select" {...register("university")}>
               <option value="Help me decide">Help me decide</option>
               {VISIBLE_COLLEGES.map((c) => (
-                <option key={c.slug} value={c.shortName}>
-                  {c.shortName}
-                </option>
+                <option key={c.slug} value={c.shortName}>{c.shortName}</option>
               ))}
             </select>
-            {errors.university && (
-              <p className="field-error">{errors.university.message}</p>
-            )}
+            {errors.university && <p className="field-error">{errors.university.message}</p>}
           </div>
         </div>
 
         <label className="flex gap-3 items-start text-sm text-[color:var(--ink-soft)] mt-2">
-          <input
-            type="checkbox"
-            className="mt-1 accent-[color:var(--forest)]"
-            {...register("consent")}
-          />
+          <input type="checkbox" className="mt-1 accent-[color:var(--forest)]" {...register("consent")} />
           <span>
             I agree to be contacted by {SITE.name} via call or WhatsApp about my
             enquiry. I&apos;ve read the{" "}
-            <a
-              href="/privacy"
-              className="underline underline-offset-2 decoration-[color:var(--gold)] hover:text-[color:var(--forest-deep)]"
-            >
+            <a href="/privacy" className="underline underline-offset-2 decoration-[color:var(--gold)] hover:text-[color:var(--forest-deep)]">
               privacy policy
-            </a>
-            .
+            </a>.
           </span>
         </label>
         {errors.consent && <p className="field-error">{errors.consent.message}</p>}
@@ -218,19 +215,13 @@ export function LeadForm() {
           </p>
         )}
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="btn-primary w-full text-base py-3.5"
-        >
+        <button type="submit" disabled={isSubmitting} className="btn-primary w-full text-base py-3.5">
           {isSubmitting ? "Submitting…" : "Request my free counselling call"}
         </button>
 
-        <div className="flex items-center gap-3 my-2">
+        <div className="flex items-center gap-3">
           <div className="flex-1 h-px bg-[color:var(--rule)]" />
-          <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--muted)]">
-            or
-          </span>
+          <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--muted)]">or</span>
           <div className="flex-1 h-px bg-[color:var(--rule)]" />
         </div>
 
@@ -242,9 +233,7 @@ export function LeadForm() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.52 3.48A11.86 11.86 0 0012.04 0C5.5 0 .19 5.31.19 11.85c0 2.09.55 4.13 1.59 5.93L0 24l6.4-1.68a11.85 11.85 0 005.64 1.43h.01c6.54 0 11.85-5.31 11.85-11.85 0-3.17-1.23-6.15-3.48-8.42z" />
-          </svg>
+          <WhatsAppIcon size={20} />
           Chat on WhatsApp instead
         </a>
       </div>

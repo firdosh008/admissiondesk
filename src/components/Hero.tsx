@@ -1,6 +1,13 @@
+"use client";
+
 import Link from "next/link";
-import { VISIBLE_COLLEGES } from "@/lib/constants";
+import { COLLEGES } from "@/lib/constants";
 import { CollegeCrest } from "./CollegeCrest";
+import { dispatchHomePopup } from "./HomeLeadPopup";
+
+const HERO_COLLEGES = COLLEGES.filter((c) =>
+  ["uttaranchal-university", "graphic-era", "upes", "dev-bhoomi"].includes(c.slug)
+);
 
 export function Hero() {
   return (
@@ -37,17 +44,17 @@ export function Hero() {
             <p className="rise rise-3 mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--ink-soft)]">
               Free 1-on-1 admission counselling for{" "}
               <span className="swash-underline font-medium text-[color:var(--ink)]">
-                Uttaranchal University and Graphic Era.
+                Uttaranchal University and Graphic Era and more institutions in Dehradun.
               </span>{" "}
               Get course, scholarship and application guidance before you commit.
             </p>
 
             <div className="rise rise-4 mt-9 flex flex-wrap gap-3">
-              <a href="#counselling" className="btn-primary text-base py-3.5 px-7">
+              <button type="button" onClick={dispatchHomePopup} className="btn-primary text-base py-3.5 px-7">
                 Get free counselling
-              </a>
+              </button>
               <a href="#partners" className="btn-secondary">
-                See university pages
+                Explore Universities
               </a>
             </div>
 
@@ -55,7 +62,7 @@ export function Hero() {
             <div className="rise rise-5 mt-12 flex flex-wrap items-center gap-x-8 gap-y-3">
               {[
                 { value: "12,000+", label: "Aspirants counselled" },
-                { value: "2", label: "Active university pages" },
+                { value: "2", label: "Featured universities" },
                 { value: "Free", label: "Student counselling" },
               ].map((stat) => (
                 <div key={stat.label} className="flex items-center gap-3">
@@ -76,12 +83,12 @@ export function Hero() {
           {/* ── Right: University cards ── */}
           <div className="lg:col-span-5 relative">
             <div className="relative grid grid-cols-2 gap-4 max-w-md lg:ml-auto">
-              {VISIBLE_COLLEGES.map((college, index) => (
+              {HERO_COLLEGES.map((college, index) => (
                 <Link
                   href={`/${college.slug}`}
                   key={college.slug}
-                  className={`rise rise-${index + 3} card-elevated p-5 flex flex-col items-start gap-3 group ${
-                    index % 2 === 1 ? "translate-y-8" : ""
+                  className={`rise rise-${Math.min(index + 3, 6)} card-elevated p-4 flex flex-col items-start gap-2.5 group ${
+                    index % 2 === 1 ? "translate-y-6" : ""
                   }`}
                 >
                   <CollegeCrest

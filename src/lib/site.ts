@@ -11,7 +11,7 @@ export const SITE = {
   country: "India",
   phone: "+91 82736 25802",
   whatsapp: "918273625802",
-  email: "admissions@admissiondesk.in",
+  email: "admissions@admission-desk.online",
   address: {
     street: "Rajpur Road",
     locality: "Dehradun",

@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import {
   DEHRADUN_COUNSELLING_COLLEGES,
   VISIBLE_COLLEGES,
 } from "@/lib/constants";
 import { CollegeCrest } from "./CollegeCrest";
+import { dispatchHomePopup } from "./HomeLeadPopup";
 
 const variants: Array<"shield" | "hex"> = ["shield", "hex"];
 
@@ -15,16 +18,15 @@ export function Partners() {
         <header className="max-w-4xl">
           <p className="eyebrow">College counselling in Dehradun</p>
           <h2 className="font-display text-4xl md:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
-            We counsel for Dehradun colleges.{" "}
+            We counsel for Dehradun&apos;s{" "}
             <span className="font-italic-serif">
-              These two get dedicated pages.
+              top colleges and beyond.
             </span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-[color:var(--ink-soft)] max-w-3xl">
-            We help students compare course fit, fees, eligibility,
-            scholarships, hostels, and application steps across Dehradun
-            colleges. Uttaranchal University and Graphic Era are highlighted
-            because their dedicated landing pages are live right now.
+            Compare course fit, fees, eligibility, scholarships, hostels,
+            and application steps across Dehradun&apos;s top institutions — all
+            through a single, free counselling call.
           </p>
         </header>
 
@@ -106,8 +108,11 @@ export function Partners() {
                   href={`/${college.slug}`}
                   className="btn-primary text-sm py-3 px-5"
                 >
-                  Ask a counsellor
+                  Know more
                 </Link>
+                <button type="button" onClick={dispatchHomePopup} className="btn-secondary text-sm py-3 px-5">
+                  Ask a counsellor
+                </button>
               </div>
             </article>
           ))}
@@ -122,9 +127,9 @@ export function Partners() {
                 More Dehradun colleges students ask us about
               </h3>
             </div>
-            <a href="#counselling" className="btn-primary text-sm py-3 px-5">
+            <button type="button" onClick={dispatchHomePopup} className="btn-primary text-sm py-3 px-5">
               Compare all colleges
-            </a>
+            </button>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
