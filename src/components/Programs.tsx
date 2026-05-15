@@ -2,11 +2,9 @@ import { PROGRAMS } from "@/lib/constants";
 
 export function Programs() {
   return (
-    <section
-      id="programs"
-      className="section bg-[color:var(--parchment)]/60 border-y border-[color:var(--rule-soft)]"
-    >
-      <div className="container-x py-20 md:py-28">
+    <section id="programs" className="section-parchment">
+      <div className="container-x py-24 md:py-32">
+        {/* ── Header ── */}
         <header className="grid md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-7">
             <p className="eyebrow">Programmes we counsel for</p>
@@ -18,34 +16,39 @@ export function Programs() {
             </h2>
           </div>
           <p className="md:col-span-5 text-lg text-[color:var(--ink-soft)] leading-relaxed">
-            Six programme families, 200+ options, active university pages - and
+            Six programme families, 200+ options, active university pages — and
             one counsellor who knows the difference between them all.
           </p>
         </header>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[color:var(--rule)] rounded-2xl overflow-hidden border border-[color:var(--rule)]">
+        {/* ── Programme grid — cards with gap, not spreadsheet ── */}
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROGRAMS.map((p, i) => (
             <article
               key={p.slug}
-              className="bg-[color:var(--cream)] p-8 flex flex-col gap-5 group hover:bg-[color:var(--ivory)] transition-colors"
+              className="card-paper p-7 flex flex-col gap-5 group"
             >
+              {/* Number + duration header */}
               <div className="flex items-baseline justify-between">
-                <span className="font-display italic text-2xl text-[color:var(--gold-deep)]">
-                  0{i + 1}.
+                <span className="number-callout">
+                  {String(i + 1).padStart(2, "0")}.
                 </span>
                 <span className="text-[10px] tracking-[0.22em] uppercase text-[color:var(--muted)]">
                   {p.durations}
                 </span>
               </div>
-              <h3 className="font-display text-2xl leading-tight text-[color:var(--forest-deep)]">
+
+              <h3 className="font-display text-2xl leading-tight text-[color:var(--forest-deep)] group-hover:text-[color:var(--moss)] transition-colors">
                 {p.title}
               </h3>
+
               <p className="text-sm leading-relaxed text-[color:var(--ink-soft)]">
                 {p.description}
               </p>
-              <div className="mt-auto flex flex-wrap gap-2">
+
+              <div className="mt-auto flex flex-wrap gap-2 pt-3 border-t border-[color:var(--rule-soft)]">
                 {p.examples.map((e) => (
-                  <span key={e} className="tag">
+                  <span key={e} className="tag bg-white/80">
                     {e}
                   </span>
                 ))}
@@ -58,11 +61,11 @@ export function Programs() {
           Don&apos;t see what you&apos;re looking for?{" "}
           <a
             href="#counselling"
-            className="text-[color:var(--forest-deep)] underline underline-offset-4 decoration-[color:var(--gold)] hover:text-[color:var(--moss)]"
+            className="text-[color:var(--forest-deep)] underline underline-offset-4 decoration-[color:var(--gold)] hover:text-[color:var(--moss)] font-medium"
           >
             Ask a counsellor
           </a>{" "}
-          - we cover active programmes across Uttaranchal University and Graphic Era.
+          — we cover active programmes across Uttaranchal University and Graphic Era.
         </p>
       </div>
     </section>

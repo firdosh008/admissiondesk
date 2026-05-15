@@ -1,8 +1,9 @@
 export function EditorialPromise() {
   return (
-    <section className="section">
-      <div className="container-x py-20 md:py-28">
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
+    <section className="section-light">
+      <div className="container-x py-24 md:py-32">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          {/* ── Left: Editorial aside ── */}
           <aside className="lg:col-span-4">
             <p className="eyebrow">Our counselling promise</p>
             <h2 className="font-display text-4xl md:text-5xl mt-4 leading-[1.05] text-[color:var(--forest-deep)]">
@@ -13,7 +14,8 @@ export function EditorialPromise() {
             <span className="rule-ornament mt-6">est. 2018</span>
           </aside>
 
-          <div className="lg:col-span-8 lg:pl-10 lg:border-l lg:border-[color:var(--rule-soft)] columns-1 md:columns-2 gap-10 text-[color:var(--ink-soft)] leading-[1.75]">
+          {/* ── Right: Editorial copy ── */}
+          <div className="lg:col-span-8 lg:pl-12 lg:border-l lg:border-[color:var(--rule-soft)] columns-1 md:columns-2 gap-10 text-[color:var(--ink-soft)] leading-[1.8]">
             <p className="dropcap text-[1.06rem] mb-6">
               Choosing a university is, for most families in India, a serious
               financial and emotional decision. It deserves more than a glossy
@@ -35,7 +37,7 @@ export function EditorialPromise() {
               </span>
               . Each institution carries a different academic identity and a
               different placement profile. Counselling is the work of telling
-              you which option matches your goals - and which does not.
+              you which option matches your goals — and which does not.
             </p>
             <p className="text-[1.04rem]">
               We do this work in plain language, in your local language if

@@ -4,9 +4,12 @@ import { Hero } from "@/components/Hero";
 import { EditorialPromise } from "@/components/Promise";
 import { Partners } from "@/components/Partners";
 import { Programs } from "@/components/Programs";
+import { CTABand } from "@/components/CTABand";
 import { Stats } from "@/components/Stats";
+import { PartnerLogos } from "@/components/PartnerLogos";
 import { Process } from "@/components/Process";
 import { Placements } from "@/components/Placements";
+import { Testimonials } from "@/components/Testimonials";
 import { Counselling } from "@/components/Counselling";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
@@ -31,9 +34,12 @@ export default function Home() {
         <EditorialPromise />
         <Partners />
         <Programs />
+        <CTABand />
         <Stats />
+        <PartnerLogos />
         <Process />
         <Placements />
+        <Testimonials />
         <Counselling />
         <FAQ />
       </main>

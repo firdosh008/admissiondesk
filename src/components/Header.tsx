@@ -35,21 +35,24 @@ export function Header({
 }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40">
+      {/* Top bar */}
       <div className="bg-[color:var(--forest-deep)] text-[color:var(--ivory)] text-xs">
         <div className="container-x flex items-center justify-between py-2">
-          <p className="hidden md:block opacity-80">
+          <p className="hidden md:block opacity-75">
             Admissions are open for our counselling partners. Talk to a
-            counsellor today - no fees.
+            counsellor today — no fees.
           </p>
-          <p className="md:hidden opacity-80">Admissions open · Free counselling</p>
-          <div className="flex items-center gap-4">
+          <p className="md:hidden opacity-75">
+            Admissions open · Free counselling
+          </p>
+          <div className="flex items-center gap-4 text-[color:var(--ivory)]/80">
             <a
               href={`tel:${cleanPhone(phone)}`}
               className="hover:text-[color:var(--gold-soft)] transition-colors"
             >
               {phone}
             </a>
-            <span className="opacity-30">|</span>
+            <span className="opacity-20">|</span>
             <a
               href={`mailto:${SITE.email}`}
               className="hidden sm:inline hover:text-[color:var(--gold-soft)] transition-colors"
@@ -60,17 +63,19 @@ export function Header({
         </div>
       </div>
 
-      <div className="bg-[color:var(--ivory)]/90 backdrop-blur-md border-b border-[color:var(--rule-soft)]">
-        <div className="container-x flex items-center justify-between py-4">
+      {/* Main nav */}
+      <div className="bg-[color:var(--ivory)]/90 backdrop-blur-lg border-b border-[color:var(--rule-soft)]">
+        <div className="container-x flex items-center justify-between py-3.5">
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="relative inline-block w-11 h-11">
+            <span className="relative inline-block w-10 h-10">
               <svg
                 viewBox="0 0 44 44"
                 className="w-full h-full"
                 aria-hidden="true"
               >
                 <defs>
-                  <linearGradient id="logo-fill" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id="nav-logo-fill" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#0f3d2e" />
                     <stop offset="100%" stopColor="#082420" />
                   </linearGradient>
@@ -79,7 +84,7 @@ export function Header({
                   cx="22"
                   cy="22"
                   r="20"
-                  fill="url(#logo-fill)"
+                  fill="url(#nav-logo-fill)"
                   stroke="#b8893a"
                   strokeWidth="0.8"
                 />
@@ -101,19 +106,20 @@ export function Header({
               <span className="block font-display text-lg text-[color:var(--forest-deep)] tracking-tight">
                 {SITE.name}
               </span>
-              <span className="block text-[10px] tracking-[0.32em] uppercase text-[color:var(--gold-deep)] font-semibold">
+              <span className="block text-[10px] tracking-[0.28em] uppercase text-[color:var(--gold-deep)] font-semibold">
                 Counselling · Placement · Career
               </span>
             </span>
           </Link>
 
+          {/* Desktop nav */}
           {navLinks.length > 0 ? (
-            <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[color:var(--ink-soft)]">
+            <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
                 <a
                   key={`${link.href}-${link.label}`}
                   href={link.href}
-                  className="hover:text-[color:var(--forest)] transition-colors"
+                  className="px-3.5 py-2 text-sm font-medium text-[color:var(--ink-soft)] rounded-full hover:bg-[color:var(--cream)] hover:text-[color:var(--forest)] transition-all"
                 >
                   {link.label}
                 </a>
@@ -121,7 +127,8 @@ export function Header({
             </nav>
           ) : null}
 
-          <div className="flex items-center gap-3">
+          {/* CTAs */}
+          <div className="flex items-center gap-2.5">
             <a
               href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(
                 "Hi, I'd like to talk to a counsellor about admissions."
@@ -133,7 +140,7 @@ export function Header({
             >
               WhatsApp
             </a>
-            <a href={applyHref} className="btn-primary text-sm py-2.5 px-4">
+            <a href={applyHref} className="btn-primary text-sm py-2.5 px-5">
               {applyLabel}
             </a>
           </div>

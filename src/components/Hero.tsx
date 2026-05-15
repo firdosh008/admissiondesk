@@ -5,8 +5,19 @@ import { CollegeCrest } from "./CollegeCrest";
 export function Hero() {
   return (
     <section className="section relative overflow-hidden">
-      <div className="container-x pt-12 pb-20 md:pt-20 md:pb-28">
-        <div className="grid lg:grid-cols-12 gap-10 items-center">
+      {/* Background atmosphere */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 900px 600px at 90% -10%, rgba(184,137,58,0.12), transparent 60%), radial-gradient(ellipse 700px 500px at 10% 90%, rgba(15,61,46,0.06), transparent 60%)",
+        }}
+      />
+
+      <div className="container-x pt-14 pb-24 md:pt-24 md:pb-32 relative">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* ── Left: Headline block ── */}
           <div className="lg:col-span-7">
             <div className="rise rise-1">
               <span className="rule-ornament">
@@ -14,24 +25,25 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="rise rise-2 mt-6 font-display text-[clamp(2.6rem,6vw,5.25rem)] leading-[0.98] tracking-tight text-[color:var(--forest-deep)]">
+            <h1 className="rise rise-2 mt-6 font-display text-[clamp(2.8rem,6.5vw,5.5rem)] leading-[0.96] tracking-[-0.015em] text-[color:var(--forest-deep)]">
               The right university
               <br />
               starts with{" "}
-              <span className="font-italic-serif">the right counsel.</span>
+              <span className="font-italic-serif text-[color:var(--forest)]">
+                the right counsel.
+              </span>
             </h1>
 
-            <p className="rise rise-3 mt-7 max-w-xl text-lg leading-relaxed text-[color:var(--ink-soft)]">
+            <p className="rise rise-3 mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--ink-soft)]">
               Free 1-on-1 admission counselling for{" "}
-              <span className="swash-underline">
+              <span className="swash-underline font-medium text-[color:var(--ink)]">
                 Uttaranchal University and Graphic Era.
               </span>{" "}
-              Get course, scholarship and application guidance before you
-              commit.
+              Get course, scholarship and application guidance before you commit.
             </p>
 
             <div className="rise rise-4 mt-9 flex flex-wrap gap-3">
-              <a href="#counselling" className="btn-primary">
+              <a href="#counselling" className="btn-primary text-base py-3.5 px-7">
                 Get free counselling
               </a>
               <a href="#partners" className="btn-secondary">
@@ -39,52 +51,75 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="rise rise-5 mt-10 flex flex-wrap items-center gap-5 text-sm text-[color:var(--ink-soft)]">
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--gold)]" />
-                12,000+ aspirants counselled
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--gold)]" />
-                2 active university pages
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--gold)]" />
-                Free student counselling
-              </div>
+            {/* Social proof row */}
+            <div className="rise rise-5 mt-12 flex flex-wrap items-center gap-x-8 gap-y-3">
+              {[
+                { value: "12,000+", label: "Aspirants counselled" },
+                { value: "2", label: "Active university pages" },
+                { value: "Free", label: "Student counselling" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex items-center gap-3">
+                  <span className="accent-dot" />
+                  <div>
+                    <p className="font-display text-lg leading-none text-[color:var(--forest-deep)]">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs text-[color:var(--muted)] mt-0.5">
+                      {stat.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
+          {/* ── Right: University cards ── */}
           <div className="lg:col-span-5 relative">
-            <div className="relative grid grid-cols-2 gap-5 max-w-md ml-auto">
+            <div className="relative grid grid-cols-2 gap-4 max-w-md lg:ml-auto">
               {VISIBLE_COLLEGES.map((college, index) => (
                 <Link
                   href={`/${college.slug}`}
                   key={college.slug}
-                  className={`rise rise-${index + 2} card-paper p-5 flex flex-col items-start gap-3 hover:-translate-y-1 transition-transform ${
-                    index % 2 === 1 ? "translate-y-6" : ""
+                  className={`rise rise-${index + 3} card-elevated p-5 flex flex-col items-start gap-3 group ${
+                    index % 2 === 1 ? "translate-y-8" : ""
                   }`}
                 >
                   <CollegeCrest
                     monogram={college.monogram}
-                    size={56}
+                    size={52}
                     variant={index === 0 ? "shield" : "hex"}
                   />
+
                   <div>
-                    <p className="font-display text-base leading-tight text-[color:var(--forest-deep)]">
+                    <p className="font-display text-base leading-tight text-[color:var(--forest-deep)] group-hover:text-[color:var(--moss)] transition-colors">
                       {college.shortName}
                     </p>
                     <p className="text-[11px] tracking-[0.18em] uppercase text-[color:var(--muted)] mt-1">
                       Est. {college.established} · {college.city}
                     </p>
                   </div>
-                  <div className="text-xs text-[color:var(--ink-soft)] mt-1">
-                    Highest {college.highestPackage}
+
+                  <div className="flex items-center gap-2 mt-auto pt-2 border-t border-[color:var(--rule-soft)] w-full">
+                    <span className="text-[10px] tracking-[0.16em] uppercase text-[color:var(--gold-deep)] font-semibold">
+                      Highest package
+                    </span>
+                    <span className="font-display text-sm text-[color:var(--forest-deep)] ml-auto">
+                      {college.highestPackage}
+                    </span>
                   </div>
                 </Link>
               ))}
             </div>
-            <div className="absolute -z-10 inset-0 -m-6 rounded-[40px] bg-gradient-to-br from-[color:var(--parchment)] to-transparent opacity-60" />
+
+            {/* Decorative glow behind cards */}
+            <div
+              aria-hidden
+              className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-[40px] opacity-30"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, rgba(184,137,58,0.15), transparent 70%)",
+              }}
+            />
           </div>
         </div>
       </div>

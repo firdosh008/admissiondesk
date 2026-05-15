@@ -56,7 +56,7 @@ export const COLLEGES: College[] = [
   },
   {
     slug: "graphic-era",
-    name: "Graphic Era (Deemed-to-be-University)",
+    name: "Graphic Era (Hill University , Deemed-to-be-University)",
     shortName: "Graphic Era",
     city: "Dehradun",
     established: "1993",
@@ -340,4 +340,73 @@ export const ADMITS = [
   { initials: "P.M.", city: "Delhi", program: "BBA", university: "Uttaranchal" },
   { initials: "I.J.", city: "Haldwani", program: "B.Pharm", university: "Graphic Era" },
   { initials: "M.A.", city: "Roorkee", program: "B.Tech AI/ML", university: "Uttaranchal" },
+];
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  city: string;
+  program: string;
+  university: string;
+  outcome: string;
+};
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote: "I was confused between 4 colleges and 3 streams. My counsellor laid out fees, placements, and scholarship options for each one on a single call. I picked Graphic Era CSE and got a merit waiver I didn't even know existed.",
+    name: "Rohit Sharma",
+    city: "Lucknow",
+    program: "B.Tech CSE",
+    university: "Graphic Era",
+    outcome: "Secured ₹40K merit waiver",
+  },
+  {
+    quote: "I'm the first in my family to go to college. The counsellor spoke to my father in Hindi, explained everything — fees, hostel, safety, placement records. No pressure, just facts. We decided together.",
+    name: "Priya Mehta",
+    city: "Delhi",
+    program: "BBA",
+    university: "Uttaranchal University",
+    outcome: "First-gen student, full support",
+  },
+  {
+    quote: "I had 58% in 12th and thought good colleges wouldn't take me. My counsellor showed me accredited programmes that fit my profile, helped with the application, and I got in within 10 days.",
+    name: "Imran Javed",
+    city: "Haldwani",
+    program: "B.Pharm",
+    university: "Graphic Era",
+    outcome: "Admitted in 10 days",
+  },
+  {
+    quote: "The scholarship mapping alone saved us ₹1.2L across 4 years. Every category slab, every merit waiver — things we would have missed if we'd applied directly.",
+    name: "Mansi Agarwal",
+    city: "Roorkee",
+    program: "B.Tech AI & ML",
+    university: "Uttaranchal University",
+    outcome: "₹1.2L scholarship saved",
+  },
+  {
+    quote: "I was working a part-time job and couldn't visit campuses. My counsellor did video walkthroughs of hostels, labs, and libraries on WhatsApp. I chose without ever stepping foot in Dehradun.",
+    name: "Sunil Bisht",
+    city: "Almora",
+    program: "BCA",
+    university: "Graphic Era",
+    outcome: "Remote counselling, full admit",
+  },
+  {
+    quote: "Everyone in my family wanted me to do B.Tech but I wanted design. The counsellor showed my parents placement data for B.Des graduates and they finally agreed. Best decision ever.",
+    name: "Ananya Rawat",
+    city: "Haridwar",
+    program: "B.Des",
+    university: "Uttaranchal University",
+    outcome: "Pursued passion, parents convinced",
+  },
+];
+
+export const PARTNER_LOGOS = [
+  { name: "Uttaranchal University", short: "UU" },
+  { name: "Graphic Era University", short: "GEU" },
+  { name: "UPES Dehradun", short: "UPES" },
+  { name: "Dev Bhoomi University", short: "DBUU" },
+  { name: "DIT University", short: "DIT" },
+  { name: "IMS Unison University", short: "IMS" },
 ];

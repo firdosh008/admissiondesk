@@ -2,31 +2,22 @@ import { TOP_RECRUITERS, ADMITS } from "@/lib/constants";
 
 export function Placements() {
   return (
-    <section
-      id="placements"
-      className="section bg-[color:var(--forest-deep)] text-[color:var(--ivory)] relative overflow-hidden"
-    >
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, #f6efde 1px, transparent 0)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      <div className="container-x py-20 md:py-28 relative">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+    <section id="placements" className="section-dark">
+      <div className="container-x py-24 md:py-32 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-14 items-start">
+          {/* ── Left: Narrative ── */}
           <div className="lg:col-span-5">
             <p className="eyebrow text-[color:var(--gold-soft)]">
               Where graduates go
             </p>
-            <h2 className="font-display text-4xl md:text-6xl mt-4 leading-[1.02]">
+            <h2 className="font-display text-4xl md:text-6xl mt-4 leading-[1.02] text-[color:var(--ivory)]">
               Hired at the
               <br />
-              <span className="font-italic-serif">companies that hire.</span>
+              <span className="font-italic-serif text-[color:var(--gold-soft)]">
+                companies that hire.
+              </span>
             </h2>
-            <p className="mt-6 text-[color:var(--ivory)]/80 text-lg leading-relaxed max-w-md">
+            <p className="mt-6 text-[color:var(--ivory)]/75 text-lg leading-relaxed max-w-md">
               In 2025, active partner universities reported strong recruiter
               participation across{" "}
               <strong className="text-[color:var(--gold-soft)] font-semibold">
@@ -36,52 +27,52 @@ export function Placements() {
               public-sector employers.
             </p>
 
-            <div className="mt-10 space-y-4">
-              <div className="flex items-baseline justify-between border-b border-[color:var(--ivory)]/15 pb-3">
-                <span className="text-sm text-[color:var(--ivory)]/70">
-                  Highest package, 2025
-                </span>
-                <span className="font-display text-2xl text-[color:var(--gold-soft)]">
-                  ₹61.99 LPA
-                </span>
-              </div>
-              <div className="flex items-baseline justify-between border-b border-[color:var(--ivory)]/15 pb-3">
-                <span className="text-sm text-[color:var(--ivory)]/70">
-                  Strong CSE outcomes
-                </span>
-                <span className="font-display text-2xl text-[color:var(--gold-soft)]">
-                  ₹42 LPA
-                </span>
-              </div>
-              <div className="flex items-baseline justify-between border-b border-[color:var(--ivory)]/15 pb-3">
-                <span className="text-sm text-[color:var(--ivory)]/70">
-                  Average placement rate (flagship programmes)
-                </span>
-                <span className="font-display text-2xl text-[color:var(--gold-soft)]">
-                  92%
-                </span>
-              </div>
+            {/* Key metrics */}
+            <div className="mt-10 space-y-1">
+              {[
+                { label: "Highest package, 2025", value: "₹61.99 LPA" },
+                { label: "Strong CSE outcomes", value: "₹42 LPA" },
+                {
+                  label: "Avg. placement rate (flagship programmes)",
+                  value: "92%",
+                },
+              ].map((m) => (
+                <div
+                  key={m.label}
+                  className="flex items-baseline justify-between py-4 border-b border-[color:var(--ivory)]/10"
+                >
+                  <span className="text-sm text-[color:var(--ivory)]/65">
+                    {m.label}
+                  </span>
+                  <span className="font-display text-2xl text-[color:var(--gold-soft)]">
+                    {m.value}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
+          {/* ── Right: Recruiters + Admits ── */}
           <div className="lg:col-span-7">
+            {/* Recruiter grid */}
             <p className="text-[10px] tracking-[0.32em] uppercase text-[color:var(--gold-soft)] mb-5">
               Recruiters across partner campuses
             </p>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-[color:var(--ivory)]/10 rounded-xl overflow-hidden">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {TOP_RECRUITERS.map((r) => (
-                <li
+                <div
                   key={r}
-                  className="bg-[color:var(--forest-deep)] py-5 px-3 text-center"
+                  className="card-dark py-4 px-4 text-center hover:bg-[color:var(--ivory)]/10 transition-colors"
                 >
-                  <span className="font-display text-base text-[color:var(--ivory)] tracking-wide">
+                  <span className="font-display text-sm text-[color:var(--ivory)] tracking-wide">
                     {r}
                   </span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            <div className="mt-10">
+            {/* Recent admits */}
+            <div className="mt-14">
               <p className="text-[10px] tracking-[0.32em] uppercase text-[color:var(--gold-soft)] mb-5">
                 Recent admits we&apos;ve guided
               </p>
@@ -89,12 +80,12 @@ export function Placements() {
                 {ADMITS.map((a) => (
                   <div
                     key={`${a.initials}-${a.program}`}
-                    className="rounded-lg border border-[color:var(--ivory)]/15 px-4 py-3"
+                    className="card-dark px-5 py-4 hover:bg-[color:var(--ivory)]/10 transition-colors"
                   >
-                    <p className="font-display text-lg leading-none">
+                    <p className="font-display text-xl leading-none text-[color:var(--ivory)]">
                       {a.initials}
                     </p>
-                    <p className="text-[11px] text-[color:var(--ivory)]/65 mt-2">
+                    <p className="text-[11px] text-[color:var(--ivory)]/55 mt-2 leading-relaxed">
                       {a.program}
                     </p>
                     <p className="text-[11px] text-[color:var(--gold-soft)] mt-1">
@@ -103,7 +94,7 @@ export function Placements() {
                   </div>
                 ))}
               </div>
-              <p className="text-[11px] text-[color:var(--ivory)]/55 mt-5">
+              <p className="text-[11px] text-[color:var(--ivory)]/45 mt-5">
                 Initials shown to protect privacy. Placement and admission
                 outcomes vary by individual candidate.
               </p>

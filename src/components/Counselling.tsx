@@ -3,13 +3,11 @@ import { LeadForm } from "./LeadForm";
 
 export function Counselling() {
   return (
-    <section
-      id="counselling"
-      className="section bg-[color:var(--ivory-deep)]/60 border-y border-[color:var(--rule-soft)]"
-    >
-      <div className="container-x py-20 md:py-28">
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-6 lg:pr-8 lg:sticky lg:top-28">
+    <section id="counselling" className="section-parchment">
+      <div className="container-x py-24 md:py-32">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* ── Left: Value proposition ── */}
+          <div className="lg:col-span-6 lg:sticky lg:top-28">
             <p className="eyebrow">Talk to a counsellor</p>
             <h2 className="font-display text-4xl md:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
               Tell us about you.
@@ -18,13 +16,13 @@ export function Counselling() {
                 We&apos;ll bring the campus.
               </span>
             </h2>
-            <p className="mt-6 text-lg text-[color:var(--ink-soft)] leading-relaxed">
+            <p className="mt-6 text-lg text-[color:var(--ink-soft)] leading-relaxed max-w-lg">
               A senior counsellor will call you within the hour. No
               auto-dialler, no pre-recorded message — a real conversation with
               someone who knows the campuses.
             </p>
 
-            <ul className="mt-8 space-y-4 text-[color:var(--ink-soft)]">
+            <ul className="mt-10 space-y-5">
               {[
                 {
                   t: "30-minute, free, no obligation",
@@ -44,18 +42,21 @@ export function Counselling() {
                 },
               ].map((b) => (
                 <li key={b.t} className="flex gap-4">
-                  <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--gold)] flex-none" />
+                  <span className="accent-dot mt-1.5 flex-none" />
                   <div>
                     <p className="font-medium text-[color:var(--forest-deep)]">
                       {b.t}
                     </p>
-                    <p className="text-sm mt-1">{b.d}</p>
+                    <p className="text-sm mt-1 text-[color:var(--ink-soft)] leading-relaxed">
+                      {b.d}
+                    </p>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* ── Right: Form ── */}
           <div className="lg:col-span-6">
             <Suspense fallback={null}>
               <LeadForm />
