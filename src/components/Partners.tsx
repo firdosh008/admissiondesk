@@ -165,21 +165,20 @@ export function Partners() {
                     </p>
                   </div>
 
-                  {/* Stats row — 3 columns, always horizontal */}
+                  {/* Stats row — 4 columns: fees · avg pkg · placed · NAAC */}
                   {info && (
-                    <div className="grid grid-cols-3 gap-2 pt-2.5 border-t border-[color:var(--rule-soft)]">
-                      <div>
-                        <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">Fees/yr</p>
-                        <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{info.feesRange}</p>
-                      </div>
-                      <div>
-                        <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">Avg pkg</p>
-                        <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{info.avgPackage}</p>
-                      </div>
-                      <div>
-                        <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">Placed</p>
-                        <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{info.placement}</p>
-                      </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-2 pt-2.5 border-t border-[color:var(--rule-soft)]">
+                      {[
+                        { label: "Fees/yr",  value: info.feesRange  },
+                        { label: "Avg pkg",  value: info.avgPackage },
+                        { label: "Placed",   value: info.placement  },
+                        { label: "NAAC",     value: info.naac       },
+                      ].map(({ label, value }) => (
+                        <div key={label}>
+                          <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">{label}</p>
+                          <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{value}</p>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </button>
