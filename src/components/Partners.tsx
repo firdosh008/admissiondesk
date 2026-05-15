@@ -133,7 +133,7 @@ export function Partners() {
             </button>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 gap-4">
             {DEHRADUN_COUNSELLING_COLLEGES.map((college, i) => {
               const initials = college
                 .split(" ")
@@ -141,10 +141,6 @@ export function Partners() {
                 .join("")
                 .slice(0, 3)
                 .toUpperCase();
-              const isHighlighted = [
-                "Uttaranchal University",
-                "Graphic Era (Deemed to be University)",
-              ].includes(college);
 
               const info = COUNSELLING_COLLEGE_INFO[college];
 
@@ -153,37 +149,37 @@ export function Partners() {
                   key={college}
                   type="button"
                   onClick={dispatchHomePopup}
-                  className="flex flex-col gap-3 px-4 py-3.5 rounded-xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-sm cursor-pointer"
+                  className="flex flex-col gap-4 p-5 sm:p-6 rounded-2xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-md cursor-pointer"
                 >
                   {/* Name row */}
-                  <div className="flex items-start gap-3">
-                    <span className="inline-flex w-8 h-8 items-center justify-center rounded-full font-display text-[10px] font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
+                  <div className="flex items-start gap-4">
+                    <span className="inline-flex w-10 h-10 items-center justify-center rounded-full font-display text-xs font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
                       {initials}
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-[color:var(--ink)] leading-snug">
+                      <p className="text-base font-semibold text-[color:var(--ink)] leading-snug">
                         {college}
                       </p>
                       {info && (
-                        <p className="mt-0.5 text-[11px] text-[color:var(--ink-soft)] leading-snug">
+                        <p className="mt-1 text-sm text-[color:var(--ink-soft)] leading-relaxed">
                           {info.desc}
                         </p>
                       )}
                     </div>
                   </div>
 
-                  {/* Stats row — 4 columns: fees · avg pkg · placed · NAAC */}
+                  {/* Stats row — 4 columns */}
                   {info && (
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-2 pt-2.5 border-t border-[color:var(--rule-soft)]">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[color:var(--rule-soft)]">
                       {[
-                        { label: "Fees/yr",  value: info.feesRange  },
-                        { label: "Avg pkg",  value: info.avgPackage },
-                        { label: "Placed",   value: info.placement  },
-                        { label: "NAAC",     value: info.naac       },
+                        { label: "Fees/yr", value: info.feesRange  },
+                        { label: "Avg pkg", value: info.avgPackage },
+                        { label: "Placed",  value: info.placement  },
+                        { label: "NAAC",    value: info.naac       },
                       ].map(({ label, value }) => (
                         <div key={label}>
-                          <p className="text-[9px] tracking-[0.14em] uppercase text-[color:var(--muted)]">{label}</p>
-                          <p className="mt-0.5 text-[11px] font-semibold text-[color:var(--forest-deep)] leading-tight">{value}</p>
+                          <p className="text-[10px] tracking-[0.14em] uppercase text-[color:var(--muted)]">{label}</p>
+                          <p className="mt-1 text-xs font-semibold text-[color:var(--forest-deep)] leading-snug">{value}</p>
                         </div>
                       ))}
                     </div>
