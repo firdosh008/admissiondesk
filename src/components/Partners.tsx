@@ -17,6 +17,24 @@ const COLLEGE_BG: Record<string, string> = {
   "dev-bhoomi": "/colleges/dbuu/dbuu-campus-img.webp",
 };
 
+const COUNSELLING_COLLEGE_IMAGE: Record<string, string> = {
+  "Uttaranchal University":                  "/colleges/uu/bg-uu.png",
+  "Graphic Era (Deemed to be University)":   "/colleges/geu/bg-geu.webp",
+  "Graphic Era Hill University":             "/colleges/gehu/campus.webp",
+  "UPES Dehradun":                           "/colleges/upes/bg_upes.avif",
+  "DIT University":                          "/colleges/dit/campus.jpg",
+  "IMS Unison University":                   "/colleges/iuu/campus.webp",
+  "Dev Bhoomi Uttarakhand University":       "/colleges/dbuu/dbuu-campus-img.webp",
+  "Doon University":                         "/colleges/doon/campus.jpg",
+"Doon Business School":                    "/colleges/dbs/campus.webp",
+  "SGRR University":                         "/colleges/sgrr/campus.jpg",
+  "Shivalik College":                        "/colleges/shivalik/campus.png",
+  "Tula's Institute":                        "/colleges/tulas/campus.webp",
+  "Himalayan Institute of Technology":       "/colleges/hit/campus.webp",
+  "Government Doon Medical College":         "/colleges/gdmc/campus.webp",
+  "Institute of Hotel Management, Dehradun": "/colleges/ihm/campus.webp",
+};
+
 const HAS_PAGE = new Set(["uttaranchal-university", "graphic-era"]);
 
 const DISPLAY_ORDER = ["uttaranchal-university", "graphic-era", "upes", "dev-bhoomi"];
@@ -183,47 +201,70 @@ export function Partners() {
                 .toUpperCase();
 
               const info = COUNSELLING_COLLEGE_INFO[college];
+              const imgSrc = COUNSELLING_COLLEGE_IMAGE[college];
 
               return (
                 <button
                   key={college}
                   type="button"
                   onClick={dispatchHomePopup}
-                  className="flex flex-col gap-4 p-5 sm:p-6 rounded-2xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-md cursor-pointer"
+                  className="flex flex-col rounded-2xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-md cursor-pointer overflow-hidden"
                 >
-                  {/* Name row */}
-                  <div className="flex items-start gap-4">
-                    <span className="inline-flex w-10 h-10 items-center justify-center rounded-full font-display text-xs font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
-                      {initials}
-                    </span>
-                    <div>
-                      <p className="text-base font-semibold text-[color:var(--ink)] leading-snug">
-                        {college}
-                      </p>
-                      {info && (
-                        <p className="mt-1 text-sm text-[color:var(--ink-soft)] leading-relaxed">
-                          {info.desc}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Stats row — 4 columns */}
-                  {info && (
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[color:var(--rule-soft)]">
-                      {[
-                        { label: "Fees/yr", value: info.feesRange  },
-                        { label: "Avg pkg", value: info.avgPackage },
-                        { label: "Placed",  value: info.placement  },
-                        { label: "NAAC",    value: info.naac       },
-                      ].map(({ label, value }) => (
-                        <div key={label}>
-                          <p className="text-[10px] tracking-[0.14em] uppercase text-[color:var(--muted)]">{label}</p>
-                          <p className="mt-1 text-xs font-semibold text-[color:var(--forest-deep)] leading-snug">{value}</p>
-                        </div>
-                      ))}
+                  {/* Campus image strip */}
+                  {imgSrc && (
+                    <div className="relative h-32 w-full flex-none">
+                      <Image
+                        src={imgSrc}
+                        alt={`${college} campus`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                      <span className="absolute bottom-3 left-3 inline-flex w-9 h-9 items-center justify-center rounded-full font-display text-xs font-semibold bg-black/40 backdrop-blur-sm border border-white/20 text-white">
+                        {initials}
+                      </span>
                     </div>
                   )}
+
+                  {/* Content */}
+                  <div className="flex flex-col gap-4 p-5 sm:p-6">
+                    {/* Name row */}
+                    <div className="flex items-start gap-4">
+                      {!imgSrc && (
+                        <span className="inline-flex w-10 h-10 items-center justify-center rounded-full font-display text-xs font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
+                          {initials}
+                        </span>
+                      )}
+                      <div>
+                        <p className="text-base font-semibold text-[color:var(--ink)] leading-snug">
+                          {college}
+                        </p>
+                        {info && (
+                          <p className="mt-1 text-sm text-[color:var(--ink-soft)] leading-relaxed">
+                            {info.desc}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Stats row — 4 columns */}
+                    {info && (
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[color:var(--rule-soft)]">
+                        {[
+                          { label: "Fees/yr", value: info.feesRange  },
+                          { label: "Avg pkg", value: info.avgPackage },
+                          { label: "Placed",  value: info.placement  },
+                          { label: "NAAC",    value: info.naac       },
+                        ].map(({ label, value }) => (
+                          <div key={label}>
+                            <p className="text-[10px] tracking-[0.14em] uppercase text-[color:var(--muted)]">{label}</p>
+                            <p className="mt-1 text-xs font-semibold text-[color:var(--forest-deep)] leading-snug">{value}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </button>
               );
             })}
