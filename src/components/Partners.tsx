@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {
   DEHRADUN_COUNSELLING_COLLEGES,
+  COUNSELLING_COLLEGE_INFO,
   VISIBLE_COLLEGES,
 } from "@/lib/constants";
 import { CollegeCrest } from "./CollegeCrest";
@@ -145,25 +146,37 @@ export function Partners() {
                 "Graphic Era (Deemed to be University)",
               ].includes(college);
 
+              const info = COUNSELLING_COLLEGE_INFO[college];
+
               return (
                 <button
                   key={college}
                   type="button"
                   onClick={dispatchHomePopup}
-                  className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-sm cursor-pointer`}
+                  className={`flex items-start gap-3 px-4 py-3.5 rounded-xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-sm cursor-pointer`}
                 >
                   {/* College initial badge */}
-                  <span
-                    className={`inline-flex w-9 h-9 items-center justify-center rounded-full font-display text-[11px] font-semibold flex-none bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]`}
-                  >
+                  <span className="inline-flex w-9 h-9 items-center justify-center rounded-full font-display text-[11px] font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
                     {initials}
                   </span>
 
-                  <div className="min-w-0">
-                    <p className="text-sm font-medium text-[color:var(--ink)] leading-snug truncate">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-[color:var(--ink)] leading-snug">
                       {college}
                     </p>
-                    
+                    {info && (
+                      <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-0.5">
+                        <span className="text-[11px] text-[color:var(--muted)]">
+                          <span className="font-medium text-[color:var(--forest-deep)]">{info.feesRange}</span> fees
+                        </span>
+                        <span className="text-[11px] text-[color:var(--muted)]">
+                          <span className="font-medium text-[color:var(--forest-deep)]">{info.avgPackage}</span> avg
+                        </span>
+                        <span className="text-[11px] text-[color:var(--muted)]">
+                          <span className="font-medium text-[color:var(--forest-deep)]">{info.placement}</span> placed
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </button>
               );

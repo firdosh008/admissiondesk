@@ -9,6 +9,7 @@ import { dispatchHomePopup } from "./HomeLeadPopup";
 type HeaderLink = {
   label: string;
   href: string;
+  dropdown?: { label: string; href: string }[];
 };
 
 type HeaderProps = {
@@ -22,8 +23,15 @@ const DEFAULT_NAV_LINKS: HeaderLink[] = [
   { label: "Universities", href: "#partners" },
   { label: "Programmes", href: "#programs" },
   { label: "How it works", href: "#process" },
-  { label: "Placements", href: "#placements" },
   { label: "FAQ", href: "#faq" },
+  {
+    label: "Legal",
+    href: "#",
+    dropdown: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+    ],
+  },
 ];
 
 function cleanPhone(phone: string) {
@@ -96,15 +104,42 @@ export function Header({
           {/* Desktop nav */}
           {navLinks.length > 0 ? (
             <nav className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={`${link.href}-${link.label}`}
-                  href={link.href}
-                  className="px-3.5 py-2 text-sm font-medium text-[color:var(--ink-soft)] rounded-full hover:bg-[color:var(--cream)] hover:text-[color:var(--forest)] transition-all"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.dropdown ? (
+                  <div key={link.label} className="relative group">
+                    <button
+                      type="button"
+                      className="flex items-center gap-1 px-3.5 py-2 text-sm font-medium text-[color:var(--ink-soft)] rounded-full hover:bg-[color:var(--cream)] hover:text-[color:var(--forest)] transition-all"
+                    >
+                      {link.label}
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </button>
+                    <div className="absolute top-full left-0 hidden group-hover:block pt-1 z-50 min-w-[160px]">
+                      <div className="bg-[color:var(--ivory)] border border-[color:var(--rule-soft)] rounded-xl shadow-[var(--shadow-float)] py-1 overflow-hidden">
+                        {link.dropdown.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-2.5 text-sm text-[color:var(--ink-soft)] hover:bg-[color:var(--cream)] hover:text-[color:var(--forest-deep)] transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    key={`${link.href}-${link.label}`}
+                    href={link.href}
+                    className="px-3.5 py-2 text-sm font-medium text-[color:var(--ink-soft)] rounded-full hover:bg-[color:var(--cream)] hover:text-[color:var(--forest)] transition-all"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
             </nav>
           ) : null}
 

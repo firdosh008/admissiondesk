@@ -122,6 +122,20 @@ const PG_PROGRAMS_BY_CATEGORY: Record<string, string[]> = {
 
 /* ── Public helpers ── */
 
+export function getAllProgramsGrouped(level: UUProgramLevel | ""): Record<string, string[]> {
+  if (!level) return {};
+  return level === "UG" ? UG_PROGRAMS_BY_CATEGORY : PG_PROGRAMS_BY_CATEGORY;
+}
+
+export function getProgramCategory(level: UUProgramLevel | "", program: string): string {
+  if (!level || !program) return "";
+  const map = level === "UG" ? UG_PROGRAMS_BY_CATEGORY : PG_PROGRAMS_BY_CATEGORY;
+  for (const [cat, progs] of Object.entries(map)) {
+    if ((progs as string[]).includes(program)) return cat;
+  }
+  return "Other";
+}
+
 export function getUUProgramCategories(level: UUProgramLevel | ""): string[] {
   if (!level) return [];
   const map = level === "UG" ? UG_PROGRAMS_BY_CATEGORY : PG_PROGRAMS_BY_CATEGORY;

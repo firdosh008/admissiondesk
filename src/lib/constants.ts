@@ -160,6 +160,26 @@ export const VISIBLE_COLLEGES = COLLEGES.filter((college) =>
   ["uttaranchal-university", "graphic-era"].includes(college.slug)
 );
 
+export type CollegeStat = { feesRange: string; avgPackage: string; placement: string };
+
+export const COUNSELLING_COLLEGE_INFO: Record<string, CollegeStat> = {
+  "Uttaranchal University":                  { feesRange: "₹75K–₹1.8L/yr",   avgPackage: "₹4.9 LPA",         placement: "80%+" },
+  "Graphic Era (Deemed to be University)":   { feesRange: "₹1.1L–₹2.1L/yr",  avgPackage: "₹23.26 LPA (CSE)", placement: "85%+" },
+  "Graphic Era Hill University":             { feesRange: "₹80K–₹1.6L/yr",   avgPackage: "₹4.5 LPA",         placement: "75%+" },
+  "UPES Dehradun":                           { feesRange: "₹2.2L–₹4.5L/yr",  avgPackage: "₹6.5 LPA",         placement: "92%"  },
+  "DIT University":                          { feesRange: "₹70K–₹1.2L/yr",   avgPackage: "₹3.5 LPA",         placement: "70%+" },
+  "IMS Unison University":                   { feesRange: "₹80K–₹1.4L/yr",   avgPackage: "₹4 LPA",           placement: "72%+" },
+  "Dev Bhoomi Uttarakhand University":       { feesRange: "₹60K–₹1.5L/yr",   avgPackage: "₹3.8 LPA",         placement: "68%+" },
+  "Doon University":                         { feesRange: "₹25K–₹50K/yr",    avgPackage: "₹3.5 LPA",         placement: "65%+" },
+  "ICFAI University Dehradun":               { feesRange: "₹1L–₹2L/yr",      avgPackage: "₹4.5 LPA",         placement: "75%+" },
+  "Doon Business School":                    { feesRange: "₹1.5L–₹2.5L/yr",  avgPackage: "₹5 LPA",           placement: "80%+" },
+  "Shivalik College":                        { feesRange: "₹40K–₹75K/yr",    avgPackage: "₹2.8 LPA",         placement: "60%+" },
+  "Tula's Institute":                        { feesRange: "₹75K–₹1.2L/yr",   avgPackage: "₹3.5 LPA",         placement: "65%+" },
+  "Himalayan Institute of Technology":       { feesRange: "₹70K–₹1.1L/yr",   avgPackage: "₹3 LPA",           placement: "62%+" },
+  "Government Doon Medical College":         { feesRange: "Govt. rates",      avgPackage: "Clinical",         placement: "~85%" },
+  "Institute of Hotel Management, Dehradun": { feesRange: "₹1L–₹1.8L/yr",    avgPackage: "₹4 LPA",           placement: "78%+" },
+};
+
 export const DEHRADUN_COUNSELLING_COLLEGES = [
   "Uttaranchal University",
   "Graphic Era (Deemed to be University)",

@@ -15,7 +15,7 @@ import {
 } from "@/lib/lead-form-schema";
 import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
-import { isUUCseParentProgramme } from "@/lib/uuPrograms";
+import { isUUCseParentProgramme, getAllProgramsGrouped, getProgramCategory } from "@/lib/uuPrograms";
 
 declare global {
   interface Window {
@@ -43,12 +43,11 @@ export function LeadForm() {
     defaultValues: leadFormDefaults,
   });
 
-  const {
-    categoryOptions,
-    programOptions,
-    cseTracks,
-    showCseSpecialization,
-  } = useCascadingPrograms(watch, setValue);
+  const { cseTracks, showCseSpecialization } = useCascadingPrograms(watch, setValue);
+
+  const programLevel = watch("programLevel");
+  const typedLevel = programLevel === "UG" || programLevel === "PG" ? programLevel : "";
+  const groupedPrograms = getAllProgramsGrouped(typedLevel);
 
   const specializationRequested = watch("specializationRequested");
 
@@ -231,57 +230,35 @@ export function LeadForm() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-3 sm:gap-5">
-          <div>
-            <label htmlFor="lf-category" className="field-label">
-              Programme
-            </label>
-            <select
-              id="lf-category"
-              className="field-select"
-              disabled={!watch("programLevel")}
-              {...register("programCategory")}
-            >
-              <option value="" disabled>
-                {!watch("programLevel")
-                  ? "-- Select level first --"
-                  : "-- Select Category --"}
-              </option>
-              {categoryOptions.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-            {errors.programCategory && (
-              <p className="field-error">{errors.programCategory.message}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="lf-program" className="field-label">
-              Specialization
-            </label>
-            <select
-              id="lf-program"
-              className="field-select"
-              disabled={!watch("programCategory")}
-              {...register("program")}
-            >
-              <option value="" disabled>
-                {!watch("programCategory")
-                  ? "-- Select category first --"
-                  : "-- Select Programme --"}
-              </option>
-              {programOptions.map((p) => (
-                <option key={p} value={p}>
-                  {p}
-                </option>
-              ))}
-            </select>
-            {errors.program && (
-              <p className="field-error">{errors.program.message}</p>
-            )}
-          </div>
+        <div>
+          <label htmlFor="lf-program" className="field-label">
+            Programme of interest
+          </label>
+          <select
+            id="lf-program"
+            className="field-select"
+            disabled={!typedLevel}
+            value={watch("program") || ""}
+            onChange={(e) => {
+              const prog = e.target.value;
+              setValue("program", prog);
+              setValue("programCategory", getProgramCategory(typedLevel, prog));
+            }}
+          >
+            <option value="" disabled>
+              {!typedLevel ? "-- Select level first --" : "-- Select programme --"}
+            </option>
+            {Object.entries(groupedPrograms).map(([cat, progs]) => (
+              <optgroup key={cat} label={cat}>
+                {progs.map((p) => (
+                  <option key={p} value={p}>{p}</option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+          {errors.program && (
+            <p className="field-error">{errors.program.message}</p>
+          )}
         </div>
 
         {showCseSpecialization && (
