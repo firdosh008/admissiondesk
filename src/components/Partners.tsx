@@ -13,17 +13,17 @@ const variants: Array<"shield" | "hex"> = ["shield", "hex"];
 export function Partners() {
   return (
     <section id="partners" className="section">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x py-12 md:py-24 lg:py-32">
         {/* ── Header ── */}
         <header className="max-w-4xl">
           <p className="eyebrow">College counselling in Dehradun</p>
-          <h2 className="font-display text-4xl md:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
             We counsel for Dehradun&apos;s{" "}
             <span className="font-italic-serif">
               top colleges and beyond.
             </span>
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-[color:var(--ink-soft)] max-w-3xl">
+          <p className="mt-4 md:mt-6 text-base md:text-lg leading-relaxed text-[color:var(--ink-soft)] max-w-3xl">
             Compare course fit, fees, eligibility, scholarships, hostels,
             and application steps across Dehradun&apos;s top institutions — all
             through a single, free counselling call.
@@ -31,11 +31,11 @@ export function Partners() {
         </header>
 
         {/* ── Featured college cards ── */}
-        <div className="mt-14 grid lg:grid-cols-2 gap-8">
+        <div className="mt-8 md:mt-14 grid lg:grid-cols-2 gap-5 md:gap-8">
           {VISIBLE_COLLEGES.map((college, index) => (
             <article
               key={college.slug}
-              className="card-elevated p-8 md:p-10 flex flex-col h-full"
+              className="card-elevated p-4 sm:p-6 md:p-10 flex flex-col h-full"
             >
               {/* Card header */}
               <div className="flex items-start gap-5">
@@ -119,11 +119,11 @@ export function Partners() {
         </div>
 
         {/* ── Also covered — college mini-cards grid ── */}
-        <div className="mt-14">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-8">
+        <div className="mt-10 md:mt-14">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-6 md:mb-8">
             <div>
               <p className="eyebrow">Also covered in counselling</p>
-              <h3 className="mt-3 font-display text-3xl text-[color:var(--forest-deep)]">
+              <h3 className="mt-3 font-display text-2xl sm:text-3xl text-[color:var(--forest-deep)]">
                 More Dehradun colleges students ask us about
               </h3>
             </div>

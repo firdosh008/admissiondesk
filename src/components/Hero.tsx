@@ -22,8 +22,8 @@ export function Hero() {
         }}
       />
 
-      <div className="container-x pt-14 pb-24 md:pt-24 md:pb-32 relative">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="container-x pt-10 pb-16 md:pt-24 md:pb-32 relative">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* ── Left: Headline block ── */}
           <div className="lg:col-span-7">
             <div className="rise rise-1">
@@ -32,7 +32,7 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="rise rise-2 mt-6 font-display text-[clamp(2.8rem,6.5vw,5.5rem)] leading-[0.96] tracking-[-0.015em] text-[color:var(--forest-deep)]">
+            <h1 className="rise rise-2 mt-4 md:mt-6 font-display text-[clamp(2.2rem,6.5vw,5.5rem)] leading-[0.96] tracking-[-0.015em] text-[color:var(--forest-deep)]">
               The right university
               <br />
               starts with{" "}
@@ -41,7 +41,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="rise rise-3 mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--ink-soft)]">
+            <p className="rise rise-3 mt-5 md:mt-8 max-w-xl text-base md:text-lg leading-relaxed text-[color:var(--ink-soft)]">
               Free 1-on-1 admission counselling for{" "}
               <span className="swash-underline font-medium text-[color:var(--ink)]">
                 Uttaranchal University and Graphic Era and more institutions in Dehradun.
@@ -49,17 +49,17 @@ export function Hero() {
               Get course, scholarship and application guidance before you commit.
             </p>
 
-            <div className="rise rise-4 mt-9 flex flex-wrap gap-3">
-              <button type="button" onClick={dispatchHomePopup} className="btn-primary text-base py-3.5 px-7">
+            <div className="rise rise-4 mt-6 md:mt-9 flex flex-wrap gap-3">
+              <button type="button" onClick={dispatchHomePopup} className="btn-primary text-sm md:text-base py-3 md:py-3.5 px-5 md:px-7">
                 Get free counselling
               </button>
-              <a href="#partners" className="btn-secondary">
+              <a href="#partners" className="btn-secondary text-sm md:text-base py-3 md:py-3.5 px-5 md:px-7">
                 Explore Universities
               </a>
             </div>
 
             {/* Social proof row */}
-            <div className="rise rise-5 mt-12 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <div className="rise rise-5 mt-8 md:mt-12 flex flex-wrap items-center gap-x-5 sm:gap-x-8 gap-y-3">
               {[
                 { value: "12,000+", label: "Aspirants counselled" },
                 { value: "2", label: "Featured universities" },
@@ -68,7 +68,7 @@ export function Hero() {
                 <div key={stat.label} className="flex items-center gap-3">
                   <span className="accent-dot" />
                   <div>
-                    <p className="font-display text-lg leading-none text-[color:var(--forest-deep)]">
+                    <p className="font-display text-base md:text-lg leading-none text-[color:var(--forest-deep)]">
                       {stat.value}
                     </p>
                     <p className="text-xs text-[color:var(--muted)] mt-0.5">
@@ -80,8 +80,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* ── Right: University cards ── */}
-          <div className="lg:col-span-5 relative">
+          {/* ── Right: University cards — hidden on small, shown lg+ ── */}
+          <div className="hidden lg:block lg:col-span-5 relative">
             <div className="relative grid grid-cols-2 gap-4 max-w-md lg:ml-auto">
               {HERO_COLLEGES.map((college, index) => (
                 <Link

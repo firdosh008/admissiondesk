@@ -16,13 +16,14 @@ export function Footer() {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-4">
             <Link href="/" aria-label={SITE.name} className="inline-block">
-              <span className="inline-block bg-white rounded-xl px-4 py-3">
+              <span className="inline-block bg-white rounded-lg px-3 py-1.5">
                 <Image
                   src="/logo.png"
                   alt={SITE.name}
-                  width={160}
-                  height={52}
-                  className="h-20 w-auto"
+                  width={260}
+                  height={80}
+                  className="h-16 w-auto"
+                  style={{ width: "auto" }}
                 />
               </span>
             </Link>

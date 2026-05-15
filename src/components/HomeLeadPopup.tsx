@@ -52,7 +52,7 @@ export function HomeLeadPopup({ university }: { university?: string }) {
         if (e.target === e.currentTarget) setOpen(false);
       }}
     >
-      <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[color:var(--cream)] rounded-2xl border border-[color:var(--rule-soft)] shadow-[0_1px_1px_rgba(8,36,32,0.06),0_12px_48px_-12px_rgba(8,36,32,0.3)]">
+      <div className="relative w-full max-w-lg max-h-[95vh] overflow-y-auto bg-[color:var(--cream)] rounded-2xl border border-[color:var(--rule-soft)] shadow-[0_1px_1px_rgba(8,36,32,0.06),0_12px_48px_-12px_rgba(8,36,32,0.3)]">
         <button
           type="button"
           aria-label="Close"
@@ -68,7 +68,7 @@ export function HomeLeadPopup({ university }: { university?: string }) {
           Free counselling · 2026-27 admissions open
         </div>
 
-        <div className="p-6 md:p-8">
+        <div className="p-4 sm:p-6 md:p-8">
           <h3 id="home-popup-title" className="font-display text-2xl md:text-3xl leading-tight text-[color:var(--forest-deep)]">
             Get free admission counselling
           </h3>

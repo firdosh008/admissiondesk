@@ -48,17 +48,28 @@ export function Header({
           <p className="md:hidden opacity-75">
             Admissions open · Free counselling
           </p>
-          <div className="flex items-center gap-4 text-[color:var(--ivory)]/80">
+          <div className="flex items-center gap-3 text-[color:var(--ivory)]/80">
+            {/* Mobile: phone icon only */}
             <a
               href={`tel:${cleanPhone(phone)}`}
-              className="hover:text-[color:var(--gold-soft)] transition-colors"
+              className="sm:hidden hover:text-[color:var(--gold-soft)] transition-colors"
+              aria-label={`Call ${phone}`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.06 6.06l1.14-1.14a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </a>
+            {/* Tablet+: full number */}
+            <a
+              href={`tel:${cleanPhone(phone)}`}
+              className="hidden sm:inline hover:text-[color:var(--gold-soft)] transition-colors"
             >
               {phone}
             </a>
-            <span className="opacity-20">|</span>
+            <span className="hidden sm:inline opacity-20">|</span>
             <a
               href={`mailto:${SITE.email}`}
-              className="hidden sm:inline hover:text-[color:var(--gold-soft)] transition-colors"
+              className="hidden md:inline hover:text-[color:var(--gold-soft)] transition-colors"
             >
               {SITE.email}
             </a>
@@ -70,13 +81,14 @@ export function Header({
       <div className="bg-[color:var(--ivory)]/90 backdrop-blur-lg border-b border-[color:var(--rule-soft)]">
         <div className="container-x flex items-center justify-between py-1.5">
           {/* Logo */}
-          <Link href="/" className="flex items-center group" aria-label={SITE.name}>
+          <Link href="/" className="flex shrink-0 items-center group" aria-label={SITE.name}>
             <Image
               src="/logo.png"
               alt={SITE.name}
               width={260}
               height={80}
-              className="h-20 w-auto"
+              className="h-12 sm:h-14 md:h-16 max-w-[160px] sm:max-w-[200px] md:max-w-none"
+              style={{ width: "auto" }}
               priority
             />
           </Link>
@@ -102,16 +114,20 @@ export function Header({
               href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(
                 "Hi, I'd like to talk to a counsellor about admissions."
               )}`}
-              className="hidden sm:inline-flex btn-whatsapp text-sm py-2.5 px-4"
+              className="inline-flex btn-whatsapp text-sm py-2.5 px-2.5 sm:px-4"
               data-event="whatsapp_click"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp"
             >
               <WhatsAppIcon size={16} />
-              WhatsApp
+              <span className="hidden sm:inline">WhatsApp</span>
             </a>
-            <button type="button" onClick={dispatchHomePopup} className="btn-primary text-sm py-2.5 px-5">
-              {applyLabel}
+            <button type="button" onClick={dispatchHomePopup} className="btn-primary text-sm py-2.5 px-2.5 sm:px-5" aria-label={applyLabel}>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" className="sm:hidden" aria-hidden>
+                <path d="M16.1 2.6a2.9 2.9 0 014.1 4.1L7.7 19.3l-4.1.7c-.7.1-1.2-.5-1.1-1.1l.7-4.1L16.1 2.6zM18.7 5.3a.9.9 0 00-1.3 0l-1 1 2.3 2.3 1-1a.9.9 0 000-1.3l-1-1zM6.3 15.3l-.4 2.6 2.6-.4 8.3-8.3-2.3-2.3-8.2 8.4z" />
+              </svg>
+              <span className="hidden sm:inline">{applyLabel}</span>
             </button>
           </div>
         </div>

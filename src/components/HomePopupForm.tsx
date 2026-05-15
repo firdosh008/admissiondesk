@@ -141,7 +141,7 @@ export function HomePopupForm({ onSuccess, university }: Props) {
         {errors.name && <p className="field-error">{errors.name.message}</p>}
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
           <label htmlFor="pop-phone" className="field-label">
             Phone (WhatsApp)
@@ -177,7 +177,7 @@ export function HomePopupForm({ onSuccess, university }: Props) {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
           <label htmlFor="pop-state" className="field-label">
             State
@@ -220,7 +220,7 @@ export function HomePopupForm({ onSuccess, university }: Props) {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
           <label htmlFor="pop-category" className="field-label">
             Programme

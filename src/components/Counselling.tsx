@@ -4,25 +4,25 @@ import { LeadForm } from "./LeadForm";
 export function Counselling() {
   return (
     <section id="counselling" className="section-parchment">
-      <div className="container-x py-24 md:py-32">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="container-x py-12 md:py-24 lg:py-32">
+        <div className="grid lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
           {/* ── Left: Value proposition ── */}
           <div className="lg:col-span-6 lg:sticky lg:top-28">
             <p className="eyebrow">Talk to a counsellor</p>
-            <h2 className="font-display text-4xl md:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
               Tell us about you.
               <br />
               <span className="font-italic-serif">
                 We&apos;ll bring the campus.
               </span>
             </h2>
-            <p className="mt-6 text-lg text-[color:var(--ink-soft)] leading-relaxed max-w-lg">
+            <p className="mt-5 text-base md:text-lg text-[color:var(--ink-soft)] leading-relaxed max-w-lg">
               A senior counsellor will call you within the hour. No
               auto-dialler, no pre-recorded message — a real conversation with
               someone who knows the campuses.
             </p>
 
-            <ul className="mt-10 space-y-5">
+            <ul className="mt-6 md:mt-10 space-y-4 md:space-y-5">
               {[
                 {
                   t: "30-minute, free, no obligation",

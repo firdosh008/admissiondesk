@@ -1,12 +1,12 @@
 export function EditorialPromise() {
   return (
     <section className="section-light">
-      <div className="container-x py-24 md:py-32">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+      <div className="container-x py-12 md:py-24 lg:py-32">
+        <div className="grid lg:grid-cols-12 gap-8 md:gap-12 items-start">
           {/* ── Left: Editorial aside ── */}
           <aside className="lg:col-span-4">
             <p className="eyebrow">Our counselling promise</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-4 leading-[1.05] text-[color:var(--forest-deep)]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl mt-4 leading-[1.05] text-[color:var(--forest-deep)]">
               We work for the
               <br />
               <span className="font-italic-serif">student.</span>
@@ -15,7 +15,7 @@ export function EditorialPromise() {
           </aside>
 
           {/* ── Right: Editorial copy ── */}
-          <div className="lg:col-span-8 lg:pl-12 lg:border-l lg:border-[color:var(--rule-soft)] columns-1 md:columns-2 gap-10 text-[color:var(--ink-soft)] leading-[1.8]">
+          <div className="lg:col-span-8 lg:pl-12 lg:border-l lg:border-[color:var(--rule-soft)] columns-1 lg:columns-2 gap-10 text-[color:var(--ink-soft)] leading-[1.8]">
             <p className="dropcap text-[1.06rem] mb-6">
               Choosing a university is, for most families in India, a serious
               financial and emotional decision. It deserves more than a glossy

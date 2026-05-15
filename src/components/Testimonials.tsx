@@ -3,15 +3,15 @@ import { TESTIMONIALS } from "@/lib/constants";
 export function Testimonials() {
   return (
     <section className="section-light">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x py-12 md:py-24 lg:py-32">
         {/* ── Header ── */}
-        <header className="max-w-3xl mb-16">
+        <header className="max-w-3xl mb-8 md:mb-16">
           <p className="eyebrow">Student outcomes</p>
-          <h2 className="font-display text-4xl md:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
             Real students.{" "}
             <span className="font-italic-serif">Real results.</span>
           </h2>
-          <p className="mt-5 text-lg text-[color:var(--ink-soft)] leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-[color:var(--ink-soft)] leading-relaxed">
             Every story below is from a student we counselled. Outcomes are
             individual — we don&apos;t guarantee results, we guarantee honest
             guidance.
@@ -19,18 +19,18 @@ export function Testimonials() {
         </header>
 
         {/* ── Testimonial grid ── */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {TESTIMONIALS.map((t) => (
             <article
               key={`${t.name}-${t.program}`}
-              className="card-elevated p-7 flex flex-col"
+              className="card-elevated p-4 sm:p-5 md:p-7 flex flex-col"
             >
               {/* Quote */}
               <blockquote className="flex-1">
                 <svg
                   className="text-[color:var(--gold)]/30 mb-3"
-                  width="32"
-                  height="28"
+                  width="28"
+                  height="24"
                   viewBox="0 0 32 28"
                   fill="currentColor"
                   aria-hidden="true"
@@ -45,7 +45,6 @@ export function Testimonials() {
               {/* Attribution */}
               <div className="mt-6 pt-5 border-t border-[color:var(--rule-soft)]">
                 <div className="flex items-center gap-3">
-                  {/* Avatar */}
                   <div className="w-10 h-10 rounded-full bg-[color:var(--forest)] flex items-center justify-center flex-none">
                     <span className="text-xs font-semibold text-[color:var(--ivory)]">
                       {t.name
@@ -64,7 +63,6 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                {/* Outcome badge */}
                 <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[color:var(--forest)]/8 border border-[color:var(--forest)]/15">
                   <span className="w-1 h-1 rounded-full bg-[color:var(--gold)]" />
                   <span className="text-[11px] font-medium text-[color:var(--forest-deep)]">

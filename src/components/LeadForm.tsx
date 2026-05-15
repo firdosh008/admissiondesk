@@ -123,7 +123,7 @@ export function LeadForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="card-paper p-7 md:p-9"
+      className="card-paper p-4 sm:p-6 md:p-9"
       aria-label="Free counselling enquiry form"
       noValidate
     >
@@ -150,7 +150,7 @@ export function LeadForm() {
           {errors.name && <p className="field-error">{errors.name.message}</p>}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-5">
           <div>
             <label htmlFor="lf-phone" className="field-label">
               Phone (WhatsApp)
@@ -186,7 +186,7 @@ export function LeadForm() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-5">
           <div>
             <label htmlFor="lf-state" className="field-label">
               State
@@ -231,7 +231,7 @@ export function LeadForm() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-5">
           <div>
             <label htmlFor="lf-category" className="field-label">
               Programme

@@ -181,9 +181,9 @@ h3 {
 /* ── Container ── */
 
 .container-x {
-  max-width: 90rem;
+  max-width: 80rem;
   margin: 0 auto;
-  padding-inline: clamp(1rem, 3vw, 1.75rem);
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 /* ── Section dividers ── */
