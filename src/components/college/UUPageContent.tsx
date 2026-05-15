@@ -41,7 +41,7 @@ const BENTO = [
     img: "/uu-new/bento/personality.jpg",
     badge: "03",
     title: "Personality Development Program",
-    body: "We focus on 360° personality development of students through various programs and extracurricular activities — from public speaking to professional grooming and aptitude.",
+    body: "UU focuses on 360° personality development through structured programs and extracurricular activities — from public speaking and professional grooming to aptitude and leadership training.",
     accent: "accent-green",
   },
   {
@@ -168,20 +168,19 @@ export function UUPageContent() {
             </div>
             <div className="uu2-stats-about" id="about">
               <h2 className="uu2-about-title">
-                Uttaranchal University Dehradun
+                About Uttaranchal University, Dehradun
                 <br />
-                <span>For the Excellence within &ldquo;U&rdquo;</span>
+                <span>NAAC A+ · UGC Recognised · Est. 2003</span>
               </h2>
               <p>
-                Uttaranchal University is recognised by the UGC under sections
-                2(f) and 12(B) of the UGC Act, 1956, and by other statutory
-                bodies of the State and the Nation. The University has been
-                promoted by Sushila Devi Centre for Professional Studies &
-                Research, a society registered under the Societies Registration
-                Act (1860). The University has been accredited with the
-                prestigious &ldquo;A+ Grade&rdquo; by the National Assessment
-                and Accreditation Council (NAAC) — the first university in
-                Uttarakhand to receive NAAC A+ in the first cycle.
+                Uttaranchal University (UU), Dehradun is recognised by the UGC
+                under sections 2(f) and 12(B) of the UGC Act, 1956, and
+                approved by AICTE, BCI, PCI, and INC. It holds the prestigious
+                NAAC A+ Grade — the first university in Uttarakhand to achieve
+                this in the first cycle. With 100+ multidisciplinary programmes,
+                750+ placement companies, and a 25-year legacy,
+                UU is a top private university choice for students in
+                Uttarakhand and beyond.
               </p>
               <div className="uu2-cta-row">
                 <UUAboutModal label="Know More" />
@@ -190,11 +189,12 @@ export function UUPageContent() {
           </div>
           <aside className="uu2-form-aside">
             <div className="uu2-form-card">
-              <p className="uu2-form-eyebrow">Admissions 2026–27 · Apply Now</p>
-              <h3 className="uu2-form-title">Talk to an admissiondesk Counsellor</h3>
+              <p className="uu2-form-eyebrow">Authorised Partner · UU Admissions 2026–27</p>
+              <h3 className="uu2-form-title">Apply via admissiondesk — Authorised UU Admission Partner</h3>
               <p className="mt-2 text-sm leading-6 text-[#4b5563]">
-                Counselling and application assistance by admissiondesk,
-                an authorised education consulting partner.
+                As an MOU-authorised partner of Uttaranchal University, admissiondesk
+                helps you secure admission with programme guidance, scholarship
+                matching, and document support — completely free for students.
               </p>
               <Suspense fallback={null}>
                 <UULeadForm
@@ -231,14 +231,15 @@ export function UUPageContent() {
       <section className="uu2-bento-section" id="why">
         <div className="uu2-bento-head">
           <h2 className="uu2-section-h">
-            Why <span>Uttaranchal University?</span>
+            Why Choose <span>Uttaranchal University?</span>
           </h2>
           <p>
-            Uttaranchal University, the top private university in Dehradun, has
-            built a distinct reputation by offering excellent education with a
-            niche team of dedicated faculty, ultra-modern infrastructure and an
-            obsessive focus on research, innovation and industry-aligned
-            learning.
+            Uttaranchal University is among the top-ranked private universities
+            in Uttarakhand, recognised for its NAAC A+ accreditation,
+            industry-aligned curriculum, and strong placement record.
+            Students considering UU for 2026-27 admissions benefit from
+            100+ programmes, dedicated research facilities, and a proven
+            campus-to-career pathway.
           </p>
         </div>
         <div className="uu2-bento-grid">
@@ -276,15 +277,15 @@ export function UUPageContent() {
       {/* Student Success Stories */}
       <section className="uu2-success-section" id="success">
         <h2 className="uu2-section-h">
-          Student <span>Success Stories</span>
+          Uttaranchal University <span>Placement Success Stories</span>
         </h2>
         <p className="uu2-success-intro">
-          At Uttaranchal University, we understand that teamwork and support go
-          a long way in assuring a student&apos;s success. Over the years, we
-          have witnessed many of our students reach the zenith of their careers.
-          Our Corporate Resource Center works day in and day out to assure that
-          our students get placed in top companies and kick-start their careers
-          on a high note.
+          As an authorised admission partner, admissiondesk has helped hundreds
+          of students get into Uttaranchal University programmes that matched
+          their goals. UU&apos;s Corporate Resource Centre then takes over —
+          placing graduates in top companies across India and abroad. These are
+          the kind of outcomes you can work toward when you apply through the
+          right channel.
         </p>
         <div className="uu2-success-grid">
           {SUCCESS.map((s) => (
@@ -311,23 +312,16 @@ export function UUPageContent() {
       {/* Our Intellectual Assets */}
       <section className="uu2-intel-section" id="intellectual">
         <h2 className="uu2-section-h">
-          Our <span>Intellectual Assets</span>
+          UU&apos;s <span>Faculty &amp; Intellectual Assets</span>
         </h2>
         <p className="uu2-intel-intro">
-          Uttaranchal University has a team of highly dedicated, experienced and
-          qualified faculty members from around the globe, including IITians,
-          NITians and Post-Doctoral Scholars. They are amongst the best
-          academicians with high moral values — a real role model for students.
+          Uttaranchal University&apos;s faculty includes IITians, NITians, and
+          Post-Doctoral Scholars from across India and the world. This academic
+          depth is one of the key reasons admissiondesk — as an authorised
+          admission partner — actively recommends UU to students who want
+          research-backed, industry-aligned education in Dehradun.
         </p>
         <UUIntellectualCarousel />
-      </section>
-
-      {/* Bottom carousel — photos */}
-      <section className="uu2-photos-section">
-        <h2 className="uu2-section-h">
-          Inside <span>the Campus</span>
-        </h2>
-        <UUPhotoCarousel />
       </section>
 
       {/* Industry-Top Recruiters */}
@@ -354,20 +348,34 @@ export function UUPageContent() {
       <footer className="uu-footer">
         <div className="uu-container">
           <div className="grid md:grid-cols-12 gap-10">
-            <div className="md:col-span-5">
-              <p className="uu-footer-name">UTTARANCHAL UNIVERSITY</p>
-              <p className="uu-footer-tag">DEHRADUN · NAAC A+</p>
+            <div className="md:col-span-7">
+              <p className="uu-footer-name">admissiondesk</p>
+              <p className="uu-footer-tag">AUTHORISED ADMISSION PARTNER · UTTARANCHAL UNIVERSITY · 2026–27</p>
               <p className="uu-footer-line mt-4">
-                Premnagar, Dehradun, Uttarakhand – 248007
+                admissiondesk is an MOU-authorised admission and counselling
+                partner of Uttaranchal University, Dehradun. Students who apply
+                through admissiondesk receive direct admission support,
+                scholarship guidance, and zero-cost counselling.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <p className="uu-footer-tag">SPEAK TO A COUNSELLOR</p>
+              <p className="uu-footer-line mt-3">
+                <a href="tel:+918273625802" style={{ opacity: 0.85 }}>+91 82736 25802</a>
+              </p>
+              <p className="uu-footer-line">
+                <a href="mailto:admissions@admission-desk.online" style={{ opacity: 0.85 }}>
+                  admissions@admission-desk.online
+                </a>
               </p>
             </div>
           </div>
           <div className="uu-footer-bar">
             <p>
-              © {new Date().getFullYear()} admissiondesk counselling page
-              for Uttaranchal University.
+              © {new Date().getFullYear()} admissiondesk — Authorised Admission Partner for Uttaranchal University.
+              This counselling page is operated by admissiondesk, not by the university.
             </p>
-            <p>NAAC A+ · UGC · AICTE · BCI · PCI · INC</p>
+            <p>UU: NAAC A+ · UGC · AICTE · BCI · PCI · INC</p>
           </div>
         </div>
       </footer>

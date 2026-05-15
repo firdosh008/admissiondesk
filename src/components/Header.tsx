@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { SITE } from "@/lib/site";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { dispatchHomePopup } from "./HomeLeadPopup";
@@ -67,51 +68,17 @@ export function Header({
 
       {/* Main nav */}
       <div className="bg-[color:var(--ivory)]/90 backdrop-blur-lg border-b border-[color:var(--rule-soft)]">
-        <div className="container-x flex items-center justify-between py-3.5">
+        <div className="container-x flex items-center justify-between py-1.5">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <span className="relative inline-block w-10 h-10">
-              <svg
-                viewBox="0 0 44 44"
-                className="w-full h-full"
-                aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient id="nav-logo-fill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0e4332" />
-                    <stop offset="100%" stopColor="#082b1f" />
-                  </linearGradient>
-                </defs>
-                <circle
-                  cx="22"
-                  cy="22"
-                  r="20"
-                  fill="url(#nav-logo-fill)"
-                  stroke="#c49230"
-                  strokeWidth="0.8"
-                />
-                <text
-                  x="22"
-                  y="28"
-                  textAnchor="middle"
-                  fill="#f4f8f4"
-                  fontFamily="var(--font-display, Fraunces, Georgia, serif)"
-                  fontSize="18"
-                  fontWeight="600"
-                >
-                  A
-                </text>
-                <path d="M14 33 L30 33" stroke="#c49230" strokeWidth="0.6" />
-              </svg>
-            </span>
-            <span className="leading-tight">
-              <span className="block font-display text-lg text-[color:var(--forest-deep)] tracking-tight">
-                {SITE.name}
-              </span>
-              <span className="block text-[10px] tracking-[0.28em] uppercase text-[color:var(--gold-deep)] font-semibold">
-                Counselling · Placement · Career
-              </span>
-            </span>
+          <Link href="/" className="flex items-center group" aria-label={SITE.name}>
+            <Image
+              src="/logo.png"
+              alt={SITE.name}
+              width={260}
+              height={80}
+              className="h-20 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

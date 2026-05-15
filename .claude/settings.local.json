@@ -12,7 +12,9 @@
       "Bash(npm run *)",
       "WebFetch(domain:www.collegeinfoindia.com)",
       "WebFetch(domain:www.admissionindia.com)",
-      "WebFetch(domain:upload.wikimedia.org)"
+      "WebFetch(domain:upload.wikimedia.org)",
+      "Bash(cd /d \"D:\\\\Development\\\\Zero\\\\edutech\\\\src\")",
+      "Bash(findstr /s /n \"svg\\\\|circle.*cx.*cy\\\\|monogram\\\\|crest\" *.tsx components\\\\*.tsx components\\\\college\\\\*.tsx)"
     ]
   }
 }

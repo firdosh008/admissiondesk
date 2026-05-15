@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SITE } from "@/lib/site";
 import { PROGRAMS, VISIBLE_COLLEGES } from "@/lib/constants";
 
@@ -14,9 +15,17 @@ export function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-4">
-            <p className="font-display text-2xl text-[color:var(--ivory)] tracking-tight">
-              {SITE.name}
-            </p>
+            <Link href="/" aria-label={SITE.name} className="inline-block">
+              <span className="inline-block bg-white rounded-xl px-4 py-3">
+                <Image
+                  src="/logo.png"
+                  alt={SITE.name}
+                  width={160}
+                  height={52}
+                  className="h-20 w-auto"
+                />
+              </span>
+            </Link>
             <p className="mt-3 text-sm text-[color:var(--ivory)]/60 max-w-sm leading-relaxed">
               An independent admission counselling and career-guidance partner
               helping students apply to selected universities across
@@ -141,26 +150,8 @@ export function Footer() {
           <p className="max-w-xl leading-relaxed">
             &copy; {year} {SITE.name}. All rights reserved. Admission
             counselling and application assistance partner under formal
-            arrangements where applicable; not an official university website.
+            arrangements where applicable.
           </p>
-          <div className="flex gap-5">
-            {[
-              { label: "Instagram", href: SITE.social.instagram },
-              { label: "Facebook", href: SITE.social.facebook },
-              { label: "LinkedIn", href: SITE.social.linkedin },
-              { label: "YouTube", href: SITE.social.youtube },
-            ].map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[color:var(--gold-soft)] transition-colors"
-              >
-                {s.label}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
