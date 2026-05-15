@@ -15,7 +15,8 @@ import {
 } from "@/lib/lead-form-schema";
 import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
-import { isUUCseParentProgramme, getAllProgramsGrouped, getProgramCategory } from "@/lib/uuPrograms";
+import { isUUCseParentProgramme } from "@/lib/uuPrograms";
+import { ProgrammeSelect } from "./ProgrammeSelect";
 
 type Props = {
   onSuccess: () => void;
@@ -45,7 +46,6 @@ export function HomePopupForm({ onSuccess, university }: Props) {
 
   const programLevel = watch("programLevel");
   const typedLevel = programLevel === "UG" || programLevel === "PG" ? programLevel : "";
-  const groupedPrograms = getAllProgramsGrouped(typedLevel);
 
   const specializationRequested = watch("specializationRequested");
 
@@ -223,28 +223,15 @@ export function HomePopupForm({ onSuccess, university }: Props) {
         <label htmlFor="pop-program" className="field-label">
           Programme of interest
         </label>
-        <select
+        <ProgrammeSelect
           id="pop-program"
-          className="field-select"
-          disabled={!typedLevel}
+          level={typedLevel}
           value={watch("program") || ""}
-          onChange={(e) => {
-            const prog = e.target.value;
+          onChange={(prog, cat) => {
             setValue("program", prog);
-            setValue("programCategory", getProgramCategory(typedLevel, prog));
+            setValue("programCategory", cat);
           }}
-        >
-          <option value="" disabled>
-            {!typedLevel ? "-- Select level first --" : "-- Select programme --"}
-          </option>
-          {Object.entries(groupedPrograms).map(([cat, progs]) => (
-            <optgroup key={cat} label={cat}>
-              {progs.map((p) => (
-                <option key={p} value={p}>{p}</option>
-              ))}
-            </optgroup>
-          ))}
-        </select>
+        />
         {errors.program && (
           <p className="field-error">{errors.program.message}</p>
         )}
