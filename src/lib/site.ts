@@ -46,7 +46,7 @@ export const PAGE_CONTACTS = {
 export const ANALYTICS = {
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || "",
   ga4Id: process.env.NEXT_PUBLIC_GA4_ID || "",
-  gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-W6RHJM8L",
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-5THDD4X5",
   googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "",
   googleAdsConversionLabel:
     process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || "",

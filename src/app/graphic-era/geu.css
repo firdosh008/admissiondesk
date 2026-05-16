@@ -507,6 +507,7 @@ body:has(.geu-root)::before {
 .geu-section-apply {
   background: var(--geu-blue);
   color: #fff;
+  padding-top: 0;
 }
 .geu-section-apply .geu-h2 {
   color: #fff;
@@ -841,17 +842,18 @@ body:has(.geu-root)::before {
 .geu-apply-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 0 1.5rem 4rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: center;
 }
 @media (min-width: 1024px) {
   .geu-apply-grid {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    padding: 5rem 2rem;
+    padding: 1rem 2rem 5rem;
+    align-items: center;
   }
 }
 .geu-apply-stat-cards {
@@ -899,8 +901,7 @@ body:has(.geu-root)::before {
   color: rgba(255,255,255,0.82);
 }
 .geu-apply-form-aside .geu-form-card {
-  position: sticky;
-  top: 5rem;
+  position: relative;
 }
 .geu-section-eyebrow {
   font-size: 0.74rem;
@@ -945,7 +946,7 @@ body:has(.geu-root)::before {
 .geu-form-card {
   background: #fff;
   border-radius: 12px;
-  padding: 2.2rem;
+  padding: 1.5rem;
   color: var(--geu-text);
   box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.45);
 }
@@ -957,12 +958,18 @@ body:has(.geu-root)::before {
   font-weight: 700;
 }
 .geu-form-title {
-  font-size: 1.55rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--geu-text);
-  margin: 0.4rem 0 1.6rem;
-  padding-bottom: 1.1rem;
+  margin: 0.3rem 0 1rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--geu-rule);
+}
+.geu-form-card form > * + * {
+  margin-top: 0.75rem;
+}
+.geu-form-card .grid {
+  gap: 0.75rem;
 }
 
 /* FAQ */

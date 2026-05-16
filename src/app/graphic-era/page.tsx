@@ -294,12 +294,6 @@ export default function GraphicEraPage() {
         <div className="geu-apply-grid">
           {/* Left — college info */}
           <div className="geu-apply-info">
-            <div className="geu-apply-stat-cards">
-              <div className="geu-apply-stat"><p className="geu-apply-stat-val">NAAC A+</p><p className="geu-apply-stat-lbl">Accredited</p></div>
-              <div className="geu-apply-stat"><p className="geu-apply-stat-val">85+</p><p className="geu-apply-stat-lbl">Programmes</p></div>
-              <div className="geu-apply-stat"><p className="geu-apply-stat-val">5,700+</p><p className="geu-apply-stat-lbl">Placements 2025</p></div>
-              <div className="geu-apply-stat"><p className="geu-apply-stat-val">444+</p><p className="geu-apply-stat-lbl">Recruiters</p></div>
-            </div>
             <div className="geu-apply-about">
               <h2 className="geu-apply-about-title">
                 About Graphic Era, Dehradun
