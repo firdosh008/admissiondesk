@@ -62,7 +62,7 @@ export function ThemedLeadForm({
   } = useForm<LeadFormValues>({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     resolver: zodResolver(leadFormSchema) as any,
-    defaultValues: leadFormDefaults,
+    defaultValues: { ...leadFormDefaults, consent: true },
   });
 
   const { cseTracks, showCseSpecialization, typedLevel } = useCascadingPrograms(watch, setValue);
@@ -310,8 +310,7 @@ export function ThemedLeadForm({
         <input type="checkbox" className="mt-1" {...register("consent")} />
         <span>
           I authorise admissiondesk and its counselling team to contact me by
-          call, SMS, WhatsApp or email regarding my admission enquiry. This will
-          override the registry on DND.
+          call, SMS, WhatsApp or email regarding my admission enquiry.
         </span>
       </label>
       {errors.consent && (

@@ -291,38 +291,38 @@ export default function GraphicEraPage() {
         </div>
       </section>
       <section id="apply" className="geu-section geu-section-apply">
-        <div className="geu-container grid lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5">
-            <h2 className="geu-h2">Admissions 2026</h2>
-            <p className="geu-body mt-5">
-              Fill the application form. An admissiondesk counsellor will get
-              in touch within 24 hours with your eligibility, GECET schedule,
-              scholarship slab and document checklist — at zero cost.
-            </p>
-            <div className="geu-contact-cards">
-              <div>
-                <p className="geu-contact-head">Call / WhatsApp</p>
-                <a href="tel:+917037149086">+91 70371 49086</a>
-              </div>
-              <div>
-                <p className="geu-contact-head">Email</p>
-                <a href="mailto:admin@admissiondesk.info">admin@admissiondesk.info</a>
-              </div>
-              <div>
-                <p className="geu-contact-head">Office</p>
-                <p>Doon Medical College Road, Patel Nagar, Dehradun – 248001</p>
-              </div>
-              <div>
-                <p className="geu-contact-head">GST Number</p>
-                <p>05DXGPP9903M2ZU</p>
-              </div>
+        <div className="geu-apply-grid">
+          {/* Left — college info */}
+          <div className="geu-apply-info">
+            <div className="geu-apply-stat-cards">
+              <div className="geu-apply-stat"><p className="geu-apply-stat-val">NAAC A+</p><p className="geu-apply-stat-lbl">Accredited</p></div>
+              <div className="geu-apply-stat"><p className="geu-apply-stat-val">85+</p><p className="geu-apply-stat-lbl">Programmes</p></div>
+              <div className="geu-apply-stat"><p className="geu-apply-stat-val">5,700+</p><p className="geu-apply-stat-lbl">Placements 2025</p></div>
+              <div className="geu-apply-stat"><p className="geu-apply-stat-val">444+</p><p className="geu-apply-stat-lbl">Recruiters</p></div>
+            </div>
+            <div className="geu-apply-about">
+              <h2 className="geu-apply-about-title">
+                About Graphic Era, Dehradun
+                <br />
+                <span>NAAC A+ · UGC Recognised · 30+ Years</span>
+              </h2>
+              <p className="geu-apply-about-body">
+                Graphic Era (Deemed-to-be-University) and Graphic Era Hill
+                University together form one of Uttarakhand&rsquo;s most
+                recognised university groups. UGC-approved, NAAC A+ accredited,
+                and home to 85+ programmes across Engineering, Management,
+                Computer Applications, Pharmacy, Sciences, Hospitality and more
+                — with top placements at Google, Amazon, Microsoft and 440+
+                other companies.
+              </p>
             </div>
           </div>
-          <div className="lg:col-span-7">
+
+          {/* Right — form */}
+          <aside className="geu-apply-form-aside">
             <div className="geu-form-card">
-              <p className="geu-form-eyebrow">Free Counselling — Application Form</p>
               <h3 className="geu-form-title">
-                Apply for Graphic Era (Deemed &amp; Hill University) Admission 2026
+                Talk to an Admissions Counsellor
               </h3>
               <Suspense fallback={null}>
                 <ThemedLeadForm
@@ -332,22 +332,18 @@ export default function GraphicEraPage() {
                   classes={{
                     form: "space-y-4",
                     field: "block",
-                    label:
-                      "block text-xs font-semibold uppercase tracking-wider text-[#282896] mb-1.5",
-                    select:
-                      "w-full px-4 py-3 border border-[#d8d8d8] rounded-md bg-white text-[15px] text-[#1a1718] focus:outline-none focus:border-[#282896] focus:ring-2 focus:ring-[#282896]/20",
-                    button:
-                      "w-full bg-[#282896] hover:bg-[#1d1d75] text-white py-3.5 rounded-md font-bold tracking-wide text-[15px] transition-colors",
-                    consent: "flex gap-2.5 items-start text-xs text-[#555]",
-                    error: "text-xs text-[#b91c1c] mt-1",
-                    success:
-                      "p-6 rounded-md bg-[#fff8de] border-l-4 border-[#FFCB05]",
-                    successTitle: "font-semibold text-lg text-[#282896]",
+                    label: "field-label",
+                    select: "field-select",
+                    button: "btn-primary w-full py-3.5 text-base",
+                    consent: "flex gap-3 items-start text-sm text-[color:var(--ink-soft)]",
+                    error: "field-error",
+                    success: "p-5 rounded-lg bg-[color:var(--cream)] border border-[color:var(--rule-soft)]",
+                    successTitle: "font-semibold text-lg text-[color:var(--forest-deep)]",
                   }}
                 />
               </Suspense>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
@@ -632,7 +628,7 @@ export default function GraphicEraPage() {
                 <a href="tel:+917037149086">+91 70371 49086</a>
               </p>
               <p className="geu-footer-line">
-                <a href="mailto:admin@admissiondesk.info">admin@admissiondesk.info</a>
+                <a href="mailto:support@admissiondesk.info">support@admissiondesk.info</a>
               </p>
             </div>
           </div>

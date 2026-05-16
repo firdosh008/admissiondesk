@@ -250,28 +250,22 @@ export function UUPageContent() {
           </div>
           <aside className="uu2-form-aside">
             <div className="uu2-form-card">
-              <p className="uu2-form-eyebrow">Authorised Partner · UU Admissions 2026–27</p>
-              <h3 className="uu2-form-title">Apply via admissiondesk — Authorised UU Admission Partner</h3>
-              <p className="mt-2 text-sm leading-6 text-[#4b5563]">
-                As an MOU-authorised partner of Uttaranchal University, admissiondesk
-                helps you secure admission with programme guidance, scholarship
-                matching, and document support — completely free for students.
-              </p>
+              <h3 className="uu2-form-title">Talk to an Admissions Counsellor</h3>
               <Suspense fallback={null}>
                 <UULeadForm
                   university="Uttaranchal University"
                   buttonLabel="Submit"
                   successText="A senior admissiondesk counsellor will reach out shortly with Uttaranchal University eligibility, scholarship guidance and document checklist."
                   classes={{
-                    form: "uu2-ff",
-                    field: "uu2-ff-field",
-                    label: "uu2-ff-label",
-                    select: "uu2-ff-input",
-                    button: "uu2-ff-button",
-                    consent: "uu2-ff-consent",
-                    error: "uu2-ff-error",
-                    success: "uu2-ff-success",
-                    successTitle: "uu2-ff-success-title",
+                    form: "space-y-4",
+                    field: "block",
+                    label: "block text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/75 mb-1.5",
+                    select: "field-select",
+                    button: "btn-primary w-full py-3.5 text-base",
+                    consent: "flex gap-3 items-start text-sm text-white/65",
+                    error: "text-xs text-red-300 mt-1",
+                    success: "p-5 rounded-lg bg-white/10 border border-white/20",
+                    successTitle: "font-semibold text-lg text-white",
                   }}
                 />
               </Suspense>
@@ -432,8 +426,8 @@ export function UUPageContent() {
                 <a href="tel:+918273625802" style={{ opacity: 0.85 }}>+91 82736 25802</a>
               </p>
               <p className="uu-footer-line">
-                <a href="mailto:admin@admissiondesk.info" style={{ opacity: 0.85 }}>
-                  admin@admissiondesk.info
+                <a href="mailto:support@admissiondesk.info" style={{ opacity: 0.85 }}>
+                  support@admissiondesk.info
                 </a>
               </p>
             </div>
