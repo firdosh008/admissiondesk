@@ -4,7 +4,7 @@ export const SITE = {
   tagline: "Admission Counselling & Placement Guidance",
   description:
     "Free 1-on-1 admission counselling for Uttaranchal University and Graphic Era in Dehradun, with course selection, eligibility, scholarship, and application support.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://admissiondesk.in").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.admissiondesk.info").replace(/\/$/, ""),
   locale: "en_IN",
   city: "Dehradun",
   region: "Uttarakhand",
