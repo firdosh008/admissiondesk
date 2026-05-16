@@ -249,7 +249,7 @@ export function ThemedLeadForm({
         </label>
         <ProgrammeSelect
           id="cf-program"
-          level={typedLevel}
+          level={typedLevel as "" | "UG" | "PG"}
           value={watch("program") || ""}
           onChange={(prog, cat) => {
             setValue("program", prog);

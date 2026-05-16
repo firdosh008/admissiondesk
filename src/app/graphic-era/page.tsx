@@ -228,7 +228,7 @@ export default function GraphicEraPage() {
       {/* Campus hero — full-width building image with identity overlay */}
       <section className="geu-campus-hero" aria-label="Graphic Era University campus">
         <Image
-          src="/colleges/geu/bg-geu.webp"
+          src="/colleges/geu/hero.webp"
           alt="Graphic Era University campus, Dehradun"
           fill
           priority
@@ -341,10 +341,10 @@ export default function GraphicEraPage() {
           <div className="lg:col-span-5">
             <div className="geu-side-img">
               <Image
-                src="/colleges/geu/hero.jpg"
-                alt="Students at a Graphic Era University campus event"
+                src="/colleges/geu/bg-geu.webp"
+                alt="Graphic Era University campus, Dehradun"
                 width={1200}
-                height={1500}
+                height={800}
                 className="geu-img-fill"
               />
             </div>
