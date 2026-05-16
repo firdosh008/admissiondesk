@@ -290,6 +290,66 @@ export default function GraphicEraPage() {
           </div>
         </div>
       </section>
+      <section id="apply" className="geu-section geu-section-apply">
+        <div className="geu-container grid lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-5">
+            <h2 className="geu-h2">Admissions 2026</h2>
+            <p className="geu-body mt-5">
+              Fill the application form. An admissiondesk counsellor will get
+              in touch within 24 hours with your eligibility, GECET schedule,
+              scholarship slab and document checklist — at zero cost.
+            </p>
+            <div className="geu-contact-cards">
+              <div>
+                <p className="geu-contact-head">Call / WhatsApp</p>
+                <a href="tel:+917037149086">+91 70371 49086</a>
+              </div>
+              <div>
+                <p className="geu-contact-head">Email</p>
+                <a href="mailto:admin@admissiondesk.info">admin@admissiondesk.info</a>
+              </div>
+              <div>
+                <p className="geu-contact-head">Office</p>
+                <p>Doon Medical College Road, Patel Nagar, Dehradun – 248001</p>
+              </div>
+              <div>
+                <p className="geu-contact-head">GST Number</p>
+                <p>05DXGPP9903M2ZU</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-7">
+            <div className="geu-form-card">
+              <p className="geu-form-eyebrow">Free Counselling — Application Form</p>
+              <h3 className="geu-form-title">
+                Apply for Graphic Era (Deemed &amp; Hill University) Admission 2026
+              </h3>
+              <Suspense fallback={null}>
+                <ThemedLeadForm
+                  university="Graphic Era"
+                  buttonLabel="Submit Application"
+                  successText="An admissiondesk counsellor will reach out within 24 hours with your Graphic Era eligibility, GECET guidance, scholarship slab and document checklist."
+                  classes={{
+                    form: "space-y-4",
+                    field: "block",
+                    label:
+                      "block text-xs font-semibold uppercase tracking-wider text-[#282896] mb-1.5",
+                    select:
+                      "w-full px-4 py-3 border border-[#d8d8d8] rounded-md bg-white text-[15px] text-[#1a1718] focus:outline-none focus:border-[#282896] focus:ring-2 focus:ring-[#282896]/20",
+                    button:
+                      "w-full bg-[#282896] hover:bg-[#1d1d75] text-white py-3.5 rounded-md font-bold tracking-wide text-[15px] transition-colors",
+                    consent: "flex gap-2.5 items-start text-xs text-[#555]",
+                    error: "text-xs text-[#b91c1c] mt-1",
+                    success:
+                      "p-6 rounded-md bg-[#fff8de] border-l-4 border-[#FFCB05]",
+                    successTitle: "font-semibold text-lg text-[#282896]",
+                  }}
+                />
+              </Suspense>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="geu-pageheading">
         <div className="geu-container">
@@ -536,66 +596,7 @@ export default function GraphicEraPage() {
         </div>
       </section>
 
-      <section id="apply" className="geu-section geu-section-apply">
-        <div className="geu-container grid lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5">
-            <h2 className="geu-h2">Admissions 2026</h2>
-            <p className="geu-body mt-5">
-              Fill the application form. An admissiondesk counsellor will get
-              in touch within 24 hours with your eligibility, GECET schedule,
-              scholarship slab and document checklist — at zero cost.
-            </p>
-            <div className="geu-contact-cards">
-              <div>
-                <p className="geu-contact-head">Call / WhatsApp</p>
-                <a href="tel:+917037149086">+91 70371 49086</a>
-              </div>
-              <div>
-                <p className="geu-contact-head">Email</p>
-                <a href="mailto:admin@admissiondesk.info">admin@admissiondesk.info</a>
-              </div>
-              <div>
-                <p className="geu-contact-head">Office</p>
-                <p>Doon Medical College Road, Patel Nagar, Dehradun – 248001</p>
-              </div>
-              <div>
-                <p className="geu-contact-head">GST Number</p>
-                <p>05DXGPP9903M2ZU</p>
-              </div>
-            </div>
-          </div>
-          <div className="lg:col-span-7">
-            <div className="geu-form-card">
-              <p className="geu-form-eyebrow">Free Counselling — Application Form</p>
-              <h3 className="geu-form-title">
-                Apply for Graphic Era (Deemed &amp; Hill University) Admission 2026
-              </h3>
-              <Suspense fallback={null}>
-                <ThemedLeadForm
-                  university="Graphic Era"
-                  buttonLabel="Submit Application"
-                  successText="An admissiondesk counsellor will reach out within 24 hours with your Graphic Era eligibility, GECET guidance, scholarship slab and document checklist."
-                  classes={{
-                    form: "space-y-4",
-                    field: "block",
-                    label:
-                      "block text-xs font-semibold uppercase tracking-wider text-[#282896] mb-1.5",
-                    select:
-                      "w-full px-4 py-3 border border-[#d8d8d8] rounded-md bg-white text-[15px] text-[#1a1718] focus:outline-none focus:border-[#282896] focus:ring-2 focus:ring-[#282896]/20",
-                    button:
-                      "w-full bg-[#282896] hover:bg-[#1d1d75] text-white py-3.5 rounded-md font-bold tracking-wide text-[15px] transition-colors",
-                    consent: "flex gap-2.5 items-start text-xs text-[#555]",
-                    error: "text-xs text-[#b91c1c] mt-1",
-                    success:
-                      "p-6 rounded-md bg-[#fff8de] border-l-4 border-[#FFCB05]",
-                    successTitle: "font-semibold text-lg text-[#282896]",
-                  }}
-                />
-              </Suspense>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <section id="faqs" className="geu-section geu-section-soft">
         <div className="geu-container">
