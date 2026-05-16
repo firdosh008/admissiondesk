@@ -90,31 +90,12 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
           </p>
 
           <h1 className={`mt-5 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl md:text-6xl ${variant.ink}`}>
-            Thank you. Your counselling request is in.
+            Thank you.
           </h1>
 
           <p className="mt-6 max-w-lg text-base leading-8 text-slate-600 sm:text-lg">
-            A senior counsellor from {SITE.name} will contact you shortly. We
-            support students with admission counselling and application
-            assistance — we are not the university website.
+            A senior counsellor will contact you shortly.
           </p>
-
-          <a
-            href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-            className={`mt-10 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg ${variant.button}`}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.06 6.06l1.14-1.14a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            Call {SITE.phone}
-          </a>
-
-          <Link
-            href={variant.path}
-            className="mt-5 text-sm text-slate-500 underline underline-offset-4 hover:text-slate-700 transition-colors"
-          >
-            Back to home
-          </Link>
         </div>
       </section>
     </main>

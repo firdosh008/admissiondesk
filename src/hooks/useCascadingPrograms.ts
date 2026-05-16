@@ -49,14 +49,6 @@ export function useCascadingPrograms(
   }, [programLevel, setValue]);
 
   useEffect(() => {
-    if (programOptions.length === 1) {
-      setValue("program", programOptions[0]);
-    } else {
-      setValue("program", "");
-    }
-  }, [programCategory, programOptions, setValue]);
-
-  useEffect(() => {
     setValue("specializationRequested", false);
     setValue("cseTrack", "");
   }, [program, setValue]);
