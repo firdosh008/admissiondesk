@@ -11,13 +11,14 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
+import { GEStickyCTA } from "@/components/college/GEStickyCTA";
 import { PAGE_CONTACTS } from "@/lib/site";
 import "./geu.css";
 
 export const metadata: Metadata = {
   title: "Graphic Era Admission Counselling 2026 | admissiondesk",
   description:
-    "Get Graphic Era admission counselling, programme shortlisting, GECET guidance, scholarship support, and application assistance from admissiondesk.",
+    "Get free admission counselling for Graphic Era (Deemed-to-be University) and Graphic Era Hill University — programme shortlisting, GECET guidance, scholarship support, and application assistance from admissiondesk.",
   alternates: { canonical: "/graphic-era" },
 };
 
@@ -161,7 +162,7 @@ const PLACEMENT_LOGOS = [
 const FAQS = [
   {
     q: "Is Graphic Era recognised by UGC?",
-    a: "Yes. Graphic Era (Deemed-to-be-University) is recognised by the UGC under Section 3 of the UGC Act, 1956 and is accredited NAAC A+.",
+    a: "Yes. Graphic Era (Deemed-to-be-University) is recognised by the UGC under Section 3 of the UGC Act, 1956 and is accredited NAAC A+. Graphic Era Hill University is a State Private University established under the Uttarakhand Universities Act and is UGC-recognised.",
   },
   {
     q: "Who manages this counselling page?",
@@ -224,6 +225,72 @@ export default function GraphicEraPage() {
         </header>
       ) : null}
 
+      {/* Campus hero — full-width building image with identity overlay */}
+      <section className="geu-campus-hero" aria-label="Graphic Era University campus">
+        <Image
+          src="/colleges/geu/bg-geu.webp"
+          alt="Graphic Era University campus, Dehradun"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+        />
+        <div className="geu-campus-hero-grad" aria-hidden />
+
+        {/* Top-center: logo card + admissions badge */}
+        <div className="geu-campus-hero-overlay">
+          <div className="geu-campus-hero-card">
+            <Image
+              src="/colleges/gehu/graphic_logo.webp"
+              alt="Graphic Era University"
+              width={220}
+              height={70}
+              style={{ width: "220px", height: "auto" }}
+              className="geu-campus-hero-logo-img"
+            />
+          </div>
+          <div className="geu-campus-hero-badge">
+            <span className="geu-campus-hero-dot" aria-hidden />
+            Admissions Open 2026–27
+          </div>
+        </div>
+
+        {/* Center: headline */}
+        <div className="geu-campus-hero-center" aria-hidden>
+          <h2 className="geu-campus-hero-headline">
+            Dehradun&rsquo;s Premier<br />
+            <span>Deemed-to-be &amp; Hill University</span>
+          </h2>
+          <p className="geu-campus-hero-subline">
+            NAAC A+ Accredited · UGC Recognised · 30+ Years of Excellence · Two Campuses · Top Placements at Google, Amazon &amp; more
+          </p>
+        </div>
+
+        {/* Bottom: stats + programme tags */}
+        <div className="geu-campus-hero-footer" aria-hidden>
+          <div className="geu-campus-hero-stats">
+            <span>NAAC A+ <em>Accredited</em></span>
+            <span className="geu-campus-hero-sep">·</span>
+            <span>85+ Programmes</span>
+            <span className="geu-campus-hero-sep">·</span>
+            <span>UG · PG · Doctoral</span>
+            <span className="geu-campus-hero-sep">·</span>
+            <span>Merit Scholarships up to <em>100%</em></span>
+            <span className="geu-campus-hero-sep">·</span>
+            <span>Global Exchange Programmes</span>
+          </div>
+          <div className="geu-campus-hero-tags">
+            <span>Engineering</span>
+            <span>Management</span>
+            <span>Computer Applications</span>
+            <span>Pharmacy &amp; Health</span>
+            <span>Sciences &amp; Humanities</span>
+            <span>Hospitality</span>
+            <span>Food Technology</span>
+          </div>
+        </div>
+      </section>
+
       <section className="geu-pageheading">
         <div className="geu-container">
           <h1 className="geu-h1">Admissions</h1>
@@ -258,11 +325,11 @@ export default function GraphicEraPage() {
               Choosing the right university is an important decision for any
               student, for the professional success one aspires for in their
               lives, depends on this very decision. Graphic Era
-              (Deemed-to-be-University) offers its prospective students more
-              than 85 UG, PG and Doctoral programmes to choose from, spread
-              across various domains such as Engineering, Computer Application,
-              Management, Commerce, Life Sciences, Food Technology, Hospitality,
-              Paramedical, Humanities and Social Sciences, and more.
+              (Deemed-to-be-University) and Graphic Era Hill University together
+              offer more than 85 UG, PG and Doctoral programmes to choose from,
+              spread across various domains such as Engineering, Computer
+              Application, Management, Commerce, Life Sciences, Food Technology,
+              Hospitality, Paramedical, Humanities and Social Sciences, and more.
             </p>
             <div className="geu-callout">
               <strong>Note:</strong> This counselling page is managed by
@@ -474,36 +541,40 @@ export default function GraphicEraPage() {
           <div className="lg:col-span-5">
             <h2 className="geu-h2">Admissions 2026</h2>
             <p className="geu-body mt-5">
-              Fill the application form. Admissions team will get in touch
-              within 24 hours with your eligibility, GECET schedule, scholarship
-              slab and document checklist.
+              Fill the application form. An admissiondesk counsellor will get
+              in touch within 24 hours with your eligibility, GECET schedule,
+              scholarship slab and document checklist — at zero cost.
             </p>
             <div className="geu-contact-cards">
               <div>
-                <p className="geu-contact-head">Helpline</p>
-                <p>1800 270 1010</p>
+                <p className="geu-contact-head">Call / WhatsApp</p>
+                <a href="tel:+917037149086">+91 70371 49086</a>
               </div>
               <div>
                 <p className="geu-contact-head">Email</p>
-                <p>admissions@geu.ac.in</p>
+                <a href="mailto:admin@admissiondesk.info">admin@admissiondesk.info</a>
               </div>
               <div>
-                <p className="geu-contact-head">Campus</p>
-                <p>566/6 Bell Road, Clement Town, Dehradun – 248002</p>
+                <p className="geu-contact-head">Office</p>
+                <p>Doon Medical College Road, Patel Nagar, Dehradun – 248001</p>
+              </div>
+              <div>
+                <p className="geu-contact-head">GST Number</p>
+                <p>05DXGPP9903M2ZU</p>
               </div>
             </div>
           </div>
           <div className="lg:col-span-7">
             <div className="geu-form-card">
-              <p className="geu-form-eyebrow">Application Form</p>
+              <p className="geu-form-eyebrow">Free Counselling — Application Form</p>
               <h3 className="geu-form-title">
-                Apply for Graphic Era Admission 2026
+                Apply for Graphic Era (Deemed &amp; Hill University) Admission 2026
               </h3>
               <Suspense fallback={null}>
                 <ThemedLeadForm
                   university="Graphic Era"
                   buttonLabel="Submit Application"
-                  successText="An admissiondesk counsellor will reach out within 24 hours with Graphic Era eligibility, GECET guidance and document checklist."
+                  successText="An admissiondesk counsellor will reach out within 24 hours with your Graphic Era eligibility, GECET guidance, scholarship slab and document checklist."
                   classes={{
                     form: "space-y-4",
                     field: "block",
@@ -542,55 +613,39 @@ export default function GraphicEraPage() {
 
       <footer className="geu-footer">
         <div className="geu-container">
-          <div className="grid md:grid-cols-3 gap-10">
-            <div>
-              <p className="geu-footer-name">Graphic Era</p>
-              <p className="geu-footer-tag">deemed to be University · Dehradun</p>
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-7">
+              <p className="geu-footer-name">admissiondesk</p>
+              <p className="geu-footer-tag">AUTHORISED ADMISSION PARTNER · GRAPHIC ERA GROUP · 2026–27</p>
               <p className="geu-footer-line mt-4">
-                566/6 Bell Road, Clement Town, Dehradun, Uttarakhand – 248002
+                admissiondesk is an authorised admission and counselling
+                partner for Graphic Era (Deemed-to-be-University) and Graphic
+                Era Hill University, Dehradun. Students who apply through
+                admissiondesk receive direct admission support, scholarship
+                guidance, and zero-cost counselling.
               </p>
             </div>
-            <div>
-              <p className="geu-footer-head">Admissions</p>
+            <div className="md:col-span-5">
+              <p className="geu-footer-head">Speak to a Counsellor</p>
+              <p className="geu-footer-line mt-3">
+                <a href="tel:+917037149086">+91 70371 49086</a>
+              </p>
               <p className="geu-footer-line">
-                Helpline · 1800 270 1010
-                <br />
-                Email · admissions@geu.ac.in
+                <a href="mailto:admin@admissiondesk.info">admin@admissiondesk.info</a>
               </p>
-            </div>
-            <div>
-              <p className="geu-footer-head">Quick Links</p>
-              <ul>
-                <li>
-                  <a href="#process">Admission Process</a>
-                </li>
-                <li>
-                  <a href="#scholarship">Scholarship</a>
-                </li>
-                <li>
-                  <a href="#gecet">GECET</a>
-                </li>
-                <li>
-                  <a href="#apply">Apply Now</a>
-                </li>
-                <li>
-                  <Link href="/privacy">Privacy Policy</Link>
-                </li>
-                <li>
-                  <Link href="/terms">Terms of Service</Link>
-                </li>
-              </ul>
             </div>
           </div>
           <div className="geu-footer-bar">
             <p>
-              © {new Date().getFullYear()} admissiondesk counselling page
-              for Graphic Era.
+              © {new Date().getFullYear()} admissiondesk — Authorised Admission Partner for Graphic Era (Deemed-to-be University) &amp; Graphic Era Hill University.
+              This counselling page is operated by admissiondesk, not by the university.
             </p>
-            <p>NAAC A+ · UGC Recognised Deemed University</p>
+            <p>GEU: NAAC A+ · UGC Section 3 · Deemed-to-be University &amp; Hill University</p>
+            <p>GST: 05DXGPP9903M2ZU</p>
           </div>
         </div>
       </footer>
+      <GEStickyCTA />
       <HomeLeadPopup university="Graphic Era" />
     </div>
   );

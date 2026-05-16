@@ -15,6 +15,7 @@ import {
 import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
 import { isUUCseParentProgramme } from "@/lib/uuPrograms";
+import { ProgrammeSelect } from "@/components/ProgrammeSelect";
 
 declare global {
   interface Window {
@@ -64,12 +65,7 @@ export function ThemedLeadForm({
     defaultValues: leadFormDefaults,
   });
 
-  const {
-    categoryOptions,
-    programOptions,
-    cseTracks,
-    showCseSpecialization,
-  } = useCascadingPrograms(watch, setValue);
+  const { cseTracks, showCseSpecialization, typedLevel } = useCascadingPrograms(watch, setValue);
 
   const specializationRequested = watch("specializationRequested");
 
@@ -247,58 +243,22 @@ export function ThemedLeadForm({
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div className={classes.field}>
-          <label htmlFor="cf-category" className={classes.label}>
-            Programme<span aria-hidden>*</span>
-          </label>
-          <select
-            id="cf-category"
-            className={classes.select}
-            disabled={!watch("programLevel")}
-            {...register("programCategory")}
-          >
-            <option value="" disabled>
-              {!watch("programLevel")
-                ? "-- Select level first --"
-                : "-- Select Category --"}
-            </option>
-            {categoryOptions.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-          {errors.programCategory && (
-            <p className={classes.error}>{errors.programCategory.message}</p>
-          )}
-        </div>
-
-        <div className={classes.field}>
-          <label htmlFor="cf-program" className={classes.label}>
-          Specialization<span aria-hidden>*</span>
-          </label>
-          <select
-            id="cf-program"
-            className={classes.select}
-            disabled={!watch("programCategory")}
-            {...register("program")}
-          >
-            <option value="" disabled>
-              {!watch("programCategory")
-                ? "-- Select category first --"
-                : "-- Select Programme --"}
-            </option>
-            {programOptions.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
-          {errors.program && (
-            <p className={classes.error}>{errors.program.message}</p>
-          )}
-        </div>
+      <div className={classes.field}>
+        <label htmlFor="cf-program" className={classes.label}>
+          Programme of interest<span aria-hidden>*</span>
+        </label>
+        <ProgrammeSelect
+          id="cf-program"
+          level={typedLevel}
+          value={watch("program") || ""}
+          onChange={(prog, cat) => {
+            setValue("program", prog);
+            setValue("programCategory", cat);
+          }}
+        />
+        {errors.program && (
+          <p className={classes.error}>{errors.program.message}</p>
+        )}
       </div>
 
       {showCseSpecialization && (

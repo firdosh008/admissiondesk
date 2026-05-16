@@ -191,6 +191,233 @@ body:has(.geu-root)::before {
   max-width: 38rem;
 }
 
+/* Campus hero — full-width image with identity overlay */
+.geu-campus-hero {
+  position: relative;
+  width: 100%;
+  height: calc(100svh - 112px);
+  min-height: 520px;
+  max-height: 960px;
+  overflow: hidden;
+  background: #1a1a4e;
+  margin-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .geu-campus-hero {
+    height: calc(100svh - 80px);
+    min-height: 420px;
+  }
+}
+@media (max-width: 480px) {
+  .geu-campus-hero {
+    height: calc(100svh - 64px);
+    min-height: 360px;
+  }
+}
+.geu-campus-hero-grad {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.45) 40%,
+      rgba(0, 0, 0, 0.55) 70%,
+      rgba(0, 0, 0, 0.78) 100%
+    ),
+    rgba(15, 15, 50, 0.35);
+  pointer-events: none;
+  z-index: 1;
+}
+.geu-campus-hero-overlay {
+  position: absolute;
+  top: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  z-index: 2;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+}
+@media (max-width: 600px) {
+  .geu-campus-hero-overlay { top: 1.25rem; }
+}
+.geu-campus-hero-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: rgba(10, 10, 45, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+.geu-campus-hero-logo-img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+@media (max-width: 480px) {
+  .geu-campus-hero-logo-img { width: 160px !important; }
+}
+.geu-campus-hero-identity { line-height: 1.2; }
+.geu-campus-hero-uname {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-family: "Times New Roman", Georgia, serif !important;
+  margin: 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+@media (max-width: 480px) {
+  .geu-campus-hero-uname { font-size: 1.1rem; }
+}
+.geu-campus-hero-sub {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.84rem;
+  margin: 0.1rem 0 0;
+}
+.geu-campus-hero-sub strong {
+  color: #fff;
+  font-size: 1rem;
+}
+.geu-campus-hero-city {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0.2rem 0 0;
+}
+.geu-campus-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 2px solid #f59e0b;
+  border-radius: 999px;
+  padding: 0.38rem 1rem;
+  color: #fde68a;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(120, 60, 0, 0.65);
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.3);
+}
+.geu-campus-hero-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  flex-shrink: 0;
+  animation: geu-hero-pulse 2s ease-in-out infinite;
+}
+@keyframes geu-hero-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.82); }
+}
+
+/* campus hero — center headline */
+.geu-campus-hero-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 0 clamp(1rem, 6vw, 4rem);
+  text-align: center;
+  pointer-events: none;
+}
+.geu-campus-hero-headline {
+  color: #fff;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-family: "Inter", -apple-system, system-ui, sans-serif !important;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.8);
+  margin: 0 0 0.65rem;
+}
+.geu-campus-hero-headline span {
+  color: #fde68a;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9), 0 0 24px rgba(245, 158, 11, 0.4);
+}
+.geu-campus-hero-subline {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 500;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+  margin: 0;
+  max-width: 38rem;
+}
+@media (max-width: 480px) {
+  .geu-campus-hero-headline { font-size: 1.45rem; }
+}
+
+/* campus hero — bottom stats + tags bar */
+.geu-campus-hero-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1.5rem clamp(1rem, 4vw, 2.5rem) 2rem;
+}
+.geu-campus-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #fff;
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+}
+.geu-campus-hero-stats em {
+  font-style: normal;
+  color: #fde68a;
+}
+.geu-campus-hero-sep {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  font-size: 1.1em;
+}
+.geu-campus-hero-tags {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.geu-campus-hero-tags span {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+@media (max-width: 480px) {
+  .geu-campus-hero-footer { padding-bottom: 1.25rem; }
+  .geu-campus-hero-tags span { font-size: 0.7rem; padding: 0.22rem 0.6rem; }
+}
+
 /* Page heading */
 .geu-pageheading {
   background: #fff;
@@ -709,7 +936,8 @@ body:has(.geu-root)::before {
   font-size: 1.6rem;
   font-weight: 800;
   color: #fff;
-  font-family: "Times New Roman", Georgia, serif !important;
+  font-family: "Inter", -apple-system, system-ui, sans-serif !important;
+  letter-spacing: -0.02em;
 }
 .geu-footer-tag {
   font-size: 0.78rem;

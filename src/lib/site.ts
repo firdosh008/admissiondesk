@@ -11,7 +11,7 @@ export const SITE = {
   country: "India",
   phone: "+91 82736 25802",
   whatsapp: "918273625802",
-  email: "admissions@admissiondesk.info",
+  email: "admin@admissiondesk.info",
   address: {
     street: "Doon Medical College Road, Patel Nagar",
     locality: "Dehradun",
@@ -38,7 +38,7 @@ export const PAGE_CONTACTS = {
     whatsapp: "918273625802",
   },
   graphicEra: {
-    phone: "1800 270 1010",
+    phone: "+91 70371 49086",
     whatsapp: "918002701010",
   },
 } as const;

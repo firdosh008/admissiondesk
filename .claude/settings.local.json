@@ -50,7 +50,10 @@
       "WebFetch(domain:shivalikcollege.edu.in)",
       "Bash(Get-ChildItem \"D:\\\\Development\\\\Zero\\\\edutech\\\\public\\\\colleges\" -Recurse -File)",
       "Bash(Select-Object FullName, Length)",
-      "Bash(Sort-Object FullName)"
+      "Bash(Sort-Object FullName)",
+      "Bash(grep -E \"\\\\.\\(tsx|ts\\)$\")",
+      "Bash(Get-ChildItem D:\\\\Development\\\\Zero\\\\edutech\\\\public\\\\colleges\\\\geu *)",
+      "Bash(dir D:\\\\Development\\\\Zero\\\\edutech\\\\public *)"
     ]
   }
 }

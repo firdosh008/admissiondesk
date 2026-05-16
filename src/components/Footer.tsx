@@ -28,9 +28,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-sm text-[color:var(--ivory)]/60 max-w-sm leading-relaxed">
-              An independent admission counselling and career-guidance partner
-              helping students apply to selected universities across
-              Uttarakhand.
+              admissiondesk is an MOU-authorised admission and counselling
+              partner of 4+ Universities in Uttarakhand. Students who apply through admissiondesk receive direct
+              admission support, scholarship guidance, and zero-cost counselling.
             </p>
 
             {/* Contact */}
@@ -51,6 +51,7 @@ export function Footer() {
                   {SITE.email}
                 </a>
               </p>
+              
               <p className="text-[color:var(--ivory)]/55 text-xs leading-relaxed">
                 {SITE.address.street}, {SITE.address.locality},{" "}
                 {SITE.address.region} {SITE.address.postalCode}
@@ -86,7 +87,7 @@ export function Footer() {
               {PROGRAMS.map((p) => (
                 <li key={p.slug}>
                   <a
-                    href="#programs"
+                    href="/#programs"
                     className="hover:text-[color:var(--gold-soft)] transition-colors"
                   >
                     {p.title}
@@ -120,7 +121,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#faq"
+                  href="/#faq"
                   className="hover:text-[color:var(--gold-soft)] transition-colors"
                 >
                   FAQ
@@ -153,6 +154,7 @@ export function Footer() {
             counselling and application assistance partner under formal
             arrangements where applicable.
           </p>
+          <p className="shrink-0">GST: 05DXGPP9903M2ZU</p>
         </div>
       </div>
     </footer>

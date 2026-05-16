@@ -146,12 +146,73 @@ export function UUPageContent() {
         </header>
       ) : null}
 
-      {/* Hero — wide picture carousel */}
-      <section className="uu2-hero-wrap" id="hero">
-        <UUImageHero />
-      </section>
+      {/* Static campus hero */}
+      <section className="uu2-campus-hero" aria-label="Uttaranchal University campus">
+        <Image
+          src="/colleges/uu/bg-uu.png"
+          alt="Uttaranchal University campus, Dehradun"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center top" }}
+        />
 
-      {/* Stats + form section */}
+        {/* Top-center: logo + admissions badge */}
+        <div className="uu2-hero-identity">
+          <div className="uu2-hero-id-card">
+            <Image
+              src="/colleges/uu/UU-Logo-Naac-Nirf.png"
+              alt="Uttaranchal University"
+              width={170}
+              height={50}
+              style={{ width: "170px", height: "auto" }}
+              className="uu2-hero-id-logo"
+            />
+            <p className="uu2-hero-id-city">Dehradun, Uttarakhand</p>
+          </div>
+          <div className="uu2-hero-id-badge">
+            <span className="uu2-hero-id-dot" />
+            Admissions Open 2026–27
+          </div>
+        </div>
+
+        {/* Center: headline */}
+        <div className="uu2-campus-hero-center" aria-hidden>
+          <h2 className="uu2-campus-hero-headline">
+            Uttarakhand&rsquo;s Top-Ranked<br />
+            <span>Private University</span>
+          </h2>
+          <p className="uu2-campus-hero-subline">
+            UGC Recognised · AICTE Approved · Established 2003 · 25+ years of academic excellence
+          </p>
+        </div>
+
+        {/* Bottom: stats + programme tags */}
+        <div className="uu2-campus-hero-footer" aria-hidden>
+          <div className="uu2-campus-hero-stats">
+            <span>NAAC A+ <em>First Cycle</em></span>
+            <span className="uu2-campus-hero-sep">·</span>
+            <span>143 Programmes</span>
+            <span className="uu2-campus-hero-sep">·</span>
+            <span>12 Schools</span>
+            <span className="uu2-campus-hero-sep">·</span>
+            <span>750+ Placement Companies</span>
+            <span className="uu2-campus-hero-sep">·</span>
+            <span>15,000+ Alumni</span>
+          </div>
+          <div className="uu2-campus-hero-tags">
+            <span>AI / ML</span>
+            <span>Law</span>
+            <span>Pharmacy</span>
+            <span>Engineering</span>
+            <span>Management</span>
+            <span>Medical Sciences</span>
+            <span>Computer Applications</span>
+            <span>Nursing</span>
+          </div>
+        </div>
+      </section>
+{/* Stats + form section */}
       <section className="uu2-stats" id="apply">
         <div className="uu2-stats-bg" aria-hidden />
         <div className="uu2-stats-grid">
@@ -218,6 +279,13 @@ export function UUPageContent() {
           </aside>
         </div>
       </section>
+      
+      {/* Promotional carousel */}
+      <section className="uu2-hero-wrap" id="hero">
+        <UUImageHero />
+      </section>
+
+      
 
       {/* Accreditation marquee */}
       <section className="uu2-accred-section">
@@ -364,8 +432,8 @@ export function UUPageContent() {
                 <a href="tel:+918273625802" style={{ opacity: 0.85 }}>+91 82736 25802</a>
               </p>
               <p className="uu-footer-line">
-                <a href="mailto:admissions@admissiondesk.info" style={{ opacity: 0.85 }}>
-                  admissions@admissiondesk.info
+                <a href="mailto:admin@admissiondesk.info" style={{ opacity: 0.85 }}>
+                  admin@admissiondesk.info
                 </a>
               </p>
             </div>
@@ -376,6 +444,7 @@ export function UUPageContent() {
               This counselling page is operated by admissiondesk, not by the university.
             </p>
             <p>UU: NAAC A+ · UGC · AICTE · BCI · PCI · INC</p>
+            <p>GST: 05DXGPP9903M2ZU</p>
           </div>
         </div>
       </footer>

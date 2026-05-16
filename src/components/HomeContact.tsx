@@ -33,6 +33,16 @@ const contactItems = [
     value: `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region}`,
     href: undefined as string | undefined,
   },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><line x1="12" y1="12" x2="12" y2="16" /><line x1="10" y1="14" x2="14" y2="14" />
+      </svg>
+    ),
+    label: "GST Number",
+    value: "05DXGPP9903M2ZU",
+    href: undefined as string | undefined,
+  },
 ];
 
 export function HomeContact() {
@@ -48,7 +58,7 @@ export function HomeContact() {
           touch today.
         </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {contactItems.map(({ icon, label, value, href }) => (
             <div key={label} className="card-paper flex items-start gap-4 p-6">
               <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
