@@ -53,7 +53,9 @@
       "Bash(Sort-Object FullName)",
       "Bash(grep -E \"\\\\.\\(tsx|ts\\)$\")",
       "Bash(Get-ChildItem D:\\\\Development\\\\Zero\\\\edutech\\\\public\\\\colleges\\\\geu *)",
-      "Bash(dir D:\\\\Development\\\\Zero\\\\edutech\\\\public *)"
+      "Bash(dir D:\\\\Development\\\\Zero\\\\edutech\\\\public *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\Development\\\\Zero\\\\edutech\\\\src\\\\components\" -File)",
+      "Bash(Select-Object Name)"
     ]
   }
 }

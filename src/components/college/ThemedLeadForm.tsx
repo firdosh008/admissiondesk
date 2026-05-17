@@ -16,6 +16,7 @@ import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
 import { isUUCseParentProgramme } from "@/lib/uuPrograms";
 import { ProgrammeSelect } from "@/components/ProgrammeSelect";
+import { TurnstileWidget } from "@/components/TurnstileWidget";
 
 declare global {
   interface Window {
@@ -51,6 +52,7 @@ export function ThemedLeadForm({
   const router = useRouter();
   const searchParams = useSearchParams();
   const [serverError, setServerError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const {
     register,
@@ -94,6 +96,7 @@ export function ThemedLeadForm({
           consent: values.consent,
           programLevel: values.programLevel,
           specializationRequested: specFlag,
+          cfTurnstileToken: turnstileToken ?? "",
         }),
       });
       if (!res.ok) throw new Error("Failed to submit");
@@ -128,10 +131,12 @@ export function ThemedLeadForm({
       }
 
       reset();
+      setTurnstileToken(null);
       const params = new URLSearchParams(searchParams.toString());
       params.set("college", getCollegeSlug(university));
       router.push(`/thank-you?${params.toString()}`);
     } catch {
+      setTurnstileToken(null);
       setServerError(
         "Something went wrong. Please try the WhatsApp button or call our helpline."
       );
@@ -317,11 +322,17 @@ export function ThemedLeadForm({
         <p className={classes.error}>{errors.consent.message}</p>
       )}
 
+      <TurnstileWidget
+        onToken={setTurnstileToken}
+        onExpire={() => setTurnstileToken(null)}
+        onError={() => setTurnstileToken(null)}
+      />
+
       {serverError && <p className={classes.error}>{serverError}</p>}
 
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || (!turnstileToken && !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)}
         className={classes.button}
       >
         {isSubmitting ? "Submitting…" : buttonLabel}

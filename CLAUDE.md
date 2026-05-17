@@ -20,7 +20,7 @@ npm run lint       # ESLint
 
 ## Environment variables
 
-Set in `.env.local` (not committed). Production domain is `admission-desk.online`.
+Set in `.env.local` (not committed). Production domain is `admissiondesk.info`.
 
 | Variable | Purpose |
 |---|---|
@@ -90,7 +90,7 @@ Both must fail for the API to return 502/500. No silent data loss.
 ### Data layer
 
 - **`src/lib/constants.ts`** — All structured content: `COLLEGES` (4 universities), `VISIBLE_COLLEGES` (filtered subset for home page), `PROGRAMS` (6 program families), `STATS`, `PROCESS`, `FAQS`, `TOP_RECRUITERS`, `ADMITS`, `TESTIMONIALS` (6 student quotes), `PARTNER_LOGOS`, `DEHRADUN_COUNSELLING_COLLEGES`.
-- **`src/lib/site.ts`** — Site config: name, contact (`admissions@admission-desk.online`, `+91 82736 25802`), social links, address. `PAGE_CONTACTS` (per-college phone/WhatsApp overrides), `ANALYTICS` (IDs from env vars).
+- **`src/lib/site.ts`** — Site config: name, contact (`admissions@admissiondesk.info`, `+91 82736 25802`), social links, address. `PAGE_CONTACTS` (per-college phone/WhatsApp overrides), `ANALYTICS` (IDs from env vars).
 - **`src/lib/uuPrograms.ts`** — UU programme data with cascading Level → Category → Programme + CSE specializations.
 
 ### Styling

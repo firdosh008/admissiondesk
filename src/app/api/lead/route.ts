@@ -24,6 +24,7 @@ const leadSchema = z.object({
     .default("")
     .transform((v) => (v === "UG" || v === "PG" ? v : "")),
   specializationRequested: z.boolean().default(false),
+  cfTurnstileToken: z.string().optional().default(""),
 });
 
 function formatIST(date: Date): string {
@@ -57,6 +58,38 @@ export async function POST(req: Request) {
       { error: "Validation failed", issues: parsed.error.issues },
       { status: 400 }
     );
+  }
+
+  // Verify Cloudflare Turnstile token when secret key is configured
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+  if (turnstileSecret) {
+    const token = parsed.data.cfTurnstileToken;
+    if (!token) {
+      return NextResponse.json(
+        { error: "Bot verification required. Please complete the security check." },
+        { status: 400 }
+      );
+    }
+    try {
+      const verifyRes = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ secret: turnstileSecret, response: token }),
+        }
+      );
+      const { success } = (await verifyRes.json()) as { success: boolean };
+      if (!success) {
+        return NextResponse.json(
+          { error: "Bot verification failed. Please refresh and try again." },
+          { status: 400 }
+        );
+      }
+    } catch (err) {
+      console.error("[lead] Turnstile verification error:", err);
+      // Don't block submission if Cloudflare's API is unreachable
+    }
   }
 
   const record: LeadRecord = {

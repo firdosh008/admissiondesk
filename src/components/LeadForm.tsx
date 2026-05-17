@@ -17,6 +17,7 @@ import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
 import { isUUCseParentProgramme } from "@/lib/uuPrograms";
 import { ProgrammeSelect } from "./ProgrammeSelect";
+import { TurnstileWidget } from "./TurnstileWidget";
 
 declare global {
   interface Window {
@@ -30,6 +31,7 @@ export function LeadForm() {
   const searchParams = useSearchParams();
   const [serverError, setServerError] = useState<string | null>(null);
   const [selectedUniversity, setSelectedUniversity] = useState("Help me decide");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const {
     register,
@@ -76,6 +78,7 @@ export function LeadForm() {
           consent: values.consent,
           programLevel: values.programLevel,
           specializationRequested: specFlag,
+          cfTurnstileToken: turnstileToken ?? "",
         }),
       });
       if (!res.ok) throw new Error("Failed to submit");
@@ -109,10 +112,12 @@ export function LeadForm() {
 
       reset();
       setSelectedUniversity("Help me decide");
+      setTurnstileToken(null);
       const params = new URLSearchParams(searchParams.toString());
       params.set("college", getCollegeSlug(selectedUniversity));
       router.push(`/thank-you?${params.toString()}`);
     } catch {
+      setTurnstileToken(null);
       setServerError(
         "Something went wrong. Please try WhatsApp instead — we're 1 message away."
       );
@@ -328,6 +333,12 @@ export function LeadForm() {
           <p className="field-error">{errors.consent.message}</p>
         )}
 
+        <TurnstileWidget
+          onToken={setTurnstileToken}
+          onExpire={() => setTurnstileToken(null)}
+          onError={() => setTurnstileToken(null)}
+        />
+
         {serverError && (
           <p className="text-sm text-[color:#8a2418] bg-[#fae9e6] border border-[#e7c0b9] rounded-md p-3">
             {serverError}
@@ -336,7 +347,7 @@ export function LeadForm() {
 
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || (!turnstileToken && !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)}
           className="btn-primary w-full text-base py-3.5"
         >
           {isSubmitting ? "Submitting…" : "Submit"}
