@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Script from "next/script";
 
 declare global {
   interface Window {
@@ -11,16 +12,26 @@ declare global {
 
 export function ThankYouTracking({ college }: { college: string }) {
   useEffect(() => {
-    // Push to GTM dataLayer.
-    // Requires a Custom Event trigger named "thank_you" in GTM to act on this.
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: "thank_you", college });
 
-    // Direct GA4 event — fires regardless of GTM trigger configuration.
     if (typeof window.gtag === "function") {
       window.gtag("event", "thank_you", { college });
     }
   }, [college]);
 
-  return null;
+  return (
+    <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-18158358558"
+        strategy="afterInteractive"
+      />
+      <Script id="gads-thankyou" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18158358558');`}
+      </Script>
+    </>
+  );
 }
