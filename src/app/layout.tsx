@@ -104,9 +104,6 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
     >
       <head>
-        <Suspense>
-          <GTMPageView />
-        </Suspense>
         {/* Google Tag Manager */}
         {ANALYTICS.gtmId ? (
           <Script id="google-tag-manager" strategy="afterInteractive">
@@ -173,6 +170,9 @@ export default function RootLayout({
             />
           </noscript>
         ) : null}
+        <Suspense>
+          <GTMPageView />
+        </Suspense>
         {children}
       </body>
     </html>

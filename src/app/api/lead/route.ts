@@ -7,7 +7,10 @@ export const dynamic = "force-dynamic";
 
 const leadSchema = z.object({
   name: z.string().min(2).max(80),
-  phone: z.string().regex(/^[+\d][\d\s-]{8,15}$/),
+  phone: z
+    .string()
+    .transform((v) => v.replace(/[\s().+-]/g, ""))
+    .pipe(z.string().regex(/^(?:91)?[6-9]\d{9}$/)),
   email: z
     .string()
     .email()
@@ -106,48 +109,59 @@ export async function POST(req: Request) {
     userAgent: req.headers.get("user-agent") ?? "unknown",
   };
 
-  // Best-effort local xlsx write (fails on serverless — that's fine).
-  let xlsxOk = false;
-  try {
-    await appendLead(record);
-    xlsxOk = true;
-  } catch (err) {
-    console.error("[lead] xlsx write failed (expected on Vercel/serverless):", err);
-  }
+  // Start xlsx write immediately (non-blocking).
+  const xlsxResult = appendLead(record)
+    .then(() => true as const)
+    .catch((err) => {
+      console.error("[lead] xlsx write failed (expected on Vercel/serverless):", err);
+      return false as const;
+    });
 
-  // Primary durable storage: webhook to Google Sheets / CRM.
   const webhook = process.env.LEAD_WEBHOOK_URL;
-  if (webhook) {
-    try {
-      console.log("[lead] Firing webhook to:", webhook);
-      const whRes = await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(record),
-      });
-      if (!whRes.ok) {
-        console.error("[lead] Webhook returned:", whRes.status, whRes.statusText);
-        return NextResponse.json(
-          { error: "Could not save your enquiry. Please try again." },
-          { status: 502 }
-        );
-      }
-      console.log("[lead] Webhook OK");
-    } catch (err) {
-      console.error("[lead] Webhook failed:", err);
+
+  if (!webhook) {
+    // No webhook — xlsx is the only persistence path.
+    if (!(await xlsxResult)) {
       return NextResponse.json(
         { error: "Could not save your enquiry. Please try again." },
-        { status: 502 }
+        { status: 500 }
       );
     }
-  } else if (!xlsxOk) {
-    // No webhook configured AND xlsx failed — nothing was saved.
-    console.error("[lead] No webhook configured and xlsx write failed");
-    return NextResponse.json(
-      { error: "Could not save your enquiry. Please try again." },
-      { status: 500 }
-    );
+    return NextResponse.json({ ok: true });
   }
 
+  // Start webhook in parallel with the xlsx write already in flight.
+  console.log("[lead] Firing webhook to:", webhook);
+  const webhookResult = fetch(webhook, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(record),
+  })
+    .then(async (res) => {
+      if (!res.ok) {
+        console.error("[lead] Webhook returned:", res.status, res.statusText);
+        return false as const;
+      }
+      console.log("[lead] Webhook OK");
+      return true as const;
+    })
+    .catch((err) => {
+      console.error("[lead] Webhook failed:", err);
+      return false as const;
+    });
+
+  // Return as soon as xlsx confirms — it's fast locally and avoids blocking on
+  // slow webhook cold-starts (Google Apps Script can take 5–15 s).
+  // On Vercel/serverless xlsx always fails, so we fall through to await webhook.
+  const xlsxOk = await xlsxResult;
+  if (xlsxOk) return NextResponse.json({ ok: true });
+
+  // xlsx failed (serverless) — webhook is the only path, must await it.
+  if (!(await webhookResult)) {
+    return NextResponse.json(
+      { error: "Could not save your enquiry. Please try again." },
+      { status: 502 }
+    );
+  }
   return NextResponse.json({ ok: true });
 }

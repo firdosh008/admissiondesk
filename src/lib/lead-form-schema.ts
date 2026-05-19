@@ -30,7 +30,15 @@ export const leadFormSchema = z
     name: z.string().min(2, "Please enter your full name").max(80),
     phone: z
       .string()
-      .regex(/^[+\d][\d\s-]{8,15}$/, "Enter a valid phone number"),
+      .transform((v) => v.replace(/[\s().+-]/g, ""))
+      .pipe(
+        z
+          .string()
+          .regex(
+            /^(?:91)?[6-9]\d{9}$/,
+            "Enter a valid 10-digit Indian mobile number"
+          )
+      ),
     email: z.string().email("Enter a valid email").optional().or(z.literal("")),
     state: z.string().min(1, "Please choose your state"),
     programLevel: z.enum(["UG", "PG"], { message: "Please choose UG or PG" }),

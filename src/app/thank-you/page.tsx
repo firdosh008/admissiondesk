@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { ThankYouTracking } from "./ThankYouTracking";
 
 export const metadata: Metadata = {
   title: "Thank you | Counselling request received",
@@ -60,8 +61,11 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
   const params = await searchParams;
   const variant = resolveVariant(params.college);
 
+  const collegeSlug = Array.isArray(params.college) ? params.college[0] : (params.college ?? "general");
+
   return (
     <main className={`min-h-screen ${variant.bg}`}>
+      <ThankYouTracking college={collegeSlug} />
       <section className="relative min-h-screen overflow-hidden">
         {variant.image ? (
           <>
