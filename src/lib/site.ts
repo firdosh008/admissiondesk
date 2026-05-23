@@ -42,8 +42,8 @@ export const PAGE_CONTACTS = {
     whatsapp: "918002701010",
   },
   devBhoomi: {
-    phone: "+91 82736 25802",
-    whatsapp: "918273625802",
+    phone: "+91 6397-398464",
+    whatsapp: "916397398464",
   },
 } as const;
 

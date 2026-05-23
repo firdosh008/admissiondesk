@@ -10,7 +10,7 @@ import "./dbuu.css";
 export const metadata: Metadata = {
   title: "Dev Bhoomi University Admission Counselling 2026 | admissiondesk",
   description:
-    "Get free admission counselling for Dev Bhoomi Uttarakhand University (DBUU) — Uttarakhand's most affordable NAAC A+ university. Programme shortlisting, DBUU-CET guidance, scholarship support, and application assistance from admissiondesk.",
+    "Get free admission counselling for Dev Bhoomi Uttarakhand University (DBUU) — one of Uttarakhand's most affordable private universities. Programme shortlisting, DBUU-CET guidance, scholarship support, and application assistance from admissiondesk.",
   alternates: { canonical: "/dev-bhoomi" },
 };
 
@@ -26,8 +26,8 @@ const SUBNAV = [
 
 const HIGHLIGHTS = [
   {
-    title: "Most Affordable NAAC A+",
-    note: "Fees starting at ₹75,000/yr — the lowest among all NAAC A+ universities in Uttarakhand.",
+    title: "Highly Affordable Fees",
+    note: "Fees starting at ₹75,000/yr — among the lowest for private universities in Uttarakhand.",
   },
   {
     title: "850+ Campus Recruiters",
@@ -154,7 +154,7 @@ const RECRUITERS = [
 const FAQS = [
   {
     q: "Is Dev Bhoomi Uttarakhand University recognised by UGC?",
-    a: "Yes. DBUU is a UGC-recognised State Private University established under the Uttarakhand Universities Act 2017. It is NAAC A+ accredited, AICTE approved for technical programmes, PCI approved for pharmacy, and BCI approved for law.",
+    a: "Yes. DBUU is a UGC-recognised State Private University established under the Uttarakhand Universities Act 2017. It is AICTE approved for technical programmes, PCI approved for pharmacy, and BCI approved for law.",
   },
   {
     q: "Who manages this counselling page?",
@@ -165,8 +165,8 @@ const FAQS = [
     a: "DBUU-CET (Dev Bhoomi Common Entrance Test) is the primary entrance test, conducted in multiple windows through the year. JEE Main and CUET are accepted for B.Tech and UG programmes respectively; GATE for M.Tech; MAT and CAT for MBA. Some programmes admit on qualifying-exam merit.",
   },
   {
-    q: "Is DBUU really the most affordable NAAC A+ university in Uttarakhand?",
-    a: "Yes. DBUU's fee structure starts at ₹75,000/yr for several programmes — significantly lower than other NAAC A+ institutions in the state. With merit scholarships up to 100%, the effective cost can be further reduced.",
+    q: "Is DBUU really one of the most affordable private universities in Uttarakhand?",
+    a: "Yes. DBUU's fee structure starts at ₹75,000/yr for several programmes — significantly lower than most other private universities in the state. With merit scholarships up to 100%, the effective cost can be further reduced.",
   },
   {
     q: "Are hostels available at DBUU?",
@@ -175,7 +175,7 @@ const FAQS = [
 ];
 
 const WHY_POINTS = [
-  "Lowest fees among NAAC A+ universities in Uttarakhand",
+  "Among the lowest fees for private universities in Uttarakhand",
   "Multiple intakes through the year — no missing out",
   "Strong pharmacy & law schools — rare combo at this price",
   "Agriculture & veterinary — unique programmes in Dehradun",
@@ -200,7 +200,7 @@ const SCHOOLS = [
   "School of Media & Communication",
 ];
 
-const ACCREDITATIONS = ["UGC Recognised", "NAAC A+", "AICTE Approved", "PCI Approved", "BCI Approved"];
+const ACCREDITATIONS = ["UGC Recognised", "AICTE Approved", "PCI Approved", "BCI Approved"];
 
 const CET_DATES: [string, string][] = [
   ["Registration opens", "10 Jan 2026"],
@@ -262,7 +262,7 @@ export default function DevBhoomiPage() {
         <div className="dbuu-campus-hero-center" aria-hidden>
           <h1 className="dbuu-campus-hero-headline">
             Uttarakhand&rsquo;s Most Affordable<br />
-            <span>NAAC A+ University</span>
+            <span>Private University</span>
           </h1>
           <p className="dbuu-campus-hero-subline">
             UGC Recognised · AICTE Approved · Established 2004 · 120+ Programmes · Fees from ₹75K/yr
@@ -272,7 +272,7 @@ export default function DevBhoomiPage() {
         {/* Bottom: stats + programme tags */}
         <div className="dbuu-campus-hero-footer" aria-hidden>
           <div className="dbuu-campus-hero-stats">
-            <span>NAAC A+ <em>Accredited</em></span>
+            <span>UGC <em>Recognised</em></span>
             <span className="dbuu-campus-hero-sep">·</span>
             <span>120+ Programmes</span>
             <span className="dbuu-campus-hero-sep">·</span>
@@ -305,17 +305,18 @@ export default function DevBhoomiPage() {
                   About Dev Bhoomi Uttarakhand University
                 </h2>
                 <p className="dbuu-body" style={{ marginTop: "1.25rem" }}>
-                  Dev Bhoomi Uttarakhand University (DBUU), Dehradun, is
-                  Uttarakhand&apos;s most affordable NAAC A+ accredited private
-                  university. With 120+ UG, PG and Doctoral programmes across 12
+                  Dev Bhoomi Uttarakhand University (DBUU), Dehradun, is one of
+                  Uttarakhand&apos;s most affordable UGC-recognised private
+                  universities. With 120+ UG, PG and Doctoral programmes across 12
                   schools — Engineering, Pharmacy, Law, Management, Agriculture,
                   Computer Applications and more — DBUU offers exceptional academic
                   value at fees starting from just ₹75,000 per year.
                 </p>
                 <div className="dbuu-rankings">
                   <div className="dbuu-ranking">
-                    <p className="dbuu-ranking-rank">A+</p>
-                    <p className="dbuu-ranking-title">NAAC Grade</p>
+                    <p className="dbuu-ranking-rank">₹75K</p>
+                    <p className="dbuu-ranking-title">Starting Fees</p>
+                    <p className="dbuu-ranking-note">Per year — among Uttarakhand&apos;s lowest</p>
                   </div>
                   <div className="dbuu-ranking">
                     <p className="dbuu-ranking-rank">2008</p>
@@ -393,7 +394,7 @@ export default function DevBhoomiPage() {
           </h2>
           <p className="dbuu-body" style={{ marginTop: "1.25rem", maxWidth: "48rem" }}>
             At a time when quality higher education often comes with a steep price tag,
-            Dev Bhoomi Uttarakhand University offers NAAC A+ accredited programmes
+            Dev Bhoomi Uttarakhand University offers UGC-recognised programmes
             across 12 schools — all at fees starting from ₹75,000 per year. Ranked
             #1 in Uttarakhand by Education World 2025-26, DBUU delivers the ideal
             balance of academic credibility, affordability, placement outcomes, and
@@ -680,7 +681,7 @@ export default function DevBhoomiPage() {
             <p>
               © {new Date().getFullYear()} admissiondesk — Authorised Counselling Partner for Dev Bhoomi Uttarakhand University. This counselling page is operated by admissiondesk, not by the university.
             </p>
-            <p>DBUU: NAAC A+ · UGC Recognised · State Private University, Uttarakhand</p>
+            <p>DBUU: UGC Recognised · State Private University, Uttarakhand</p>
           </div>
         </div>
       </footer>
