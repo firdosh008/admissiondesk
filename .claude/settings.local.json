@@ -59,7 +59,14 @@
       "Bash(npx --no-install tsc --noEmit)",
       "Bash(./node_modules/.bin/next build *)",
       "Bash(npm install *)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "WebSearch",
+      "WebFetch(domain:www.shiksha.com)",
+      "WebFetch(domain:www.dbuu.ac.in)",
+      "WebFetch(domain:www.getmyuni.com)",
+      "WebFetch(domain:naac.gov.in)",
+      "WebFetch(domain:www.euttaranchal.com)",
+      "WebFetch(domain:collegedehradun.com)"
     ]
   }
 }

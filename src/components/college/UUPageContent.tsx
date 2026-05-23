@@ -10,7 +10,6 @@ import { UUAccredMarquee } from "@/components/college/UUAccredMarquee";
 import { UUProgramSidebar } from "@/components/college/UUProgramSidebar";
 import { UUIntellectualCarousel } from "@/components/college/UUIntellectualCarousel";
 import { UUPhotoCarousel } from "@/components/college/UUPhotoCarousel";
-import { UUStickyCTA } from "@/components/college/UUStickyCTA";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { UUApplyTrigger } from "@/components/college/UUApplyTrigger";
 import { PAGE_CONTACTS } from "@/lib/site";
@@ -443,7 +442,6 @@ export function UUPageContent() {
         </div>
       </footer>
 
-      <UUStickyCTA />
       <HomeLeadPopup university="Uttaranchal University" />
     </div>
   );

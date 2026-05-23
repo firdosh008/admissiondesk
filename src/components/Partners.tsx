@@ -35,7 +35,7 @@ const COUNSELLING_COLLEGE_IMAGE: Record<string, string> = {
   "Institute of Hotel Management, Dehradun": "/colleges/ihm/campus.webp",
 };
 
-const HAS_PAGE = new Set(["uttaranchal-university", "graphic-era"]);
+const HAS_PAGE = new Set(["uttaranchal-university", "graphic-era", "dev-bhoomi"]);
 
 const DISPLAY_ORDER = ["uttaranchal-university", "graphic-era", "upes", "dev-bhoomi"];
 const FEATURED_COLLEGES = [...COLLEGES].sort(

@@ -41,6 +41,10 @@ export const PAGE_CONTACTS = {
     phone: "+91 70371 49086",
     whatsapp: "918002701010",
   },
+  devBhoomi: {
+    phone: "+91 82736 25802",
+    whatsapp: "918273625802",
+  },
 } as const;
 
 export const ANALYTICS = {

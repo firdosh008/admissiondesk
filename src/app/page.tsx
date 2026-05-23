@@ -15,7 +15,6 @@ import { FAQ } from "@/components/FAQ";
 import { HomeAbout } from "@/components/HomeAbout";
 import { HomeContact } from "@/components/HomeContact";
 import { Footer } from "@/components/Footer";
-import { StickyCTA } from "@/components/StickyCTA";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { StructuredData } from "@/components/StructuredData";
 import { SITE } from "@/lib/site";
@@ -49,7 +48,6 @@ export default function Home() {
         <HomeContact />
       </main>
       <Footer />
-      <StickyCTA />
       <HomeLeadPopup />
     </>
   );

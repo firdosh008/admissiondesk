@@ -11,7 +11,6 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
-import { GEStickyCTA } from "@/components/college/GEStickyCTA";
 import { PAGE_CONTACTS } from "@/lib/site";
 import "./geu.css";
 
@@ -636,7 +635,6 @@ export default function GraphicEraPage() {
           </div>
         </div>
       </footer>
-      <GEStickyCTA />
       <HomeLeadPopup university="Graphic Era" />
     </div>
   );

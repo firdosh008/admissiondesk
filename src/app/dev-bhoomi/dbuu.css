@@ -1,6 +1,198 @@
 /* DBUU theme — navy + red + colorful tile cards */
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap");
 
+/* ── Campus hero (matches UU uu2-campus-hero pattern) ── */
+.dbuu-campus-hero {
+  position: relative;
+  width: 100%;
+  height: calc(100svh - 112px);
+  min-height: 520px;
+  max-height: 960px;
+  overflow: hidden;
+  background: #061638;
+  margin-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .dbuu-campus-hero {
+    height: calc(100svh - 80px);
+    min-height: 420px;
+  }
+}
+@media (max-width: 480px) {
+  .dbuu-campus-hero {
+    height: calc(100svh - 64px);
+    min-height: 360px;
+  }
+}
+.dbuu-campus-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.55) 0%,
+      rgba(0,0,0,0.4) 40%,
+      rgba(0,0,0,0.55) 70%,
+      rgba(0,0,0,0.82) 100%
+    ),
+    rgba(6,22,56,0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Identity card — top center */
+.dbuu-hero-identity {
+  position: absolute;
+  top: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+}
+.dbuu-hero-id-card {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  text-align: center;
+}
+.dbuu-hero-id-name {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.dbuu-hero-id-logo {
+  filter: none;
+}
+@media (max-width: 640px) {
+  .dbuu-hero-id-logo { width: 140px !important; height: auto !important; }
+}
+.dbuu-hero-id-city {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.67rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
+.dbuu-hero-id-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 2px solid #c1272d;
+  border-radius: 999px;
+  padding: 0.38rem 1rem;
+  color: #fca5a5;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(120,20,20,0.65);
+  width: fit-content;
+  box-shadow: 0 2px 12px rgba(193,39,45,0.3);
+}
+.dbuu-hero-id-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c1272d;
+  flex-shrink: 0;
+  animation: dbuu-pulse 2s ease-in-out infinite;
+}
+@keyframes dbuu-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+@media (max-width: 640px) {
+  .dbuu-hero-identity { top: 1.25rem; }
+  .dbuu-hero-id-name { font-size: 0.85rem; }
+}
+/* Center headline */
+.dbuu-campus-hero-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  padding: 0 clamp(1rem, 6vw, 4rem);
+  text-align: center;
+  pointer-events: none;
+}
+.dbuu-campus-hero-headline {
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.dbuu-campus-hero-headline span {
+  color: #ffc107;
+}
+.dbuu-campus-hero-subline {
+  margin-top: 1rem;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  color: rgba(255,255,255,0.82);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  max-width: 52rem;
+}
+/* Bottom stats + tags */
+.dbuu-campus-hero-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 1.5rem clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.dbuu-campus-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+.dbuu-campus-hero-stats em { color: #ffc107; font-style: normal; }
+.dbuu-campus-hero-sep {
+  margin: 0 0.6rem;
+  color: rgba(255,255,255,0.35);
+}
+.dbuu-campus-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.dbuu-campus-hero-tags span {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
 body:has(.dbuu-root) {
   background: #ffffff !important;
 }
@@ -687,6 +879,23 @@ body:has(.dbuu-root)::before {
   font-size: 0.92rem;
   color: var(--dbuu-text);
   line-height: 1.5;
+}
+
+.dbuu-submit-btn {
+  background: linear-gradient(135deg, var(--dbuu-red), var(--dbuu-red-deep));
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+.dbuu-submit-btn:hover {
+  opacity: 0.92;
+}
+.dbuu-submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .dbuu-form-card {
