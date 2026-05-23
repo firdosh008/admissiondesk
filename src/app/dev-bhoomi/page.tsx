@@ -297,8 +297,7 @@ export default function DevBhoomiPage() {
       {/* ── Apply / About ── */}
       <section id="apply" className="dbuu-section dbuu-section-form">
         <div className="dbuu-container">
-          <div style={{ display: "grid", gap: "3rem", alignItems: "start" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem", alignItems: "start" }}>
+          <div className="dbuu-apply-grid">
               {/* About column */}
               <div>
                 <span className="dbuu-eyebrow">Free Counselling</span>
@@ -313,20 +312,10 @@ export default function DevBhoomiPage() {
                   Computer Applications and more — DBUU offers exceptional academic
                   value at fees starting from just ₹75,000 per year.
                 </p>
-                <p className="dbuu-body" style={{ marginTop: "0.85rem" }}>
-                  DBUU&apos;s latest placement season saw 850+ companies recruit
-                  15,500+ students, with a highest package of ₹44.4 LPA and an
-                  average of ₹6 LPA. Ranked #1 in Uttarakhand by Education World
-                  2025-26 and 7th in North India by THE WEEK. Merit scholarships of
-                  up to 100% make DBUU one of the most accessible quality
-                  universities in North India.
-                </p>
-
                 <div className="dbuu-rankings">
                   <div className="dbuu-ranking">
                     <p className="dbuu-ranking-rank">A+</p>
                     <p className="dbuu-ranking-title">NAAC Grade</p>
-                    <p className="dbuu-ranking-note">Score 3.22 · First Cycle</p>
                   </div>
                   <div className="dbuu-ranking">
                     <p className="dbuu-ranking-rank">2008</p>
@@ -378,7 +367,6 @@ export default function DevBhoomiPage() {
                   />
                 </Suspense>
               </div>
-            </div>
           </div>
         </div>
       </section>
