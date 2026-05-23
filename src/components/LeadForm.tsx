@@ -16,6 +16,7 @@ import {
 import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
 import { isUUCseParentProgramme } from "@/lib/uuPrograms";
+import { setUserData, saveForThankYou } from "@/lib/enhanced-conversions";
 import { ProgrammeSelect } from "./ProgrammeSelect";
 import { TurnstileWidget } from "./TurnstileWidget";
 
@@ -89,6 +90,9 @@ export function LeadForm() {
           content_name: selectedUniversity,
         });
       }
+      setUserData({ email: values.email, phone: values.phone, name: values.name });
+      saveForThankYou({ email: values.email, phone: values.phone, name: values.name });
+
       const adsId = ANALYTICS.googleAdsId;
       const label = ANALYTICS.googleAdsConversionLabel;
       if (

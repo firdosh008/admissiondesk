@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import { loadAndSetFromThankYou } from "@/lib/enhanced-conversions";
 
 declare global {
   interface Window {
@@ -12,6 +13,8 @@ declare global {
 
 export function ThankYouTracking({ college }: { college: string }) {
   useEffect(() => {
+    loadAndSetFromThankYou();
+
     window.dataLayer = window.dataLayer || [];
 
     window.dataLayer.push({ event: "thank_you", college });

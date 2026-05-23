@@ -56,7 +56,10 @@
       "Bash(dir D:\\\\Development\\\\Zero\\\\edutech\\\\public *)",
       "Bash(Get-ChildItem -Path \"D:\\\\Development\\\\Zero\\\\edutech\\\\src\\\\components\" -File)",
       "Bash(Select-Object Name)",
-      "Bash(npx --no-install tsc --noEmit)"
+      "Bash(npx --no-install tsc --noEmit)",
+      "Bash(./node_modules/.bin/next build *)",
+      "Bash(npm install *)",
+      "Bash(npx next *)"
     ]
   }
 }

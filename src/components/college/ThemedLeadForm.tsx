@@ -15,6 +15,7 @@ import {
 import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
 import { isUUCseParentProgramme } from "@/lib/uuPrograms";
+import { setUserData, saveForThankYou } from "@/lib/enhanced-conversions";
 import { ProgrammeSelect } from "@/components/ProgrammeSelect";
 import { TurnstileWidget } from "@/components/TurnstileWidget";
 
@@ -107,6 +108,9 @@ export function ThemedLeadForm({
           content_name: university,
         });
       }
+
+      setUserData({ email: values.email, phone: values.phone, name: values.name });
+      saveForThankYou({ email: values.email, phone: values.phone, name: values.name });
 
       const adsId = ANALYTICS.googleAdsId;
       const label = ANALYTICS.googleAdsConversionLabel;
