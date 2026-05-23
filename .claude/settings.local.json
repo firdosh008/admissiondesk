@@ -55,7 +55,8 @@
       "Bash(Get-ChildItem D:\\\\Development\\\\Zero\\\\edutech\\\\public\\\\colleges\\\\geu *)",
       "Bash(dir D:\\\\Development\\\\Zero\\\\edutech\\\\public *)",
       "Bash(Get-ChildItem -Path \"D:\\\\Development\\\\Zero\\\\edutech\\\\src\\\\components\" -File)",
-      "Bash(Select-Object Name)"
+      "Bash(Select-Object Name)",
+      "Bash(npx --no-install tsc --noEmit)"
     ]
   }
 }
