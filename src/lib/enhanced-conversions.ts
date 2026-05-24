@@ -4,6 +4,7 @@ interface EcData {
   email?: string;
   phone: string;
   name: string;
+  state?: string;
 }
 
 function toE164(raw: string): string {
@@ -14,20 +15,26 @@ function toE164(raw: string): string {
   return `+${digits}`;
 }
 
-export function setUserData(data: EcData): void {
-  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+export function buildUserData(data: EcData): Record<string, unknown> {
   const [firstName, ...rest] = data.name.trim().split(/\s+/);
   const lastName = rest.join(" ");
+  const address: Record<string, unknown> = {
+    first_name: firstName,
+    ...(lastName && { last_name: lastName }),
+    country: "IN",
+    ...(data.state && data.state !== "Other" && { region: data.state }),
+  };
   const userData: Record<string, unknown> = {
     phone_number: toE164(data.phone),
-    address: {
-      first_name: firstName,
-      ...(lastName && { last_name: lastName }),
-      country: "IN",
-    },
+    address,
   };
   if (data.email) userData.email = data.email;
-  window.gtag("set", "user_data", userData);
+  return userData;
+}
+
+export function setUserData(data: EcData): void {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("set", "user_data", buildUserData(data));
 }
 
 export function saveForThankYou(data: EcData): void {

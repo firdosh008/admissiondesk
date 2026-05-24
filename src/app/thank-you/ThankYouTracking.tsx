@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Script from "next/script";
 import { loadAndSetFromThankYou } from "@/lib/enhanced-conversions";
 
 declare global {
@@ -26,18 +25,5 @@ export function ThankYouTracking({ college }: { college: string }) {
     }
   }, [college]);
 
-  return (
-    <>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-18158358558"
-        strategy="afterInteractive"
-      />
-      <Script id="gads-thankyou" strategy="afterInteractive">
-        {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'AW-18158358558');`}
-      </Script>
-    </>
-  );
+  return null;
 }

@@ -16,7 +16,7 @@ import {
 import type { LeadFormValues } from "@/lib/lead-form-schema";
 import { useCascadingPrograms } from "@/hooks/useCascadingPrograms";
 import { isUUCseParentProgramme } from "@/lib/uuPrograms";
-import { setUserData, saveForThankYou } from "@/lib/enhanced-conversions";
+import { setUserData, saveForThankYou, buildUserData } from "@/lib/enhanced-conversions";
 import { ProgrammeSelect } from "./ProgrammeSelect";
 import { TurnstileWidget } from "./TurnstileWidget";
 
@@ -90,8 +90,14 @@ export function LeadForm() {
           content_name: selectedUniversity,
         });
       }
-      setUserData({ email: values.email, phone: values.phone, name: values.name });
-      saveForThankYou({ email: values.email, phone: values.phone, name: values.name });
+      const ecData = {
+        email: values.email,
+        phone: values.phone,
+        name: values.name,
+        state: values.state,
+      };
+      setUserData(ecData);
+      saveForThankYou(ecData);
 
       const adsId = ANALYTICS.googleAdsId;
       const label = ANALYTICS.googleAdsConversionLabel;
@@ -105,6 +111,7 @@ export function LeadForm() {
           send_to: `${adsId}/${label}`,
           event_category: "Lead",
           event_label: programmeSubmitted,
+          user_data: buildUserData(ecData),
         });
       }
       if (typeof window !== "undefined" && typeof window.gtag === "function") {

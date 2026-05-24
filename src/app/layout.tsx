@@ -129,18 +129,18 @@ export default function RootLayout({
               fbq('track', 'PageView');`}
           </Script>
         ) : null}
-        {/* Google Analytics 4 */}
-        {ANALYTICS.ga4Id ? (
+        {/* Google tag (gtag.js) — GA4 + Google Ads share one tag per Google's guidance */}
+        {ANALYTICS.ga4Id || ANALYTICS.googleAdsId ? (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS.ga4Id}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS.ga4Id || ANALYTICS.googleAdsId}`}
               strategy="afterInteractive"
             />
-            <Script id="ga4" strategy="afterInteractive">
+            <Script id="gtag-init" strategy="afterInteractive">
               {`window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${ANALYTICS.ga4Id}', { send_page_view: true });
+                ${ANALYTICS.ga4Id ? `gtag('config', '${ANALYTICS.ga4Id}', { send_page_view: true });` : ""}
                 ${ANALYTICS.googleAdsId ? `gtag('config', '${ANALYTICS.googleAdsId}');` : ""}`}
             </Script>
           </>
