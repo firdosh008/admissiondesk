@@ -1,6 +1,6 @@
 const SESSION_KEY = "ad_ec_data";
 
-interface EcData {
+export interface EcData {
   email?: string;
   phone: string;
   name: string;
@@ -45,14 +45,16 @@ export function saveForThankYou(data: EcData): void {
   }
 }
 
-export function loadAndSetFromThankYou(): void {
+export function loadAndSetFromThankYou(): EcData | null {
   try {
     const raw = sessionStorage.getItem(SESSION_KEY);
-    if (!raw) return;
+    if (!raw) return null;
     const data = JSON.parse(raw) as EcData;
     setUserData(data);
     sessionStorage.removeItem(SESSION_KEY);
+    return data;
   } catch {
     // ignore parse/storage errors
+    return null;
   }
 }

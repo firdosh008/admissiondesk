@@ -26,7 +26,10 @@ export function TurnstileWidget({ onToken, onExpire, onError }: Props) {
   const widgetIdRef = useRef<string | null>(null);
   // Stable refs so Turnstile callbacks never close over stale state
   const cbRefs = useRef({ onToken, onExpire, onError });
-  cbRefs.current = { onToken, onExpire, onError };
+
+  useEffect(() => {
+    cbRefs.current = { onToken, onExpire, onError };
+  }, [onToken, onExpire, onError]);
 
   useEffect(() => {
     if (!SITE_KEY || !containerRef.current) return;

@@ -68,7 +68,8 @@
       "WebFetch(domain:www.euttaranchal.com)",
       "WebFetch(domain:collegedehradun.com)",
       "Bash(grep -rohE '\\([\"\\\\047`]\\)[^\"\\\\047`]*\\\\.\\(png|jpg|jpeg|webp|svg|gif|avif\\)\\\\1' src/)",
-      "Bash(grep -rohE \"['\\\\\"\\\\`][^'\\\\\"\\\\`]*\\\\.\\(png|jpg|jpeg|webp|svg|gif|avif\\)['\\\\\"\\\\`]\" src/)"
+      "Bash(grep -rohE \"['\\\\\"\\\\`][^'\\\\\"\\\\`]*\\\\.\\(png|jpg|jpeg|webp|svg|gif|avif\\)['\\\\\"\\\\`]\" src/)",
+      "WebFetch(domain:support.google.com)"
     ]
   }
 }

@@ -86,12 +86,12 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               {PROGRAMS.map((p) => (
                 <li key={p.slug}>
-                  <a
+                  <Link
                     href="/#programs"
                     className="hover:text-[color:var(--gold-soft)] transition-colors"
                   >
                     {p.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,12 +120,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/#faq"
                   className="hover:text-[color:var(--gold-soft)] transition-colors"
                 >
                   FAQ
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
