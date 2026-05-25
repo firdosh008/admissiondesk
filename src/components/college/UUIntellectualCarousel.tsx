@@ -10,7 +10,7 @@ const SLIDES = [
       "The three core goals of Uttaranchal University are committed to student-centric teaching-learning, world-class research & innovation, and humanistic social responsibility — encapsulated in our firmness while steering the university into a new arena.",
     name: "Jitender Joshi",
     role: "President",
-    photo: "/colleges/uu/Screenshot 2026-05-11 164344.png",
+    photo: "/colleges/uu/chancellor-image.jpg",
   },
   {
     quote: "Where ideas become institutions",
