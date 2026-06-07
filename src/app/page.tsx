@@ -17,7 +17,7 @@ import { HomeContact } from "@/components/HomeContact";
 import { Footer } from "@/components/Footer";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { StructuredData } from "@/components/StructuredData";
-import { SITE } from "@/lib/site";
+import { INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Admission Counselling in Dehradun | admissiondesk",
@@ -46,6 +46,16 @@ export default function Home() {
         <FAQ />
         <HomeAbout />
         <HomeContact />
+        <section
+          aria-label="Disclaimer"
+          className="section-light border-t border-[color:var(--rule-soft)]"
+        >
+          <div className="container-x py-8 md:py-10">
+            <p className="mx-auto max-w-3xl text-center text-sm leading-relaxed text-[color:var(--muted)]">
+              {INDEPENDENCE_DISCLAIMER}
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
       <HomeLeadPopup />

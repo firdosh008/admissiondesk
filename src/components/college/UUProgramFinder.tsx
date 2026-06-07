@@ -144,7 +144,7 @@ export function UUProgramFinder() {
                 <span>🪪 {p.intake}</span>
               </div>
               <a href="#apply" className="uu-finder-apply">
-                Apply for this programme →
+                Book counselling for this programme →
               </a>
             </article>
           ))

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { SITE } from "@/lib/site";
+import { CTA_BOOK_COUNSELLING, SITE } from "@/lib/site";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { dispatchHomePopup } from "./HomeLeadPopup";
 
@@ -43,7 +43,7 @@ function cleanPhone(phone: string) {
 export function Header({
   phone = SITE.phone,
   whatsapp = SITE.whatsapp,
-  applyLabel = "Apply Now",
+  applyLabel = CTA_BOOK_COUNSELLING,
   navLinks = DEFAULT_NAV_LINKS,
 }: HeaderProps) {
   return (

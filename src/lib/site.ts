@@ -28,6 +28,12 @@ export const SITE = {
   founded: "2018",
 } as const;
 
+/** Google Ads / policy-safe CTA — opens counselling popup, not a direct application. */
+export const CTA_BOOK_COUNSELLING = "Book Free Counselling" as const;
+
+export const INDEPENDENCE_DISCLAIMER =
+  "We are an independent education consultancy and not affiliated with any college or university." as const;
+
 export const PAGE_CONTACTS = {
   home: {
     phone: "+91 82736 25802",

@@ -335,7 +335,7 @@ export const FAQS = [
   },
   {
     q: "Are you affiliated with these universities?",
-    a: "We are an independent admission-counselling partner working with active partner institutions under formal arrangements. We are not owned by, or a part of, any university listed on this site.",
+    a: "We are an independent education consultancy and not affiliated with any college or university. We are not owned by, or a part of, any university listed on this site.",
   },
   {
     q: "What kind of programmes can you help me with?",

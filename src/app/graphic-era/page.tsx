@@ -11,7 +11,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
-import { PAGE_CONTACTS } from "@/lib/site";
+import { CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS } from "@/lib/site";
 import "./geu.css";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ const SUBNAV = [
   { label: "GECET", href: "#gecet" },
   { label: "Programmes", href: "#programmes" },
   { label: "FAQs", href: "#faqs" },
-  { label: "Apply Now", href: "#apply" },
+  { label: "Get Counselling", href: "#apply" },
 ];
 
 const HIGHLIGHTS = [
@@ -66,7 +66,7 @@ const STEPS = [
   },
   {
     n: "02",
-    title: "Check Eligibility & Apply Online",
+    title: "Check Eligibility & Get Guidance",
     body: "Each programme has a defined eligibility criterion based on the qualifying examination. Fill the application form on this page — you will be guided through the upload of your 10th, 12th and qualifying-exam mark sheets.",
   },
   {
@@ -183,7 +183,7 @@ export default function GraphicEraPage() {
       <Header
         phone={PAGE_CONTACTS.graphicEra.phone}
         whatsapp={PAGE_CONTACTS.graphicEra.whatsapp}
-        applyLabel="Apply Now"
+        applyLabel={CTA_BOOK_COUNSELLING}
         navLinks={[]}
       />
       {false ? (
@@ -194,7 +194,7 @@ export default function GraphicEraPage() {
               Admissions 2026 are now open · GECET registration live
             </p>
             <a href="#apply" className="geu-strip-cta">
-              Apply Now →
+              {CTA_BOOK_COUNSELLING} →
             </a>
           </div>
         </div>
@@ -218,7 +218,7 @@ export default function GraphicEraPage() {
             </a>
           </nav>
           <a href="#apply" className="geu-cta">
-            Apply Now
+            {CTA_BOOK_COUNSELLING}
           </a>
         </div>
         </header>
@@ -606,13 +606,16 @@ export default function GraphicEraPage() {
           <div className="grid md:grid-cols-12 gap-10">
             <div className="md:col-span-7">
               <p className="geu-footer-name">admissiondesk</p>
-              <p className="geu-footer-tag">AUTHORISED ADMISSION PARTNER · GRAPHIC ERA GROUP · 2026–27</p>
+              <p className="geu-footer-tag">ADMISSION GUIDANCE · GRAPHIC ERA GROUP · 2026–27</p>
               <p className="geu-footer-line mt-4">
-                admissiondesk is an authorised admission and counselling
-                partner for Graphic Era (Deemed-to-be-University) and Graphic
-                Era Hill University, Dehradun. Students who apply through
-                admissiondesk receive direct admission support, scholarship
-                guidance, and zero-cost counselling.
+                We provide admission guidance and counselling support for Graphic
+                Era (Deemed-to-be-University) and Graphic Era Hill University,
+                Dehradun. Students who connect with admissiondesk receive
+                admission assistance, scholarship guidance, and zero-cost
+                counselling.
+              </p>
+              <p className="geu-footer-line mt-3 opacity-90">
+                {INDEPENDENCE_DISCLAIMER}
               </p>
             </div>
             <div className="md:col-span-5">
@@ -627,7 +630,7 @@ export default function GraphicEraPage() {
           </div>
           <div className="geu-footer-bar">
             <p>
-              © {new Date().getFullYear()} admissiondesk — Authorised Admission Partner for Graphic Era (Deemed-to-be University) &amp; Graphic Era Hill University.
+              © {new Date().getFullYear()} admissiondesk — Independent education consultancy.
               This counselling page is operated by admissiondesk, not by the university.
             </p>
             <p>GEU: NAAC A+ · UGC Section 3 · Deemed-to-be University &amp; Hill University</p>

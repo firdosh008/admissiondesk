@@ -49,11 +49,10 @@ export default function AboutUsPage() {
               doubts.
             </p>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[color:var(--ink-soft)]">
-              We work as an authorised counselling and application assistance
-              partner for selected universities through formal institutional
-              arrangements, including MOU-based admission support where
-              applicable. We are not owned by any university and we do not
-              present ourselves as the official university website.
+              We provide admission guidance and counselling support for students
+              exploring selected universities. We are an independent education
+              consultancy and not affiliated with any college or university. We
+              do not present ourselves as the official university website.
             </p>
           </div>
 
@@ -189,7 +188,7 @@ export default function AboutUsPage() {
         </div>
 
         <p className="mt-8 text-xs text-[color:var(--muted)] leading-relaxed max-w-2xl">
-          Note: We are a private admission consultancy and authorised admission partner for selected universities. We do not represent the official website of any university. Trademarks used are owned by their respective owners.
+          Note: We are an independent education consultancy and not affiliated with any college or university. We do not represent the official website of any university. Trademarks used are owned by their respective owners.
         </p>
       </section>
     </main>

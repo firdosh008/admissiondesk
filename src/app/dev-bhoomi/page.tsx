@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
-import { PAGE_CONTACTS } from "@/lib/site";
+import { CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS } from "@/lib/site";
 import "./dbuu.css";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ const SUBNAV = [
   { label: "DBUU-CET", href: "#dbuucet" },
   { label: "Programmes", href: "#programmes" },
   { label: "FAQs", href: "#faqs" },
-  { label: "Apply Now", href: "#apply" },
+  { label: "Get Counselling", href: "#apply" },
 ];
 
 const HIGHLIGHTS = [
@@ -59,7 +59,7 @@ const STEPS = [
   },
   {
     n: "02",
-    title: "Check Eligibility & Apply Online",
+    title: "Check Eligibility & Get Guidance",
     body: "Each programme has defined eligibility based on qualifying exam marks. Fill the application form on this page — our team guides you through document requirements for 10th, 12th and any entrance scores.",
   },
   {
@@ -158,7 +158,7 @@ const FAQS = [
   },
   {
     q: "Who manages this counselling page?",
-    a: "This page is managed by admissiondesk as an authorised counselling partner for DBUU. We guide students on programme selection, eligibility, DBUU-CET, scholarship slabs, and application steps. Final admission decisions rest with the university.",
+    a: "This page is managed by admissiondesk as an independent education consultancy. We guide students on programme selection, eligibility, DBUU-CET, scholarship slabs, and application steps. Final admission decisions rest with the university.",
   },
   {
     q: "What entrance exams are accepted at DBUU?",
@@ -225,7 +225,7 @@ export default function DevBhoomiPage() {
       <Header
         phone={PAGE_CONTACTS.devBhoomi.phone}
         whatsapp={PAGE_CONTACTS.devBhoomi.whatsapp}
-        applyLabel="Apply Now"
+        applyLabel={CTA_BOOK_COUNSELLING}
         navLinks={[]}
       />
 
@@ -657,12 +657,15 @@ export default function DevBhoomiPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem" }}>
             <div>
               <p className="dbuu-footer-name">admissiondesk</p>
-              <p className="dbuu-footer-tag">AUTHORISED COUNSELLING PARTNER · DEV BHOOMI UTTARAKHAND UNIVERSITY · 2026–27</p>
+              <p className="dbuu-footer-tag">ADMISSION GUIDANCE · DEV BHOOMI UTTARAKHAND UNIVERSITY · 2026–27</p>
               <p className="dbuu-footer-line" style={{ marginTop: "1rem" }}>
-                admissiondesk is an authorised counselling partner for Dev Bhoomi
-                Uttarakhand University, Dehradun. Students who connect through
-                admissiondesk receive direct admission support, DBUU-CET guidance,
-                scholarship slab information, and zero-cost counselling.
+                We provide admission guidance and counselling support for Dev
+                Bhoomi Uttarakhand University, Dehradun. Students who connect
+                through admissiondesk receive admission assistance, DBUU-CET
+                guidance, scholarship slab information, and zero-cost counselling.
+              </p>
+              <p className="dbuu-footer-line" style={{ marginTop: "0.75rem", opacity: 0.9 }}>
+                {INDEPENDENCE_DISCLAIMER}
               </p>
             </div>
             <div>
@@ -679,7 +682,7 @@ export default function DevBhoomiPage() {
           </div>
           <div className="dbuu-footer-bar">
             <p>
-              © {new Date().getFullYear()} admissiondesk — Authorised Counselling Partner for Dev Bhoomi Uttarakhand University. This counselling page is operated by admissiondesk, not by the university.
+              © {new Date().getFullYear()} admissiondesk — Independent education consultancy. This counselling page is operated by admissiondesk, not by the university.
             </p>
             <p>DBUU: UGC Recognised · State Private University, Uttarakhand</p>
           </div>

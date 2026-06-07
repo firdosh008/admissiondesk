@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SITE } from "@/lib/site";
+import { INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
 import { PROGRAMS, VISIBLE_COLLEGES } from "@/lib/constants";
 
 export function Footer() {
@@ -28,9 +28,13 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-sm text-[color:var(--ivory)]/60 max-w-sm leading-relaxed">
-              admissiondesk is an MOU-authorised admission and counselling
-              partner of 4+ Universities in Uttarakhand. Students who apply through admissiondesk receive direct
-              admission support, scholarship guidance, and zero-cost counselling.
+              We provide admission guidance and counselling support for students
+              exploring universities in Uttarakhand. Students who connect with
+              admissiondesk receive admission assistance, scholarship guidance,
+              and zero-cost counselling.
+            </p>
+            <p className="mt-4 text-xs text-[color:var(--gold-soft)]/90 max-w-sm leading-relaxed font-medium">
+              {INDEPENDENCE_DISCLAIMER}
             </p>
 
             {/* Contact */}
@@ -150,9 +154,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 pt-7 border-t border-[color:var(--ivory)]/8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-[color:var(--ivory)]/45">
           <p className="max-w-xl leading-relaxed">
-            &copy; {year} {SITE.name}. All rights reserved. Admission
-            counselling and application assistance partner under formal
-            arrangements where applicable.
+            &copy; {year} {SITE.name}. All rights reserved. {INDEPENDENCE_DISCLAIMER}
           </p>
           <p className="shrink-0">GST: 05DXGPP9903M2ZU</p>
         </div>

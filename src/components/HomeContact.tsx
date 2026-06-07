@@ -86,8 +86,8 @@ export function HomeContact() {
         </div>
 
         <p className="mt-10 max-w-2xl text-xs leading-relaxed text-[color:var(--muted)]">
-          Note: We are a private admission consultancy and authorised admission
-          partner for selected universities. We do not represent the official
+          Note: We are an independent education consultancy and not affiliated
+          with any college or university. We do not represent the official
           website of any university. Trademarks used are owned by their
           respective owners.
         </p>

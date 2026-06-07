@@ -35,13 +35,12 @@ export default function TermsPage() {
             Independent counselling partner
           </h2>
           <p>
-            {SITE.name} is an admission counselling and education consulting
-            partner for selected universities through written arrangements,
-            including MOU-based application support where applicable. We are
-            not owned by any university and we do not operate as the official
-            website of any university listed on this site. We are compensated
-            by partner institutions only when a candidate enrols, and never by
-            the student.
+            {SITE.name} provides admission guidance and counselling support for
+            students exploring selected universities. We are an independent
+            education consultancy and not affiliated with any college or
+            university. We do not operate as the official website of any
+            university listed on this site. We are compensated by partner
+            institutions only when a candidate enrols, and never by the student.
           </p>
 
           <h2 className="font-display text-2xl text-[color:var(--forest-deep)] mt-10">

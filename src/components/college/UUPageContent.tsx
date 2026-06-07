@@ -12,7 +12,7 @@ import { UUIntellectualCarousel } from "@/components/college/UUIntellectualCarou
 import { UUPhotoCarousel } from "@/components/college/UUPhotoCarousel";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { UUApplyTrigger } from "@/components/college/UUApplyTrigger";
-import { PAGE_CONTACTS } from "@/lib/site";
+import { CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS } from "@/lib/site";
 
 const TOP_COUNTERS = [
   { to: 23, suffix: "+", label: "Years of Educational Experience" },
@@ -104,7 +104,7 @@ export function UUPageContent() {
       <Header
         phone={PAGE_CONTACTS.uttaranchal.phone}
         whatsapp={PAGE_CONTACTS.uttaranchal.whatsapp}
-        applyLabel="Apply Now"
+        applyLabel={CTA_BOOK_COUNSELLING}
         navLinks={[]}
       />
       {/* Header */}
@@ -134,7 +134,7 @@ export function UUPageContent() {
               </a>
             </div>
             <UUApplyTrigger className="uu2-apply-btn">
-              Apply Now <span aria-hidden>→</span>
+              {CTA_BOOK_COUNSELLING} <span aria-hidden>→</span>
             </UUApplyTrigger>
             <div className="uu2-badge25" aria-hidden>
               <span className="uu2-badge25-big">25+</span>
@@ -341,12 +341,11 @@ export function UUPageContent() {
           Uttaranchal University <span>Placement Success Stories</span>
         </h2>
         <p className="uu2-success-intro">
-          As an authorised admission partner, admissiondesk has helped hundreds
-          of students get into Uttaranchal University programmes that matched
-          their goals. UU&apos;s Corporate Resource Centre then takes over —
-          placing graduates in top companies across India and abroad. These are
-          the kind of outcomes you can work toward when you apply through the
-          right channel.
+          admissiondesk has helped hundreds of students explore Uttaranchal
+          University programmes that matched their goals. UU&apos;s Corporate
+          Resource Centre then takes over — placing graduates in top companies
+          across India and abroad. These are the kind of outcomes you can work
+          toward with the right guidance.
         </p>
         <div className="uu2-success-grid">
           {SUCCESS.map((s) => (
@@ -378,9 +377,9 @@ export function UUPageContent() {
         <p className="uu2-intel-intro">
           Uttaranchal University&apos;s faculty includes IITians, NITians, and
           Post-Doctoral Scholars from across India and the world. This academic
-          depth is one of the key reasons admissiondesk — as an authorised
-          admission partner — actively recommends UU to students who want
-          research-backed, industry-aligned education in Dehradun.
+          depth is one of the key reasons admissiondesk actively recommends UU
+          to students who want research-backed, industry-aligned education in
+          Dehradun.
         </p>
         <UUIntellectualCarousel />
       </section>
@@ -411,12 +410,15 @@ export function UUPageContent() {
           <div className="grid md:grid-cols-12 gap-10">
             <div className="md:col-span-7">
               <p className="uu-footer-name">admissiondesk</p>
-              <p className="uu-footer-tag">AUTHORISED ADMISSION PARTNER · UTTARANCHAL UNIVERSITY · 2026–27</p>
+              <p className="uu-footer-tag">ADMISSION GUIDANCE · UTTARANCHAL UNIVERSITY · 2026–27</p>
               <p className="uu-footer-line mt-4">
-                admissiondesk is an MOU-authorised admission and counselling
-                partner of Uttaranchal University, Dehradun. Students who apply
-                through admissiondesk receive direct admission support,
-                scholarship guidance, and zero-cost counselling.
+                We provide admission guidance and counselling support for
+                Uttaranchal University, Dehradun. Students who connect with
+                admissiondesk receive admission assistance, scholarship guidance,
+                and zero-cost counselling.
+              </p>
+              <p className="uu-footer-line mt-3 text-[color:var(--gold-soft)]/90">
+                {INDEPENDENCE_DISCLAIMER}
               </p>
             </div>
             <div className="md:col-span-5">
@@ -433,7 +435,7 @@ export function UUPageContent() {
           </div>
           <div className="uu-footer-bar">
             <p>
-              © {new Date().getFullYear()} admissiondesk — Authorised Admission Partner for Uttaranchal University.
+              © {new Date().getFullYear()} admissiondesk — Independent education consultancy.
               This counselling page is operated by admissiondesk, not by the university.
             </p>
             <p>UU: NAAC A+ · UGC · AICTE · BCI · PCI · INC</p>
