@@ -1,4 +1,4 @@
-import { SITE } from "@/lib/site";
+import { ADMISSION_DECISION_DISCLAIMER, INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
 
 const contactItems = [
   {
@@ -30,7 +30,7 @@ const contactItems = [
       </svg>
     ),
     label: "Address",
-    value: `${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region}`,
+    value: SITE.address.formatted,
     href: undefined as string | undefined,
   },
   {
@@ -40,7 +40,17 @@ const contactItems = [
       </svg>
     ),
     label: "GST Number",
-    value: "05DXGPP9903M2ZU",
+    value: SITE.gstNumber,
+    href: undefined as string | undefined,
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M20 21a8 8 0 0 0-16 0" /><circle cx="12" cy="7" r="4" />
+      </svg>
+    ),
+    label: "Proprietor",
+    value: SITE.proprietor,
     href: undefined as string | undefined,
   },
 ];
@@ -58,7 +68,7 @@ export function HomeContact() {
           touch today.
         </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {contactItems.map(({ icon, label, value, href }) => (
             <div key={label} className="card-paper flex items-start gap-4 p-6">
               <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
@@ -86,10 +96,8 @@ export function HomeContact() {
         </div>
 
         <p className="mt-10 max-w-2xl text-xs leading-relaxed text-[color:var(--muted)]">
-          Note: We are an independent education consultancy and not affiliated
-          with any college or university. We do not represent the official
-          website of any university. Trademarks used are owned by their
-          respective owners.
+          Note: {INDEPENDENCE_DISCLAIMER} {ADMISSION_DECISION_DISCLAIMER}{" "}
+          Trademarks used are owned by their respective owners.
         </p>
       </div>
     </section>

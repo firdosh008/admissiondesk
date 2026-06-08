@@ -17,7 +17,7 @@ export function Counselling() {
               </span>
             </h2>
             <p className="mt-5 text-base md:text-lg text-[color:var(--ink-soft)] leading-relaxed max-w-lg">
-              A senior counsellor will call you within the hour. No
+              A senior counsellor will connect with you shortly. No
               auto-dialler, no pre-recorded message — a real conversation with
               someone who knows the campuses.
             </p>
@@ -33,12 +33,12 @@ export function Counselling() {
                   d: "If a university isn't a fit, we'll say so. We focus on the pages currently open for counselling.",
                 },
                 {
-                  t: "Scholarship & fee-waiver mapping",
-                  d: "Every merit and category slab you qualify for, surfaced before you apply.",
+                  t: "Guidance on scholarships and fee structures based on eligibility",
+                  d: "We help you understand relevant merit and category criteria before you apply.",
                 },
                 {
-                  t: "End-to-end support until day-zero",
-                  d: "Documents, interview prep, hostel allotment, fee deposit — we stay with you.",
+                  t: "Guidance and support throughout the admission process",
+                  d: "Documents, interview prep, hostel information, and fee steps — we guide you through the process.",
                 },
               ].map((b) => (
                 <li key={b.t} className="flex gap-4">

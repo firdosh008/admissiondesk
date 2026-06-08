@@ -42,16 +42,16 @@ export function Hero() {
             </h1>
 
             <p className="rise rise-3 mt-5 md:mt-8 max-w-xl text-base md:text-lg leading-relaxed text-[color:var(--ink-soft)]">
-              Free 1-on-1 admission counselling for{" "}
+              Free 1-on-1 counselling for students interested in universities like{" "}
               <span className="swash-underline font-medium text-[color:var(--ink)]">
-                Uttaranchal University and Graphic Era and more institutions in Dehradun.
+                Uttaranchal University, Graphic Era, and other institutions in Dehradun.
               </span>{" "}
               Get course, scholarship and application guidance before you commit.
             </p>
 
             <div className="rise rise-4 mt-6 md:mt-9 flex flex-wrap gap-3">
               <button type="button" onClick={dispatchHomePopup} className="btn-primary text-sm md:text-base py-3 md:py-3.5 px-5 md:px-7">
-                Get free counselling
+                Submit Now
               </button>
               <a href="#partners" className="btn-secondary text-sm md:text-base py-3 md:py-3.5 px-5 md:px-7">
                 Explore Universities
@@ -61,8 +61,8 @@ export function Hero() {
             {/* Social proof row */}
             <div className="rise rise-5 mt-8 md:mt-12 flex flex-wrap items-center gap-x-5 sm:gap-x-8 gap-y-3">
               {[
-                { value: "12,000+", label: "Aspirants counselled" },
-                { value: "2", label: "Featured universities" },
+                { value: "12,000+", label: "Aspirants counselled (approx. internal data)" },
+                { value: "2", label: "Universities covered" },
                 { value: "Free", label: "Student counselling" },
               ].map((stat) => (
                 <div key={stat.label} className="flex items-center gap-3">

@@ -18,7 +18,7 @@ export function Placements() {
               </span>
             </h2>
             <p className="mt-5 md:mt-6 text-[color:var(--ivory)]/75 text-base md:text-lg leading-relaxed max-w-md">
-              In 2025, active partner universities reported strong recruiter
+              In 2025, selected universities reported strong recruiter
               participation across{" "}
               <strong className="text-[color:var(--gold-soft)] font-semibold">
                 800+ recruiters
@@ -56,7 +56,7 @@ export function Placements() {
           <div className="lg:col-span-7">
             {/* Recruiter grid */}
             <p className="text-[10px] tracking-[0.32em] uppercase text-[color:var(--gold-soft)] mb-5">
-              Recruiters across partner campuses
+              Recruiters across covered campuses
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               {TOP_RECRUITERS.map((r) => (

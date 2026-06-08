@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
-import { CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS } from "@/lib/site";
+import { ADMISSION_DECISION_DISCLAIMER, CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS, SITE } from "@/lib/site";
 import "./dbuu.css";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ const SUBNAV = [
   { label: "DBUU-CET", href: "#dbuucet" },
   { label: "Programmes", href: "#programmes" },
   { label: "FAQs", href: "#faqs" },
-  { label: "Get Counselling", href: "#apply" },
+  { label: "Submit Now", href: "#apply" },
 ];
 
 const HIGHLIGHTS = [
@@ -352,7 +352,7 @@ export default function DevBhoomiPage() {
                 <Suspense fallback={null}>
                   <ThemedLeadForm
                     university="Dev Bhoomi Uttarakhand University"
-                    buttonLabel="Submit Application"
+                    buttonLabel="Submit Now"
                     successText="An admissiondesk counsellor will reach out within 24 hours with your DBUU eligibility, DBUU-CET guidance, scholarship slab and document checklist."
                     classes={{
                       form: "space-y-4",
@@ -667,6 +667,9 @@ export default function DevBhoomiPage() {
               <p className="dbuu-footer-line" style={{ marginTop: "0.75rem", opacity: 0.9 }}>
                 {INDEPENDENCE_DISCLAIMER}
               </p>
+              <p className="dbuu-footer-line" style={{ marginTop: "0.5rem", opacity: 0.9 }}>
+                {ADMISSION_DECISION_DISCLAIMER}
+              </p>
             </div>
             <div>
               <p className="dbuu-footer-head">Speak to a Counsellor</p>
@@ -678,6 +681,8 @@ export default function DevBhoomiPage() {
               <p className="dbuu-footer-line">
                 <a href="mailto:support@admissiondesk.info">support@admissiondesk.info</a>
               </p>
+              <p className="dbuu-footer-line" style={{ marginTop: "0.75rem" }}>{SITE.address.formatted}</p>
+              <p className="dbuu-footer-line">Proprietor: {SITE.proprietor}</p>
             </div>
           </div>
           <div className="dbuu-footer-bar">
@@ -685,6 +690,7 @@ export default function DevBhoomiPage() {
               © {new Date().getFullYear()} admissiondesk — Independent education consultancy. This counselling page is operated by admissiondesk, not by the university.
             </p>
             <p>DBUU: UGC Recognised · State Private University, Uttarakhand</p>
+            <p>GST: {SITE.gstNumber}</p>
           </div>
         </div>
       </footer>

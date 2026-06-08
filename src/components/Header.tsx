@@ -24,8 +24,8 @@ const DEFAULT_NAV_LINKS: HeaderLink[] = [
   { label: "Programmes", href: "/#programs" },
   { label: "How it works", href: "/#process" },
   { label: "FAQ", href: "/#faq" },
-  { label: "About Us", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Contact", href: "/contact-us" },
   {
     label: "Legal",
     href: "#",
@@ -52,7 +52,7 @@ export function Header({
       <div className="bg-[color:var(--forest-deep)] text-[color:var(--ivory)] text-xs">
         <div className="container-x flex items-center justify-between py-2">
           <p className="hidden md:block opacity-75">
-            Admissions are open for our counselling partners. Talk to a
+            Counselling is available for selected universities. Talk to a
             counsellor today — no fees.
           </p>
           <p className="md:hidden opacity-75">

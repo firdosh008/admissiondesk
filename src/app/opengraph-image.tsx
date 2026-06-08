@@ -66,8 +66,8 @@ export default async function OpenGraphImage() {
             lineHeight: 1.4,
           }}
         >
-          Free 1-on-1 admission counselling for Uttaranchal University and
-          Graphic Era in Dehradun.
+          Free 1-on-1 counselling for students interested in universities like
+          Uttaranchal University and Graphic Era in Dehradun.
         </div>
 
         <div

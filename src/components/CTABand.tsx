@@ -19,7 +19,7 @@ export function CTABand() {
         </p>
         <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-3">
           <button type="button" onClick={dispatchHomePopup} className="btn-primary bg-[color:var(--ivory)] text-[color:var(--forest-deep)] border-[color:var(--ivory)] hover:bg-[color:var(--cream)] text-sm md:text-base py-3 md:py-3.5 px-5 md:px-7">
-            Get free counselling
+            Submit Now
           </button>
           <a
             href={`https://wa.me/918273625802?text=${encodeURIComponent(

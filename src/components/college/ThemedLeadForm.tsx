@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ANALYTICS } from "@/lib/site";
+import { ADMISSION_DECISION_DISCLAIMER, ANALYTICS } from "@/lib/site";
 import {
   leadFormSchema,
   leadFormDefaults,
@@ -48,7 +48,7 @@ export function ThemedLeadForm({
   university,
   classes,
   successText,
-  buttonLabel = "Submit Enquiry",
+  buttonLabel = "Submit Now",
 }: ThemedLeadFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -348,6 +348,9 @@ export function ThemedLeadForm({
       >
         {isSubmitting ? "Submitting…" : buttonLabel}
       </button>
+      <p className="text-xs leading-relaxed opacity-75">
+        {ADMISSION_DECISION_DISCLAIMER}
+      </p>
     </form>
   );
 }

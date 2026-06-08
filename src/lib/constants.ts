@@ -261,8 +261,8 @@ export const PROGRAMS: ProgramFamily[] = [
 ];
 
 export const STATS = [
-  { value: "₹61.99 L", label: "Highest package across partner campuses (2025)" },
-  { value: "800+", label: "Recruiters visited partner universities last year" },
+  { value: "₹61.99 L", label: "Highest package across covered campuses (2025)" },
+  { value: "800+", label: "Recruiters visited covered universities last year" },
   { value: "92%", label: "Placement rate at flagship programmes" },
   { value: "200+", label: "Programmes across active counselling pages" },
 ];
@@ -314,24 +314,24 @@ export const PROCESS: Step[] = [
   },
   {
     number: "03",
-    title: "Shortlist & apply",
+    title: "Shortlist & application guidance",
     description:
       "We help you shortlist 2-3 programmes that genuinely fit you and guide every step of the application — forms, documents, interview prep.",
     duration: "1-2 weeks",
   },
   {
     number: "04",
-    title: "Admit, scholarship, onboarding",
+    title: "Admission decision, scholarship, onboarding",
     description:
-      "We negotiate the best scholarship slab you qualify for and stay with you through fee deposit, hostel allotment and orientation.",
-    duration: "Until day-zero",
+      "We guide you on scholarship eligibility, fee deposit steps, hostel information and orientation after the institution shares its decision.",
+    duration: "Throughout the process",
   },
 ];
 
 export const FAQS = [
   {
     q: "Is the counselling actually free for students?",
-    a: "Yes — students pay nothing. admissiondesk is compensated directly by partner institutions once a candidate enrols. There are no hidden charges, success fees, or paywalls during the counselling itself.",
+    a: "Yes — students pay nothing. admissiondesk may be compensated by respective institutions once a candidate enrols. There are no hidden charges, success fees, or paywalls during the counselling itself.",
   },
   {
     q: "Are you affiliated with these universities?",
@@ -347,7 +347,7 @@ export const FAQS = [
   },
   {
     q: "Can you help with scholarships and merit waivers?",
-    a: "Yes. Each partner university offers merit and category-based scholarships; our counsellors map your eligibility to every relevant slab so you don't leave money on the table.",
+    a: "Yes. Universities may offer merit and category-based scholarships; our counsellors guide you on scholarship and fee structures based on eligibility.",
   },
   {
     q: "I don't have an entrance score yet. Can I still apply?",
@@ -355,7 +355,7 @@ export const FAQS = [
   },
   {
     q: "How long does the full admission process take?",
-    a: "From the first counselling call to a confirmed seat, most students wrap up in 2-4 weeks. Last-mile applicants close in days when seats are still open.",
+    a: "Timelines vary by university, programme, document readiness, and the institution's criteria. A counsellor can guide you on the expected steps after reviewing your details.",
   },
   {
     q: "What if I'm not sure which programme or city is right for me?",

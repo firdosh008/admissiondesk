@@ -11,7 +11,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
-import { CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS } from "@/lib/site";
+import { ADMISSION_DECISION_DISCLAIMER, CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS, SITE } from "@/lib/site";
 import "./geu.css";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ const SUBNAV = [
   { label: "GECET", href: "#gecet" },
   { label: "Programmes", href: "#programmes" },
   { label: "FAQs", href: "#faqs" },
-  { label: "Get Counselling", href: "#apply" },
+  { label: "Submit Now", href: "#apply" },
 ];
 
 const HIGHLIGHTS = [
@@ -165,7 +165,7 @@ const FAQS = [
   },
   {
     q: "Who manages this counselling page?",
-    a: "This page is managed by admissiondesk for counselling and application assistance. We guide eligible students and coordinate next steps under our counselling-partner arrangement; final admission decisions remain with the university.",
+    a: "This page is managed by admissiondesk for counselling and application assistance. We guide eligible students and coordinate next steps; final admission decisions remain with the university.",
   },
   {
     q: "What entrance exams are accepted?",
@@ -320,7 +320,7 @@ export default function GraphicEraPage() {
               <Suspense fallback={null}>
                 <ThemedLeadForm
                   university="Graphic Era"
-                  buttonLabel="Submit Application"
+                  buttonLabel="Submit Now"
                   successText="An admissiondesk counsellor will reach out within 24 hours with your Graphic Era eligibility, GECET guidance, scholarship slab and document checklist."
                   classes={{
                     form: "space-y-4",
@@ -617,6 +617,9 @@ export default function GraphicEraPage() {
               <p className="geu-footer-line mt-3 opacity-90">
                 {INDEPENDENCE_DISCLAIMER}
               </p>
+              <p className="geu-footer-line mt-2 opacity-90">
+                {ADMISSION_DECISION_DISCLAIMER}
+              </p>
             </div>
             <div className="md:col-span-5">
               <p className="geu-footer-head">Speak to a Counsellor</p>
@@ -626,6 +629,8 @@ export default function GraphicEraPage() {
               <p className="geu-footer-line">
                 <a href="mailto:support@admissiondesk.info">support@admissiondesk.info</a>
               </p>
+              <p className="geu-footer-line mt-3">{SITE.address.formatted}</p>
+              <p className="geu-footer-line">Proprietor: {SITE.proprietor}</p>
             </div>
           </div>
           <div className="geu-footer-bar">
@@ -634,7 +639,7 @@ export default function GraphicEraPage() {
               This counselling page is operated by admissiondesk, not by the university.
             </p>
             <p>GEU: NAAC A+ · UGC Section 3 · Deemed-to-be University &amp; Hill University</p>
-            <p>GST: 05DXGPP9903M2ZU</p>
+            <p>GST: {SITE.gstNumber}</p>
           </div>
         </div>
       </footer>

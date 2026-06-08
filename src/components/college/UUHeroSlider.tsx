@@ -19,7 +19,7 @@ const SLIDES: Slide[] = [
     title: "Uttaranchal University",
     italic: "For the Excellence within You",
     body: "100+ industry-centric programmes · 42-acre campus · NAAC A+ accreditation · scholarships up to 65%.",
-    cta: { label: "Book Free Counselling", href: "#apply" },
+    cta: { label: "Submit Now", href: "#apply" },
   },
   {
     src: "/colleges/uu/slide-2.jpg",

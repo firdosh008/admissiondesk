@@ -48,7 +48,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-6 space-y-2">
             <li>To call or WhatsApp you about your counselling enquiry.</li>
             <li>
-              To share your application materials with the partner university
+              To share your application materials with the selected university
               you select, with your knowledge.
             </li>
             <li>
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
           </h2>
           <p>
             We do not sell your information. We share it only with: (a) the
-            partner university you ask us to apply to, (b) our service
+            selected university you ask us to apply to, (b) our service
             providers under written confidentiality, and (c) authorities when
             required by law.
           </p>

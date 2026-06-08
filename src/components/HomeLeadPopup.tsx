@@ -75,7 +75,7 @@ export function HomeLeadPopup({ university }: { university?: string }) {
             Get free admission counselling
           </h3>
           <p className="mt-1.5 text-sm text-[color:var(--ink-soft)] leading-relaxed">
-            Share your details and a senior counsellor will call within the hour —
+            Share your details and a senior counsellor will connect with you shortly —
             no fees, no obligation.
           </p>
 

@@ -109,7 +109,7 @@ export function StructuredData() {
     serviceType: "Educational counselling",
     provider: { "@id": `${SITE.url}#organization` },
     areaServed: "India",
-    description: `Free 1-on-1 admission counselling and placement guidance for ${c.name}.`,
+    description: `Free 1-on-1 counselling and application guidance for students interested in ${c.name}.`,
     offers: {
       "@type": "Offer",
       price: "0",

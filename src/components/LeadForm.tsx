@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DEHRADUN_COUNSELLING_COLLEGES } from "@/lib/constants";
-import { SITE, ANALYTICS } from "@/lib/site";
+import { ADMISSION_DECISION_DISCLAIMER, SITE, ANALYTICS } from "@/lib/site";
 import {
   leadFormSchema,
   leadFormDefaults,
@@ -361,8 +361,11 @@ export function LeadForm() {
           disabled={isSubmitting || (!turnstileToken && !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)}
           className="btn-primary w-full text-base py-3.5"
         >
-          {isSubmitting ? "Submitting…" : "Submit"}
+          {isSubmitting ? "Submitting…" : "Submit Now"}
         </button>
+        <p className="text-xs leading-relaxed text-[color:var(--muted)]">
+          {ADMISSION_DECISION_DISCLAIMER}
+        </p>
       </div>
     </form>
   );

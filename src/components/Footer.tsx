@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
+import { ADMISSION_DECISION_DISCLAIMER, INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
 import { PROGRAMS, VISIBLE_COLLEGES } from "@/lib/constants";
 
 export function Footer() {
@@ -36,6 +36,9 @@ export function Footer() {
             <p className="mt-4 text-xs text-[color:var(--gold-soft)]/90 max-w-sm leading-relaxed font-medium">
               {INDEPENDENCE_DISCLAIMER}
             </p>
+            <p className="mt-2 text-xs text-[color:var(--gold-soft)]/90 max-w-sm leading-relaxed font-medium">
+              {ADMISSION_DECISION_DISCLAIMER}
+            </p>
 
             {/* Contact */}
             <div className="mt-7 space-y-2.5 text-sm">
@@ -57,8 +60,10 @@ export function Footer() {
               </p>
               
               <p className="text-[color:var(--ivory)]/55 text-xs leading-relaxed">
-                {SITE.address.street}, {SITE.address.locality},{" "}
-                {SITE.address.region} {SITE.address.postalCode}
+                {SITE.address.formatted}
+              </p>
+              <p className="text-[color:var(--ivory)]/55 text-xs leading-relaxed">
+                Proprietor: {SITE.proprietor}
               </p>
             </div>
           </div>
@@ -109,14 +114,6 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/about-us"
-                  className="hover:text-[color:var(--gold-soft)] transition-colors"
-                >
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/policies"
                   className="hover:text-[color:var(--gold-soft)] transition-colors"
                 >
@@ -154,9 +151,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 pt-7 border-t border-[color:var(--ivory)]/8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-[color:var(--ivory)]/45">
           <p className="max-w-xl leading-relaxed">
-            &copy; {year} {SITE.name}. All rights reserved. {INDEPENDENCE_DISCLAIMER}
+            &copy; {year} {SITE.name}. All rights reserved. {INDEPENDENCE_DISCLAIMER}{" "}
+            {ADMISSION_DECISION_DISCLAIMER}
           </p>
-          <p className="shrink-0">GST: 05DXGPP9903M2ZU</p>
+          <p className="shrink-0">GST: {SITE.gstNumber}</p>
         </div>
       </div>
     </footer>

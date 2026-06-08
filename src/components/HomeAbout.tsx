@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 import { dispatchHomePopup } from "./HomeLeadPopup";
 
 const stats = [
-  { value: "8+", label: "Partner Universities" },
+  { value: "8+", label: "Universities Covered" },
   { value: "Free", label: "Expert Consultation" },
   { value: "100+", label: "Courses Covered" },
   { value: "UGC", label: "Approved Institutions" },
@@ -36,7 +36,7 @@ export function HomeAbout() {
               About Us
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-8 text-[color:var(--ink-soft)]">
-              {SITE.name} is a premier admission consultancy dedicated to
+              {SITE.name} is an independent education consultancy dedicated to
               helping students navigate the complex process of selecting the
               right course and college. Our experienced counsellors provide
               personalised guidance to each student.
@@ -56,7 +56,7 @@ export function HomeAbout() {
               onClick={dispatchHomePopup}
               className="btn-primary mt-8 px-8 py-3 text-sm"
             >
-              Talk to an Expert
+              Submit Now
             </button>
           </div>
 

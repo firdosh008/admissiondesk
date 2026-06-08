@@ -12,7 +12,7 @@ import { UUIntellectualCarousel } from "@/components/college/UUIntellectualCarou
 import { UUPhotoCarousel } from "@/components/college/UUPhotoCarousel";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { UUApplyTrigger } from "@/components/college/UUApplyTrigger";
-import { CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS } from "@/lib/site";
+import { ADMISSION_DECISION_DISCLAIMER, CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS, SITE } from "@/lib/site";
 
 const TOP_COUNTERS = [
   { to: 23, suffix: "+", label: "Years of Educational Experience" },
@@ -253,7 +253,7 @@ export function UUPageContent() {
               <Suspense fallback={null}>
                 <UULeadForm
                   university="Uttaranchal University"
-                  buttonLabel="Submit"
+                  buttonLabel="Submit Now"
                   successText="A senior admissiondesk counsellor will reach out shortly with Uttaranchal University eligibility, scholarship guidance and document checklist."
                   classes={{
                     form: "space-y-4",
@@ -420,6 +420,9 @@ export function UUPageContent() {
               <p className="uu-footer-line mt-3 text-[color:var(--gold-soft)]/90">
                 {INDEPENDENCE_DISCLAIMER}
               </p>
+              <p className="uu-footer-line mt-2 text-[color:var(--gold-soft)]/90">
+                {ADMISSION_DECISION_DISCLAIMER}
+              </p>
             </div>
             <div className="md:col-span-5">
               <p className="uu-footer-tag">SPEAK TO A COUNSELLOR</p>
@@ -431,6 +434,8 @@ export function UUPageContent() {
                   support@admissiondesk.info
                 </a>
               </p>
+              <p className="uu-footer-line mt-3">{SITE.address.formatted}</p>
+              <p className="uu-footer-line">Proprietor: {SITE.proprietor}</p>
             </div>
           </div>
           <div className="uu-footer-bar">
@@ -439,7 +444,7 @@ export function UUPageContent() {
               This counselling page is operated by admissiondesk, not by the university.
             </p>
             <p>UU: NAAC A+ · UGC · AICTE · BCI · PCI · INC</p>
-            <p>GST: 05DXGPP9903M2ZU</p>
+            <p>GST: {SITE.gstNumber}</p>
           </div>
         </div>
       </footer>

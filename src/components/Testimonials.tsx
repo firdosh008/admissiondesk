@@ -13,8 +13,7 @@ export function Testimonials() {
           </h2>
           <p className="mt-4 text-base md:text-lg text-[color:var(--ink-soft)] leading-relaxed">
             Every story below is from a student we counselled. Outcomes are
-            individual — we don&apos;t guarantee results, we guarantee honest
-            guidance.
+            individual, and our role is to provide honest guidance.
           </p>
         </header>
 

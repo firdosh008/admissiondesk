@@ -3,7 +3,7 @@ export const SITE = {
   shortName: "admissiondesk",
   tagline: "Admission Counselling & Placement Guidance",
   description:
-    "Free 1-on-1 admission counselling for Uttaranchal University and Graphic Era in Dehradun, with course selection, eligibility, scholarship, and application support.",
+    "Free 1-on-1 counselling for students interested in universities like Uttaranchal University, Graphic Era, and other institutions in Dehradun, with course selection, eligibility, scholarship, and application guidance.",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.admissiondesk.info").replace(/\/$/, ""),
   locale: "en_IN",
   city: "Dehradun",
@@ -12,12 +12,16 @@ export const SITE = {
   phone: "+91 82736 25802",
   whatsapp: "918273625802",
   email: "support@admissiondesk.info",
+  proprietor: "Shubham Panwar",
+  gstNumber: "05DXGPP9903M2ZU",
   address: {
-    street: "Doon Medical College Road, Patel Nagar",
+    street: "KP Road, Near Shri Guru Ram Rai College of Nursing, Patel Nagar",
     locality: "Dehradun",
     region: "Uttarakhand",
     postalCode: "248001",
     country: "IN",
+    formatted:
+      "KP Road, Near Shri Guru Ram Rai College of Nursing, Patel Nagar, Dehradun, Uttarakhand – 248001",
   },
   social: {
     instagram: "https://instagram.com/admissiondesk",
@@ -29,10 +33,13 @@ export const SITE = {
 } as const;
 
 /** Google Ads / policy-safe CTA — opens counselling popup, not a direct application. */
-export const CTA_BOOK_COUNSELLING = "Book Free Counselling" as const;
+export const CTA_BOOK_COUNSELLING = "Submit Now" as const;
 
 export const INDEPENDENCE_DISCLAIMER =
-  "We are an independent education consultancy and not affiliated with any college or university." as const;
+  "We are an independent education consultancy and not affiliated with any college or university. We do not represent the official website of any university." as const;
+
+export const ADMISSION_DECISION_DISCLAIMER =
+  "We do not guarantee admission. Final admission decisions are made solely by the respective institutions based on their criteria." as const;
 
 export const PAGE_CONTACTS = {
   home: {

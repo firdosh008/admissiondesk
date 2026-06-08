@@ -37,12 +37,12 @@ export default function PoliciesPage() {
         <h1 className="mt-5 max-w-4xl font-display text-5xl leading-tight text-[color:var(--forest-deep)] md:text-7xl">
           Clear rules for counselling, consent, and admission support.
         </h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-[color:var(--ink-soft)]">
-          {SITE.name} provides admission counselling and application assistance
-          for students considering partner universities. We collect only the
-          details needed to respond to an enquiry, guide the student, and share
-          relevant application information with the selected institution after
-          consent.
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-[color:var(--ink-soft)]">
+            {SITE.name} provides admission counselling and application assistance
+          for students considering selected universities. We collect only the
+            details needed to respond to an enquiry, guide the student, and share
+            relevant application information with the selected institution after
+            consent.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -67,7 +67,7 @@ export default function PoliciesPage() {
 
         <div className="mt-10 rounded-md border border-[color:var(--rule)] bg-[color:var(--cream)] p-6">
           <h2 className="font-display text-2xl text-[color:var(--forest-deep)]">
-            Counselling partner disclaimer
+            Counselling disclaimer
           </h2>
           <p className="mt-3 leading-7 text-[color:var(--ink-soft)]">
             College-themed pages on this website are built to help students

@@ -32,14 +32,14 @@ export default function TermsPage() {
           </p>
 
           <h2 className="font-display text-2xl text-[color:var(--forest-deep)] mt-10">
-            Independent counselling partner
+            Independent counselling support
           </h2>
           <p>
             {SITE.name} provides admission guidance and counselling support for
             students exploring selected universities. We are an independent
             education consultancy and not affiliated with any college or
             university. We do not operate as the official website of any
-            university listed on this site. We are compensated by partner
+            university listed on this site. We may be compensated by respective
             institutions only when a candidate enrols, and never by the student.
           </p>
 
