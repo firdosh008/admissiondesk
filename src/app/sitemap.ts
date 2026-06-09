@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: college.slug === "uttaranchal-university" ? 1.0 : 0.9,
     })),
     {
+      url: `${SITE.url}/dev-bhoomi`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${SITE.url}/about-us`,
       lastModified: now,
       changeFrequency: "monthly",
