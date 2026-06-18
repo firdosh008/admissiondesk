@@ -19,7 +19,6 @@ const SUBNAV = [
   { label: "Admission Process", href: "#process" },
   { label: "Scholarship", href: "#scholarship" },
   { label: "DBUU-CET", href: "#dbuucet" },
-  { label: "Programmes", href: "#programmes" },
   { label: "FAQs", href: "#faqs" },
   { label: "Submit Now", href: "#apply" },
 ];
@@ -71,70 +70,6 @@ const STEPS = [
     n: "04",
     title: "Counselling & Provisional Offer",
     body: "Shortlisted candidates receive a counselling call. The provisional offer letter along with fee structure and scholarship slab is issued within 48 hours of counselling completion.",
-  },
-];
-
-const PROGRAM_GRID = [
-  {
-    head: "Engineering & Technology",
-    items: [
-      "B.Tech CSE",
-      "B.Tech CSE (AI & ML)",
-      "B.Tech CSE (Data Science)",
-      "B.Tech ECE",
-      "B.Tech Mechanical",
-      "B.Tech Civil",
-      "M.Tech CSE",
-    ],
-  },
-  {
-    head: "Pharmacy & Health Sciences",
-    items: [
-      "B.Pharm",
-      "Pharm.D",
-      "M.Pharm (Pharmaceutics)",
-      "M.Pharm (Pharmacology)",
-      "D.Pharm",
-      "B.Sc Nursing",
-      "BMLT",
-    ],
-  },
-  {
-    head: "Management & Commerce",
-    items: [
-      "BBA",
-      "MBA",
-      "MBA (Healthcare Management)",
-      "B.Com (Hons.)",
-      "M.Com",
-    ],
-  },
-  {
-    head: "Computer Applications & IT",
-    items: [
-      "BCA",
-      "BCA (AI & Data Science)",
-      "MCA",
-      "B.Sc (IT)",
-    ],
-  },
-  {
-    head: "Law & Liberal Arts",
-    items: [
-      "BA LLB (Hons.) — 5 yr",
-      "LLB — 3 yr",
-      "BA (Hons.) English / Pol. Sc. / Eco.",
-      "MA English / Education",
-    ],
-  },
-  {
-    head: "Agriculture & Life Sciences",
-    items: [
-      "B.Sc Agriculture",
-      "B.Sc Horticulture",
-      "B.V.Sc & Animal Husbandry",
-      "B.Sc (Hons.) Maths / Physics / Chem.",
-    ],
   },
 ];
 
@@ -200,7 +135,6 @@ const SCHOOLS = [
   "School of Media & Communication",
 ];
 
-const ACCREDITATIONS = ["UGC Recognised", "AICTE Approved", "PCI Approved", "BCI Approved"];
 
 const CET_DATES: [string, string][] = [
   ["Registration opens", "10 Jan 2026"],
@@ -240,23 +174,6 @@ export default function DevBhoomiPage() {
           style={{ objectFit: "cover", objectPosition: "center 40%" }}
         />
 
-        {/* Top-center: identity card + admissions badge */}
-        <div className="dbuu-hero-identity">
-          <div className="dbuu-hero-id-card">
-            <Image
-              src="/colleges/dbuu/dbuu-logo-png.webp"
-              alt="Dev Bhoomi Uttarakhand University"
-              width={180}
-              height={56}
-              style={{ width: "180px", height: "auto" }}
-              className="dbuu-hero-id-logo"
-            />
-          </div>
-          <div className="dbuu-hero-id-badge">
-            <span className="dbuu-hero-id-dot" />
-            Admissions Open 2026–27
-          </div>
-        </div>
 
         {/* Center: headline */}
         <div className="dbuu-campus-hero-center" aria-hidden>
@@ -297,54 +214,7 @@ export default function DevBhoomiPage() {
       {/* ── Apply / About ── */}
       <section id="apply" className="dbuu-section dbuu-section-form">
         <div className="dbuu-container">
-          <div className="dbuu-apply-grid">
-              {/* About column */}
-              <div>
-                <span className="dbuu-eyebrow">Free Counselling</span>
-                <h2 className="dbuu-h2" style={{ marginTop: "0.75rem" }}>
-                  About Dev Bhoomi Uttarakhand University
-                </h2>
-                <p className="dbuu-body" style={{ marginTop: "1.25rem" }}>
-                  Dev Bhoomi Uttarakhand University (DBUU), Dehradun, is one of
-                  Uttarakhand&apos;s most affordable UGC-recognised private
-                  universities. With 120+ UG, PG and Doctoral programmes across 12
-                  schools — Engineering, Pharmacy, Law, Management, Agriculture,
-                  Computer Applications and more — DBUU offers exceptional academic
-                  value at fees starting from just ₹75,000 per year.
-                </p>
-                <div className="dbuu-rankings">
-                  <div className="dbuu-ranking">
-                    <p className="dbuu-ranking-rank">₹75K</p>
-                    <p className="dbuu-ranking-title">Starting Fees</p>
-                    <p className="dbuu-ranking-note">Per year — among Uttarakhand&apos;s lowest</p>
-                  </div>
-                  <div className="dbuu-ranking">
-                    <p className="dbuu-ranking-rank">2008</p>
-                    <p className="dbuu-ranking-title">Established</p>
-                    <p className="dbuu-ranking-note">15+ years of excellence</p>
-                  </div>
-                  <div className="dbuu-ranking">
-                    <p className="dbuu-ranking-rank">80%+</p>
-                    <p className="dbuu-ranking-title">Placement Rate</p>
-                    <p className="dbuu-ranking-note">Consistent year-on-year</p>
-                  </div>
-                  <div className="dbuu-ranking">
-                    <p className="dbuu-ranking-rank">12</p>
-                    <p className="dbuu-ranking-title">Schools</p>
-                    <p className="dbuu-ranking-note">120+ programmes offered</p>
-                  </div>
-                </div>
-
-                <div className="dbuu-accred">
-                  <p className="dbuu-accred-head">Recognitions & Approvals</p>
-                  <div className="dbuu-accred-row">
-                    {ACCREDITATIONS.map((r) => (
-                      <span key={r} className="dbuu-accred-pill">{r}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
+          <div className="dbuu-apply-grid" style={{ maxWidth: "560px", margin: "0 auto", gridTemplateColumns: "1fr" }}>
               {/* Form column */}
               <div className="dbuu-form-card">
                 <span className="dbuu-form-eyebrow">100% Free · No Obligation</span>
@@ -410,17 +280,6 @@ export default function DevBhoomiPage() {
             ))}
           </div>
 
-          <div style={{ marginTop: "3rem" }}>
-            <div className="dbuu-side-img" style={{ maxWidth: "100%" }}>
-              <Image
-                src="/colleges/dbuu/campus.jpg"
-                alt="Dev Bhoomi Uttarakhand University campus"
-                width={1200}
-                height={600}
-                className="dbuu-img-fill"
-              />
-            </div>
-          </div>
 
           <div style={{ marginTop: "3rem" }}>
             <h3 className="dbuu-h2" style={{ marginBottom: "1.5rem" }}>Schools at DBUU</h3>
@@ -547,51 +406,11 @@ export default function DevBhoomiPage() {
         </div>
       </section>
 
-      {/* ── Programmes ── */}
-      <section id="programmes" className="dbuu-section dbuu-section-cream">
-        <div className="dbuu-container">
-          <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden", height: "200px", marginBottom: "2.5rem" }}>
-            <Image
-              src="/colleges/dbuu/students.jpg"
-              alt="Students at Dev Bhoomi Uttarakhand University"
-              fill
-              sizes="100vw"
-              style={{ objectFit: "cover", objectPosition: "center 30%" }}
-            />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg,rgba(12,39,74,0.9) 0%,rgba(12,39,74,0.6) 60%,transparent 100%)", display: "flex", alignItems: "center", padding: "2rem" }}>
-              <div>
-                <p style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "#ffc107", fontWeight: 800 }}>170+ Programmes · 17 Streams</p>
-                <h3 style={{ fontSize: "clamp(1.2rem,3vw,2rem)", fontWeight: 800, color: "#fff", marginTop: "0.4rem", lineHeight: 1.15 }}>Engineering · Pharmacy · Law · Management · Agriculture · and more</h3>
-              </div>
-            </div>
-          </div>
-
-          <span className="dbuu-eyebrow">Academics</span>
-          <h2 className="dbuu-h2" style={{ marginTop: "0.75rem" }}>Programmes at Dev Bhoomi University</h2>
-          <p className="dbuu-body" style={{ marginTop: "0.75rem", maxWidth: "42rem" }}>
-            120+ UG, PG and Doctoral programmes across 12 schools. Our counsellors
-            help you compare curricula, fees and placement records for each.
-          </p>
-          <div className="dbuu-program-tabs">
-            {PROGRAM_GRID.map((g) => (
-              <article key={g.head}>
-                <h3 className="dbuu-program-head">{g.head}</h3>
-                <ul>
-                  {g.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Placements ── */}
       <section className="dbuu-section">
         <div className="dbuu-container">
           <span className="dbuu-eyebrow">Placements</span>
-          <h2 className="dbuu-h2" style={{ marginTop: "0.75rem" }}>Placements at Dev Bhoomi University</h2>
+          <h2 className="dbuu-h2" style={{ marginTop: "0.75rem" }}>Placements</h2>
           <p className="dbuu-body" style={{ marginTop: "0.75rem", maxWidth: "42rem" }}>
             DBUU&apos;s latest placement season saw 850+ companies recruit
             <strong> 15,500+ students</strong> campus-wide, with a highest package
@@ -623,15 +442,6 @@ export default function DevBhoomiPage() {
             ))}
           </div>
 
-          <div style={{ marginTop: "2.5rem", position: "relative", borderRadius: "14px", overflow: "hidden", height: "200px" }}>
-            <Image
-              src="/colleges/dbuu/group.jpg"
-              alt="DBUU students on campus"
-              fill
-              sizes="100vw"
-              style={{ objectFit: "cover", objectPosition: "center 50%" }}
-            />
-          </div>
         </div>
       </section>
 

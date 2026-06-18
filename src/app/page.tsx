@@ -13,7 +13,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Counselling } from "@/components/Counselling";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
-import { HomeLeadPopup } from "@/components/HomeLeadPopup";
+import { HomeCtaScroll } from "@/components/HomeCtaScroll";
 import { StructuredData } from "@/components/StructuredData";
 import { ADMISSION_DECISION_DISCLAIMER, INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
 
@@ -54,7 +54,7 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-      <HomeLeadPopup />
+      <HomeCtaScroll />
     </>
   );
 }

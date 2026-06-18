@@ -69,7 +69,10 @@
       "WebFetch(domain:collegedehradun.com)",
       "Bash(grep -rohE '\\([\"\\\\047`]\\)[^\"\\\\047`]*\\\\.\\(png|jpg|jpeg|webp|svg|gif|avif\\)\\\\1' src/)",
       "Bash(grep -rohE \"['\\\\\"\\\\`][^'\\\\\"\\\\`]*\\\\.\\(png|jpg|jpeg|webp|svg|gif|avif\\)['\\\\\"\\\\`]\" src/)",
-      "WebFetch(domain:support.google.com)"
+      "WebFetch(domain:support.google.com)",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"uu: %{http_code}\\\\n\" http://localhost:3000/uttaranchal-university)",
+      "Bash(echo \"exit: $?\")"
     ]
   }
 }

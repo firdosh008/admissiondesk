@@ -8,7 +8,6 @@ import { UUImageHero } from "@/components/college/UUImageHero";
 import { UUAboutModal } from "@/components/college/UUAboutModal";
 import { UUAccredMarquee } from "@/components/college/UUAccredMarquee";
 import { UUProgramSidebar } from "@/components/college/UUProgramSidebar";
-import { UUIntellectualCarousel } from "@/components/college/UUIntellectualCarousel";
 import { UUPhotoCarousel } from "@/components/college/UUPhotoCarousel";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { UUApplyTrigger } from "@/components/college/UUApplyTrigger";
@@ -19,66 +18,6 @@ const TOP_COUNTERS = [
   { to: 100, suffix: "+", label: "Multidisciplinary Programs" },
   { to: 750, suffix: "+", label: "Companies Visited For Placement" },
   { to: 15, suffix: "K+", label: "Glorious Alumni" },
-];
-
-const BENTO = [
-  {
-    img: "/uu-new/bento/naac.jpg",
-    badge: "01",
-    title: "NAAC A+ Accreditation",
-    body: "With NAAC A+ Grade, Uttaranchal University stands tall in the league of top universities in the country.",
-    accent: "accent-green",
-  },
-  {
-    img: "/uu-new/bento/cif.jpg",
-    badge: "02",
-    title: "World Class Central Instrumentation Facilities (CIF)",
-    body: "The University's Division of Research & Innovation hosts a state-of-the-art Central Instrumentation Centre with sophisticated research and analytical instruments under the supervision of well-versed researchers and scientists.",
-    accent: "accent-orange",
-  },
-  {
-    img: "/uu-new/bento/personality.jpg",
-    badge: "03",
-    title: "Personality Development Program",
-    body: "UU focuses on 360° personality development through structured programs and extracurricular activities — from public speaking and professional grooming to aptitude and leadership training.",
-    accent: "accent-green",
-  },
-  {
-    img: "/uu-new/bento/diversity.jpg",
-    badge: "04",
-    title: "Industry-Collaborated Academic Curriculum",
-    body: "Collaboration between industry and academia is the key to catalyse the success of students in the professional world with hands-on, real-client experience from year two.",
-    accent: "accent-orange",
-  },
-];
-
-const SUCCESS = [
-  {
-    name: "Deepa Pandey",
-    note: "B.Tech CSE · Batch 2021–25",
-    photo: "/uu-new/success/deepa.png",
-  },
-  {
-    name: "Ankita",
-    note: "Judicial Services, Uttar Pradesh",
-    photo: "/uu-new/success/ankita.png",
-  },
-  {
-    name: "Siddhartha Kumar",
-    note: "Judicial Services, Madhya Pradesh",
-    photo: "/uu-new/success/siddhartha.png",
-    featured: true,
-  },
-  {
-    name: "Ayush Thapa",
-    note: "₹45 LPA Placement at Hyatt Regency",
-    photo: "/uu-new/success/ayush.png",
-  },
-  {
-    name: "Gulnaaz",
-    note: "MCA — ₹19.5 Lac offer from Zscaler",
-    photo: "/uu-new/success/gulnaaz.png",
-  },
 ];
 
 const COMPANIES = [
@@ -124,7 +63,6 @@ export function UUPageContent() {
           <nav className="uu2-nav">
             <a href="#about">About UU</a>
             <a href="#programs">Programs</a>
-            <a href="#success">Placements</a>
             <a href="#recruiters">Recruiters</a>
           </nav>
           <div className="uu2-header-right">
@@ -156,24 +94,6 @@ export function UUPageContent() {
           style={{ objectFit: "cover", objectPosition: "center top" }}
         />
 
-        {/* Top-center: logo + admissions badge */}
-        <div className="uu2-hero-identity">
-          <div className="uu2-hero-id-card">
-            <Image
-              src="/colleges/uu/UU-Logo-Naac-Nirf.png"
-              alt="Uttaranchal University"
-              width={170}
-              height={50}
-              style={{ width: "170px", height: "auto" }}
-              className="uu2-hero-id-logo"
-            />
-            <p className="uu2-hero-id-city">Dehradun, Uttarakhand</p>
-          </div>
-          <div className="uu2-hero-id-badge">
-            <span className="uu2-hero-id-dot" />
-            Admissions Open 2026–27
-          </div>
-        </div>
 
         {/* Center: headline */}
         <div className="uu2-campus-hero-center" aria-hidden>
@@ -288,100 +208,9 @@ export function UUPageContent() {
         <UUAccredMarquee />
       </section>
 
-      {/* Why UU + Bento */}
-      <section className="uu2-bento-section" id="why">
-        <div className="uu2-bento-head">
-          <h2 className="uu2-section-h">
-            Why Choose <span>Uttaranchal University?</span>
-          </h2>
-          <p>
-            Uttaranchal University is among the top-ranked private universities
-            in Uttarakhand, recognised for its NAAC A+ accreditation,
-            industry-aligned curriculum, and strong placement record.
-            Students considering UU for 2026-27 admissions benefit from
-            100+ programmes, dedicated research facilities, and a proven
-            campus-to-career pathway.
-          </p>
-        </div>
-        <div className="uu2-bento-grid">
-          {BENTO.map((b, i) => (
-            <article
-              key={b.title}
-              className={`uu2-bento-card uu2-bento-${i + 1} ${b.accent}`}
-            >
-              <div className="uu2-bento-img">
-                <Image
-                  src={b.img}
-                  alt={b.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
-                />
-                <span className="uu2-bento-num" aria-hidden>
-                  {b.badge}
-                </span>
-              </div>
-              <div className="uu2-bento-body">
-                <h3>{b.title}</h3>
-                <p>{b.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
       {/* Find a Program */}
       <section className="uu2-finder-section" id="programs">
         <UUProgramSidebar />
-      </section>
-
-      {/* Student Success Stories */}
-      <section className="uu2-success-section" id="success">
-        <h2 className="uu2-section-h">
-          Uttaranchal University <span>Placement Success Stories</span>
-        </h2>
-        <p className="uu2-success-intro">
-          admissiondesk has helped hundreds of students explore Uttaranchal
-          University programmes that matched their goals. UU&apos;s Corporate
-          Resource Centre then takes over — placing graduates in top companies
-          across India and abroad. These are the kind of outcomes you can work
-          toward with the right guidance.
-        </p>
-        <div className="uu2-success-grid">
-          {SUCCESS.map((s) => (
-            <article
-              key={s.name}
-              className={`uu2-success-card ${s.featured ? "is-feature" : ""}`}
-            >
-              <div className="uu2-success-photo">
-                <Image
-                  src={s.photo}
-                  alt={s.name}
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 20vw"
-                  style={{ objectFit: "cover", objectPosition: "top center" }}
-                />
-              </div>
-              <h3>{s.name}</h3>
-              <p>{s.note}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Our Intellectual Assets */}
-      <section className="uu2-intel-section" id="intellectual">
-        <h2 className="uu2-section-h">
-          UU&apos;s <span>Faculty &amp; Intellectual Assets</span>
-        </h2>
-        <p className="uu2-intel-intro">
-          Uttaranchal University&apos;s faculty includes IITians, NITians, and
-          Post-Doctoral Scholars from across India and the world. This academic
-          depth is one of the key reasons admissiondesk actively recommends UU
-          to students who want research-backed, industry-aligned education in
-          Dehradun.
-        </p>
-        <UUIntellectualCarousel />
       </section>
 
       {/* Industry-Top Recruiters */}

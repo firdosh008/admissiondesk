@@ -61,8 +61,8 @@ export function Hero() {
             {/* Social proof row */}
             <div className="rise rise-5 mt-8 md:mt-12 flex flex-wrap items-center gap-x-5 sm:gap-x-8 gap-y-3">
               {[
-                { value: "12,000+", label: "Aspirants counselled (approx. internal data)" },
-                { value: "2", label: "Universities covered" },
+                { value: "2,000+", label: "Aspirants counselled (approx. internal data)" },
+                { value: "10", label: "Universities covered" },
                 { value: "Free", label: "Student counselling" },
               ].map((stat) => (
                 <div key={stat.label} className="flex items-center gap-3">
@@ -106,14 +106,6 @@ export function Hero() {
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-2 mt-auto pt-2 border-t border-[color:var(--rule-soft)] w-full">
-                    <span className="text-[10px] tracking-[0.16em] uppercase text-[color:var(--gold-deep)] font-semibold">
-                      Highest package
-                    </span>
-                    <span className="font-display text-sm text-[color:var(--forest-deep)] ml-auto">
-                      {college.highestPackage}
-                    </span>
-                  </div>
                 </Link>
               ))}
             </div>

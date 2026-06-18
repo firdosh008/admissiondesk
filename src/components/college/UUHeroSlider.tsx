@@ -43,7 +43,7 @@ const SLIDES: Slide[] = [
     title: "6,000+ Publications · 730+ Patents",
     italic: "Where Curiosity Becomes Career",
     body: "Centres of excellence in AI, Cyber Security, Bioinformatics and Pharmaceutical Sciences. Three faculty members in the world's top 2% scientists list.",
-    cta: { label: "Explore Research", href: "#intellectual" },
+    cta: { label: "Explore Research", href: "#apply" },
   },
 ];
 

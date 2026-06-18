@@ -236,24 +236,6 @@ export default function GraphicEraPage() {
         />
         <div className="geu-campus-hero-grad" aria-hidden />
 
-        {/* Top-center: logo card + admissions badge */}
-        <div className="geu-campus-hero-overlay">
-          <div className="geu-campus-hero-card">
-            <Image
-              src="/colleges/gehu/graphic_logo.webp"
-              alt="Graphic Era University"
-              width={220}
-              height={70}
-              style={{ width: "220px", height: "auto" }}
-              className="geu-campus-hero-logo-img"
-            />
-          </div>
-          <div className="geu-campus-hero-badge">
-            <span className="geu-campus-hero-dot" aria-hidden />
-            Admissions Open 2026–27
-          </div>
-        </div>
-
         {/* Center: headline */}
         <div className="geu-campus-hero-center" aria-hidden>
           <h2 className="geu-campus-hero-headline">
