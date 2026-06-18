@@ -239,11 +239,11 @@ export default function GraphicEraPage() {
         {/* Center: headline */}
         <div className="geu-campus-hero-center" aria-hidden>
           <h2 className="geu-campus-hero-headline">
-            Dehradun&rsquo;s Premier<br />
-            <span>Deemed-to-be &amp; Hill University</span>
+            Top Placements<br />
+            <span>Start With the Right Choice</span>
           </h2>
           <p className="geu-campus-hero-subline">
-            NAAC A+ Accredited · UGC Recognised · 30+ Years of Excellence · Two Campuses · Top Placements at Google, Amazon &amp; more
+            NAAC A+ Accredited · UGC Recognised · 30+ Years of Excellence · Two Campuses · Hires at Google, Amazon &amp; more
           </p>
         </div>
 

@@ -98,8 +98,8 @@ export function UUPageContent() {
         {/* Center: headline */}
         <div className="uu2-campus-hero-center" aria-hidden>
           <h2 className="uu2-campus-hero-headline">
-            Uttarakhand&rsquo;s Top-Ranked<br />
-            <span>Private University</span>
+            Top-Ranked Education<br />
+            <span>Within Your Reach</span>
           </h2>
           <p className="uu2-campus-hero-subline">
             UGC Recognised · AICTE Approved · Established 2003 · 25+ years of academic excellence

@@ -178,8 +178,8 @@ export default function DevBhoomiPage() {
         {/* Center: headline */}
         <div className="dbuu-campus-hero-center" aria-hidden>
           <h1 className="dbuu-campus-hero-headline">
-            Uttarakhand&rsquo;s Most Affordable<br />
-            <span>Private University</span>
+            Quality Education<br />
+            <span>at the Right Price</span>
           </h1>
           <p className="dbuu-campus-hero-subline">
             UGC Recognised · AICTE Approved · Established 2004 · 120+ Programmes · Fees from ₹75K/yr
