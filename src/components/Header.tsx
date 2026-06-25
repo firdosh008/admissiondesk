@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CTA_BOOK_COUNSELLING, SITE } from "@/lib/site";
@@ -46,6 +47,25 @@ export function Header({
   applyLabel = CTA_BOOK_COUNSELLING,
   navLinks = DEFAULT_NAV_LINKS,
 }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close on Escape + lock body scroll while the mobile drawer is open
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className="sticky top-0 z-40">
       {/* Top bar */}
@@ -166,9 +186,123 @@ export function Header({
               </svg>
               <span className="hidden sm:inline">{applyLabel}</span>
             </button>
+
+            {/* Hamburger — mobile only */}
+            {navLinks.length > 0 ? (
+              <button
+                type="button"
+                onClick={() => setMenuOpen(true)}
+                className="md:hidden inline-flex items-center justify-center p-2 -mr-1 text-[color:var(--forest-deep)] rounded-lg hover:bg-[color:var(--cream)] transition-colors"
+                aria-label="Open menu"
+                aria-expanded={menuOpen}
+                aria-controls="mobile-nav-drawer"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              </button>
+            ) : null}
           </div>
         </div>
       </div>
+
+      {/* Mobile drawer */}
+      {navLinks.length > 0 ? (
+        <div
+          className={`md:hidden fixed inset-0 z-50 ${menuOpen ? "" : "pointer-events-none"}`}
+          aria-hidden={!menuOpen}
+        >
+          {/* Backdrop */}
+          <div
+            onClick={closeMenu}
+            className={`absolute inset-0 bg-[color:var(--ink)]/40 backdrop-blur-sm transition-opacity duration-300 ${
+              menuOpen ? "opacity-100" : "opacity-0"
+            }`}
+          />
+
+          {/* Panel */}
+          <nav
+            id="mobile-nav-drawer"
+            className={`absolute right-0 top-0 h-full w-[82%] max-w-[320px] bg-[color:var(--ivory)] shadow-[var(--shadow-modal)] flex flex-col transition-transform duration-300 ease-out ${
+              menuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[color:var(--rule-soft)]">
+              <span className="eyebrow text-[color:var(--forest)]">Menu</span>
+              <button
+                type="button"
+                onClick={closeMenu}
+                className="inline-flex items-center justify-center p-2 -mr-1 text-[color:var(--ink-soft)] rounded-lg hover:bg-[color:var(--cream)] transition-colors"
+                aria-label="Close menu"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-3 py-4">
+              {navLinks.map((link) =>
+                link.dropdown ? (
+                  <div key={link.label} className="py-1">
+                    <p className="px-4 pt-3 pb-1 text-xs font-semibold uppercase tracking-wide text-[color:var(--muted)]">
+                      {link.label}
+                    </p>
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={closeMenu}
+                        className="block px-4 py-3 text-base font-medium text-[color:var(--ink-soft)] rounded-lg hover:bg-[color:var(--cream)] hover:text-[color:var(--forest-deep)] transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <a
+                    key={`${link.href}-${link.label}`}
+                    href={link.href}
+                    onClick={closeMenu}
+                    className="block px-4 py-3 text-base font-medium text-[color:var(--ink-soft)] rounded-lg hover:bg-[color:var(--cream)] hover:text-[color:var(--forest)] transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
+            </div>
+
+            <div className="px-5 py-4 border-t border-[color:var(--rule-soft)] flex flex-col gap-2.5">
+              <button
+                type="button"
+                onClick={() => {
+                  closeMenu();
+                  dispatchHomePopup();
+                }}
+                className="btn-primary w-full justify-center text-sm py-3"
+              >
+                {applyLabel}
+              </button>
+              <a
+                href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(
+                  "Hi, I'd like to talk to a counsellor about admissions."
+                )}`}
+                onClick={closeMenu}
+                className="btn-whatsapp w-full justify-center text-sm py-3"
+                data-event="whatsapp_click"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <WhatsAppIcon size={16} />
+                WhatsApp
+              </a>
+            </div>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }
