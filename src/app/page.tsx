@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { EditorialPromise } from "@/components/Promise";
+import { TrustBar } from "@/components/TrustBar";
+import { Problem } from "@/components/Problem";
+import { Solution } from "@/components/Solution";
 import { Partners } from "@/components/Partners";
-import { Programs } from "@/components/Programs";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { CTABand } from "@/components/CTABand";
-import { Stats } from "@/components/Stats";
-import { PartnerLogos } from "@/components/PartnerLogos";
-import { Process } from "@/components/Process";
-import { Placements } from "@/components/Placements";
 import { Testimonials } from "@/components/Testimonials";
-import { Counselling } from "@/components/Counselling";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { HomeCtaScroll } from "@/components/HomeCtaScroll";
@@ -30,18 +27,16 @@ export default function Home() {
       <StructuredData />
       <Header />
       <main>
+        {/* Trust first → value second → sell colleges last */}
         <Hero />
-        <EditorialPromise />
-        <Partners />
-        <Programs />
-        <CTABand />
-        <Stats />
-        <PartnerLogos />
-        <Process />
-        <Placements />
+        <TrustBar />
+        <Problem />
+        <Solution />
         <Testimonials />
-        <Counselling />
+        <Partners />
+        <WhyChooseUs />
         <FAQ />
+        <CTABand />
         <section
           aria-label="Disclaimer"
           className="section-light border-t border-[color:var(--rule-soft)]"

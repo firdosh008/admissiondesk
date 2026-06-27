@@ -74,7 +74,9 @@
       "Bash(curl -s -o /dev/null -w \"uu: %{http_code}\\\\n\" http://localhost:3000/uttaranchal-university)",
       "Bash(echo \"exit: $?\")",
       "Bash(npx eslint *)",
-      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright-pkg'\\)}catch{try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer-pkg'\\)}catch{console.log\\('none'\\)}}\")"
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright-pkg'\\)}catch{try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer-pkg'\\)}catch{console.log\\('none'\\)}}\")",
+      "Bash(awk '/export const STATS/,/\\\\];/' src/lib/constants.ts)",
+      "Bash(awk '/export const PROCESS/,/\\\\];/' src/lib/constants.ts)"
     ]
   }
 }

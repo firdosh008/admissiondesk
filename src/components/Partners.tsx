@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  DEHRADUN_COUNSELLING_COLLEGES,
-  COUNSELLING_COLLEGE_INFO,
-  COLLEGES,
-} from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
+import { COLLEGES } from "@/lib/constants";
 import { CollegeCrest } from "./CollegeCrest";
 import { dispatchHomePopup } from "./HomeLeadPopup";
 
@@ -17,30 +14,14 @@ const COLLEGE_BG: Record<string, string> = {
   "dev-bhoomi": "/colleges/dbuu/dbuu-campus-img.webp",
 };
 
-const COUNSELLING_COLLEGE_IMAGE: Record<string, string> = {
-  "Uttaranchal University":                  "/colleges/uu/bg-uu.png",
-  "Graphic Era (Deemed to be University)":   "/colleges/geu/bg-geu.webp",
-  "Graphic Era Hill University":             "/colleges/gehu/campus.webp",
-  "UPES Dehradun":                           "/colleges/upes/bg_upes.avif",
-  "DIT University":                          "/colleges/dit/campus.jpg",
-  "IMS Unison University":                   "/colleges/iuu/campus.webp",
-  "Dev Bhoomi Uttarakhand University":       "/colleges/dbuu/dbuu-campus-img.webp",
-  "Doon University":                         "/colleges/doon/campus.jpg",
-"Doon Business School":                    "/colleges/dbs/campus.webp",
-  "SGRR University":                         "/colleges/sgrr/campus.jpg",
-  "Shivalik College":                        "/colleges/shivalik/campus.png",
-  "Tula's Institute":                        "/colleges/tulas/campus.webp",
-  "Himalayan Institute of Technology":       "/colleges/hit/campus.webp",
-  "Government Doon Medical College":         "/colleges/gdmc/campus.webp",
-  "Institute of Hotel Management, Dehradun": "/colleges/ihm/campus.webp",
-};
+// Pages that currently have a dedicated landing page
+const HAS_PAGE = new Set(["uttaranchal-university", "graphic-era"]);
 
-const HAS_PAGE = new Set(["uttaranchal-university", "graphic-era", "dev-bhoomi"]);
-
+// Show 4–6 featured colleges only — no heavy data on the homepage
 const DISPLAY_ORDER = ["uttaranchal-university", "graphic-era", "upes", "dev-bhoomi"];
-const FEATURED_COLLEGES = [...COLLEGES].sort(
-  (a, b) => DISPLAY_ORDER.indexOf(a.slug) - DISPLAY_ORDER.indexOf(b.slug)
-);
+const FEATURED_COLLEGES = [...COLLEGES]
+  .filter((c) => DISPLAY_ORDER.includes(c.slug))
+  .sort((a, b) => DISPLAY_ORDER.indexOf(a.slug) - DISPLAY_ORDER.indexOf(b.slug));
 
 const variants: Array<"shield" | "hex"> = ["shield", "hex"];
 
@@ -49,232 +30,108 @@ export function Partners() {
     <section id="partners" className="section">
       <div className="container-x py-12 md:py-24 lg:py-32">
         {/* ── Header ── */}
-        <header className="max-w-4xl">
-          <p className="eyebrow">College counselling in Dehradun</p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.02] text-[color:var(--forest-deep)]">
-            We counsel for Dehradun&apos;s{" "}
-            <span className="font-italic-serif">
-              top colleges and beyond.
-            </span>
+        <header className="max-w-3xl mb-8 md:mb-14">
+          <p className="eyebrow">Colleges we counsel for</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 leading-[1.04] text-[color:var(--forest-deep)]">
+            Top colleges we{" "}
+            <span className="font-italic-serif">work with.</span>
           </h2>
-          <p className="mt-4 md:mt-6 text-base md:text-lg leading-relaxed text-[color:var(--ink-soft)] max-w-3xl">
-            Compare course fit, fees, eligibility, scholarships, hostels,
-            and application steps across Dehradun&apos;s top institutions — all
-            through a single, free counselling call.
+          <p className="mt-4 md:mt-6 text-base md:text-lg leading-relaxed text-[color:var(--ink-soft)]">
+            A handpicked network of Dehradun&apos;s leading universities. Get
+            honest guidance on course fit, eligibility and scholarships — through
+            a single free counselling call.
           </p>
         </header>
 
-        {/* ── Featured college cards ── */}
-        <div className="mt-8 md:mt-14 grid lg:grid-cols-2 gap-5 md:gap-8">
+        {/* ── Featured college cards — logo + short info only ── */}
+        <div className="grid sm:grid-cols-2 gap-5 md:gap-7">
           {FEATURED_COLLEGES.map((college, index) => {
             const bg = COLLEGE_BG[college.slug];
-            return (
-              <article
-                key={college.slug}
-                className="card-elevated flex flex-col h-full overflow-hidden"
-              >
-                {/* Hero banner */}
-                <div className="relative h-52 sm:h-60 w-full flex-none">
+            const hasPage = HAS_PAGE.has(college.slug);
+
+            const card = (
+              <>
+                {/* Banner */}
+                <div className="relative h-40 sm:h-44 w-full flex-none">
                   {bg ? (
                     <Image
                       src={bg}
                       alt={college.name}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   ) : (
                     <div className="absolute inset-0 bg-[color:var(--forest-deep)]" />
                   )}
-                  {/* Dark gradient so text is readable */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10" />
-
-                  {/* Badge top-left */}
-                  <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 text-[10px] font-semibold text-[color:var(--gold-soft)] tracking-[0.12em] uppercase">
-                    Featured landing page
-                  </span>
-
-                  {/* Crest + name overlaid at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end gap-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/5" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end gap-3">
                     <CollegeCrest
                       monogram={college.monogram}
-                      size={60}
-                      variant={variants[index]}
+                      size={48}
+                      variant={variants[index % variants.length]}
                     />
                     <div className="min-w-0">
-                      <h3 className="font-display text-2xl md:text-3xl leading-tight text-white drop-shadow">
+                      <h3 className="font-display text-xl md:text-2xl leading-tight text-white drop-shadow">
                         {college.name}
                       </h3>
-                      <p className="mt-1 text-xs text-white/70">
-                        Est. {college.established} · {college.city} ·{" "}
-                        {college.programs} programmes
-                        {college.schools ? ` · ${college.schools} schools` : ""}
+                      <p className="mt-0.5 text-xs text-white/75">
+                        Est. {college.established} · {college.city}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Card body */}
-                <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-1">
-                  {/* Accreditation badge */}
+                {/* Body — short info, no packages/recruiters */}
+                <div className="p-5 sm:p-6 flex flex-col flex-1">
                   <span className="inline-flex self-start items-center gap-1.5 px-2.5 py-1 rounded-full bg-[color:var(--forest)]/6 border border-[color:var(--forest)]/12 text-[10px] font-semibold text-[color:var(--forest-deep)] tracking-[0.04em]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--gold)]" />
                     {college.accreditation}
                   </span>
-
-                  {/* Highlights */}
-                  <ul className="mt-5 space-y-3 text-sm text-[color:var(--ink-soft)]">
-                    {college.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-3">
-                        <span className="accent-dot mt-1.5 flex-none" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Stats row */}
-                  <div className="mt-6 grid grid-cols-3 gap-4 py-5 border-y border-[color:var(--rule-soft)]">
-                    <div>
-                      <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                        Fees / year
-                      </p>
-                      <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
-                        {college.feesRange}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                        {college.averagePackage ? "Avg. pkg." : "Highest pkg."}
-                      </p>
-                      <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
-                        {college.averagePackage ?? college.highestPackage}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] tracking-[0.18em] uppercase text-[color:var(--muted)]">
-                        {college.placementRate ? "Placement" : "Programmes"}
-                      </p>
-                      <p className="font-display text-lg text-[color:var(--forest-deep)] mt-1">
-                        {college.placementRate ?? `${college.programs}+`}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* CTAs */}
-                  <div className="mt-6 flex flex-wrap items-center gap-3">
-                    {HAS_PAGE.has(college.slug) && (
-                      <Link href={`/${college.slug}`} className="btn-primary text-sm py-3 px-5">
-                        Know more
-                      </Link>
-                    )}
-                    <button type="button" onClick={dispatchHomePopup} className="btn-secondary text-sm py-3 px-5">
-                      Ask a counsellor
-                    </button>
+                  <p className="mt-4 text-sm leading-relaxed text-[color:var(--ink-soft)] flex-1">
+                    {college.highlights[0]?.split("·")[0]?.trim() ??
+                      `${college.programs}+ programmes across ${
+                        college.schools ?? "multiple"
+                      } schools.`}
+                  </p>
+                  <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--forest-deep)] group-hover:text-[color:var(--moss)] transition-colors">
+                    {hasPage ? "Know more" : "Ask a counsellor"}
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
                   </div>
                 </div>
-              </article>
+              </>
+            );
+
+            return hasPage ? (
+              <Link
+                key={college.slug}
+                href={`/${college.slug}`}
+                className="card-elevated group flex flex-col h-full overflow-hidden"
+              >
+                {card}
+              </Link>
+            ) : (
+              <button
+                key={college.slug}
+                type="button"
+                onClick={dispatchHomePopup}
+                className="card-elevated group flex flex-col h-full overflow-hidden text-left"
+              >
+                {card}
+              </button>
             );
           })}
         </div>
 
-        {/* ── Also covered — college mini-cards grid ── */}
-        <div className="mt-10 md:mt-14">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-6 md:mb-8">
-            <div>
-              <p className="eyebrow">Also covered in counselling</p>
-              <h3 className="mt-3 font-display text-2xl sm:text-3xl text-[color:var(--forest-deep)]">
-                More Dehradun colleges students ask us about
-              </h3>
-            </div>
-            <button type="button" onClick={dispatchHomePopup} className="btn-primary text-sm py-3 px-5">
-              Compare all colleges
-            </button>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            {DEHRADUN_COUNSELLING_COLLEGES.map((college, i) => {
-              const initials = college
-                .split(" ")
-                .map((w) => w[0])
-                .join("")
-                .slice(0, 3)
-                .toUpperCase();
-
-              const info = COUNSELLING_COLLEGE_INFO[college];
-              const imgSrc = COUNSELLING_COLLEGE_IMAGE[college];
-
-              return (
-                <button
-                  key={college}
-                  type="button"
-                  onClick={dispatchHomePopup}
-                  className="flex flex-col rounded-2xl border transition-all text-left w-full border-[color:var(--rule-soft)] bg-[color:var(--cream)] hover:border-[color:var(--forest)]/30 hover:bg-[color:var(--ivory)] hover:shadow-md cursor-pointer overflow-hidden"
-                >
-                  {/* Campus image strip */}
-                  {imgSrc && (
-                    <div className="relative h-32 w-full flex-none">
-                      <Image
-                        src={imgSrc}
-                        alt={`${college} campus`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, 50vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-                      <span className="absolute bottom-3 left-3 inline-flex w-9 h-9 items-center justify-center rounded-full font-display text-xs font-semibold bg-black/40 backdrop-blur-sm border border-white/20 text-white">
-                        {initials}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Content */}
-                  <div className="flex flex-col gap-4 p-5 sm:p-6">
-                    {/* Name row */}
-                    <div className="flex items-start gap-4">
-                      {!imgSrc && (
-                        <span className="inline-flex w-10 h-10 items-center justify-center rounded-full font-display text-xs font-semibold flex-none mt-0.5 bg-[color:var(--forest)]/10 text-[color:var(--forest-deep)]">
-                          {initials}
-                        </span>
-                      )}
-                      <div>
-                        <p className="text-base font-semibold text-[color:var(--ink)] leading-snug">
-                          {college}
-                        </p>
-                        {info && (
-                          <p className="mt-1 text-sm text-[color:var(--ink-soft)] leading-relaxed">
-                            {info.desc}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Stats row — 4 columns */}
-                    {info && (
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[color:var(--rule-soft)]">
-                        {[
-                          { label: "Fees/yr", value: info.feesRange  },
-                          { label: "Avg pkg", value: info.avgPackage },
-                          { label: "Placed",  value: info.placement  },
-                          { label: "NAAC",    value: info.naac       },
-                        ].map(({ label, value }) => (
-                          <div key={label}>
-                            <p className="text-[10px] tracking-[0.14em] uppercase text-[color:var(--muted)]">{label}</p>
-                            <p className="mt-1 text-xs font-semibold text-[color:var(--forest-deep)] leading-snug">{value}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          <p className="mt-6 text-xs leading-6 text-[color:var(--muted)] text-center">
-            Listed for counselling coverage and comparison. Dedicated landing
-            pages with full details are currently active for Uttaranchal
-            University and Graphic Era.
-          </p>
+        {/* ── View all colleges ── */}
+        <div className="mt-8 md:mt-12 flex justify-center">
+          <button
+            type="button"
+            onClick={dispatchHomePopup}
+            className="btn-secondary text-sm md:text-base py-3 md:py-3.5 px-6 md:px-8"
+          >
+            View All Colleges
+          </button>
         </div>
       </div>
     </section>
