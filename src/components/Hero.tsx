@@ -1,14 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
 import { Check } from "lucide-react";
-import { COLLEGES } from "@/lib/constants";
-import { CollegeCrest } from "./CollegeCrest";
 import { dispatchHomePopup } from "./HomeLeadPopup";
-
-const HERO_COLLEGES = COLLEGES.filter((c) =>
-  ["uttaranchal-university", "graphic-era", "upes", "dev-bhoomi"].includes(c.slug)
-);
 
 export function Hero() {
   return (
@@ -82,37 +76,21 @@ export function Hero() {
             </div>
           </div>
 
-          {/* ── Right: University cards — hidden on small, shown lg+ ── */}
+          {/* ── Right: Admission guidance image — hidden on small, shown lg+ ── */}
           <div className="hidden lg:block lg:col-span-5 relative">
-            <div className="relative grid grid-cols-2 gap-4 max-w-md lg:ml-auto">
-              {HERO_COLLEGES.map((college, index) => (
-                <Link
-                  href={`/${college.slug}`}
-                  key={college.slug}
-                  className={`rise rise-${Math.min(index + 3, 6)} card-elevated p-4 flex flex-col items-start gap-2.5 group ${
-                    index % 2 === 1 ? "translate-y-6" : ""
-                  }`}
-                >
-                  <CollegeCrest
-                    monogram={college.monogram}
-                    size={52}
-                    variant={index === 0 ? "shield" : "hex"}
-                  />
-
-                  <div>
-                    <p className="font-display text-base leading-tight text-[color:var(--forest-deep)] group-hover:text-[color:var(--moss)] transition-colors">
-                      {college.shortName}
-                    </p>
-                    <p className="text-[11px] tracking-[0.18em] uppercase text-[color:var(--muted)] mt-1">
-                      Est. {college.established} · {college.city}
-                    </p>
-                  </div>
-
-                </Link>
-              ))}
+            <div className="rise rise-3 relative max-w-xl lg:ml-auto lg:-mr-8 xl:-mr-16 overflow-hidden rounded-[24px] card-elevated p-0">
+              <Image
+                src="/hero-admission-guidance.png"
+                alt="Admission counsellor guiding a student through top universities"
+                width={1536}
+                height={1024}
+                priority
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="w-full h-auto object-cover"
+              />
             </div>
 
-            {/* Decorative glow behind cards */}
+            {/* Decorative glow behind image */}
             <div
               aria-hidden
               className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-[40px] opacity-30"
