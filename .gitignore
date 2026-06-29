@@ -10,7 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 .playwright-mcp/
-data/
+/data/
 # testing
 /coverage
 
@@ -38,8 +38,6 @@ yarn-error.log*
 .vercel
 
 # leads data (captured form submissions — keep folder, ignore xlsx)
-/data/*
-!/data/.gitkeep
 
 # typescript
 *.tsbuildinfo
