@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { VISIBLE_COLLEGES } from "@/lib/constants";
+import { getAllBlogs } from "@/lib/blogs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -35,6 +36,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    {
+      url: `${SITE.url}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...getAllBlogs().map((blog) => ({
+      url: `${SITE.url}/blog/${blog.slug}`,
+      lastModified: new Date(blog.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
     {
       url: `${SITE.url}/policies`,
       lastModified: now,

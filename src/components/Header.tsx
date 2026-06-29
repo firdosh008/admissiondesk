@@ -24,6 +24,7 @@ const DEFAULT_NAV_LINKS: HeaderLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Universities", href: "/#partners" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact-us" },
   {
     label: "Legal",
