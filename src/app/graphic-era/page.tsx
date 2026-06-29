@@ -11,7 +11,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
-import { ADMISSION_DECISION_DISCLAIMER, CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS, SITE } from "@/lib/site";
+import {  CTA_BOOK_COUNSELLING,  PAGE_CONTACTS, SITE } from "@/lib/site";
 import "./geu.css";
 
 export const metadata: Metadata = {
@@ -595,12 +595,6 @@ export default function GraphicEraPage() {
                 Dehradun. Students who connect with admissiondesk receive
                 admission assistance, scholarship guidance, and zero-cost
                 counselling.
-              </p>
-              <p className="geu-footer-line mt-3 opacity-90">
-                {INDEPENDENCE_DISCLAIMER}
-              </p>
-              <p className="geu-footer-line mt-2 opacity-90">
-                {ADMISSION_DECISION_DISCLAIMER}
               </p>
             </div>
             <div className="md:col-span-5">

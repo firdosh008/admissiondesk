@@ -21,11 +21,9 @@ type HeaderProps = {
 };
 
 const DEFAULT_NAV_LINKS: HeaderLink[] = [
-  { label: "Universities", href: "/#partners" },
-  { label: "Programmes", href: "/#programs" },
-  { label: "How it works", href: "/#process" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
+  { label: "Universities", href: "/#partners" },
   { label: "Contact", href: "/contact-us" },
   {
     label: "Legal",

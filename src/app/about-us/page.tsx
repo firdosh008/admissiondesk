@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { ADMISSION_DECISION_DISCLAIMER, INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 const aboutStats = [
   { value: "8+", label: "Universities Covered" },
@@ -54,10 +54,7 @@ export default function AboutUsPage() {
               </p>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-[color:var(--ink-soft)]">
                 We provide admission guidance and counselling support for students
-                exploring selected universities. {INDEPENDENCE_DISCLAIMER}
-              </p>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-[color:var(--muted)]">
-                {ADMISSION_DECISION_DISCLAIMER}
+                exploring selected universities.
               </p>
             </div>
 

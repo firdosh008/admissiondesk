@@ -35,11 +35,6 @@ export const SITE = {
 /** Google Ads / policy-safe CTA — opens counselling popup, not a direct application. */
 export const CTA_BOOK_COUNSELLING = "Submit Now" as const;
 
-export const INDEPENDENCE_DISCLAIMER =
-  "admissiondesk is an authorised counselling partner providing admission guidance and counselling support. We are not the official website of any university." as const;
-
-export const ADMISSION_DECISION_DISCLAIMER =
-  "We do not guarantee admission. Final admission decisions are made solely by the respective institutions based on their criteria." as const;
 
 export const PAGE_CONTACTS = {
   home: {

@@ -4,14 +4,14 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { ThemedLeadForm } from "@/components/college/ThemedLeadForm";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
-import { ADMISSION_DECISION_DISCLAIMER, CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS, SITE } from "@/lib/site";
+import {   CTA_BOOK_COUNSELLING, PAGE_CONTACTS, SITE } from "@/lib/site";
 import "./dbuu.css";
 
 export const metadata: Metadata = {
   title: "Dev Bhoomi University Admission Counselling 2026 | admissiondesk",
   description:
     "Get free admission counselling for Dev Bhoomi Uttarakhand University (DBUU) — one of Uttarakhand's most affordable private universities. Programme shortlisting, DBUU-CET guidance, scholarship support, and application assistance from admissiondesk.",
-  alternates: { canonical: "/dev-bhoomi" },
+  alternates:  { canonical: "/dev-bhoomi" },
 };
 
 const SUBNAV = [
@@ -19,7 +19,7 @@ const SUBNAV = [
   { label: "Admission Process", href: "#process" },
   { label: "Scholarship", href: "#scholarship" },
   { label: "DBUU-CET", href: "#dbuucet" },
-  { label: "FAQs", href: "#faqs" },
+  { label: "FAQs", href: "#faqs" }, 
   { label: "Submit Now", href: "#apply" },
 ];
 
@@ -473,12 +473,6 @@ export default function DevBhoomiPage() {
                 Bhoomi Uttarakhand University, Dehradun. Students who connect
                 through admissiondesk receive admission assistance, DBUU-CET
                 guidance, scholarship slab information, and zero-cost counselling.
-              </p>
-              <p className="dbuu-footer-line" style={{ marginTop: "0.75rem", opacity: 0.9 }}>
-                {INDEPENDENCE_DISCLAIMER}
-              </p>
-              <p className="dbuu-footer-line" style={{ marginTop: "0.5rem", opacity: 0.9 }}>
-                {ADMISSION_DECISION_DISCLAIMER}
               </p>
             </div>
             <div>

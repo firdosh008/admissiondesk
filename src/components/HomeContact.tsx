@@ -1,4 +1,4 @@
-import { ADMISSION_DECISION_DISCLAIMER, INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 const contactItems = [
   {
@@ -96,7 +96,6 @@ export function HomeContact() {
         </div>
 
         <p className="mt-10 max-w-2xl text-xs leading-relaxed text-[color:var(--muted)]">
-          Note: {INDEPENDENCE_DISCLAIMER} {ADMISSION_DECISION_DISCLAIMER}{" "}
           Trademarks used are owned by their respective owners.
         </p>
       </div>

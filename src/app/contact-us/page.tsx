@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { ADMISSION_DECISION_DISCLAIMER, INDEPENDENCE_DISCLAIMER, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us | admissiondesk",
@@ -64,15 +64,9 @@ export default function ContactUsPage() {
                 eligibility guidance, fee and scholarship information, and
                 application support for selected universities in Uttarakhand.
               </p>
-              <p className="mt-5 max-w-3xl text-base leading-7 text-[color:var(--ink-soft)]">
-                {INDEPENDENCE_DISCLAIMER}
-              </p>
-              <p className="mt-4 max-w-3xl text-sm leading-7 text-[color:var(--muted)]">
-                {ADMISSION_DECISION_DISCLAIMER}
-              </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div   className="grid gap-5 sm:grid-cols-2">
               {contactItems.map(({ label, value, href }) => (
                 <div key={label} className="card-paper p-6">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
@@ -102,10 +96,6 @@ export default function ContactUsPage() {
               [
                 "Independent guidance",
                 "We help students understand available options and admission steps. Final admission decisions remain with the respective institutions.",
-              ],
-              [
-                "No guarantee claim",
-                ADMISSION_DECISION_DISCLAIMER,
               ],
               [
                 "Transparent support",

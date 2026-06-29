@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DEHRADUN_COUNSELLING_COLLEGES } from "@/lib/constants";
-import { ADMISSION_DECISION_DISCLAIMER, SITE, ANALYTICS } from "@/lib/site";
+import { SITE, ANALYTICS } from "@/lib/site";
 import {
   leadFormSchema,
   leadFormDefaults,
@@ -363,9 +363,6 @@ export function LeadForm() {
         >
           {isSubmitting ? "Submitting…" : "Submit Now"}
         </button>
-        <p className="text-xs leading-relaxed text-[color:var(--muted)]">
-          {ADMISSION_DECISION_DISCLAIMER}
-        </p>
       </div>
     </form>
   );

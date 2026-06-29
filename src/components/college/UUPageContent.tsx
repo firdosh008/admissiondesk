@@ -11,9 +11,9 @@ import { UUProgramSidebar } from "@/components/college/UUProgramSidebar";
 import { UUPhotoCarousel } from "@/components/college/UUPhotoCarousel";
 import { HomeLeadPopup } from "@/components/HomeLeadPopup";
 import { UUApplyTrigger } from "@/components/college/UUApplyTrigger";
-import { ADMISSION_DECISION_DISCLAIMER, CTA_BOOK_COUNSELLING, INDEPENDENCE_DISCLAIMER, PAGE_CONTACTS, SITE } from "@/lib/site";
+import { CTA_BOOK_COUNSELLING, PAGE_CONTACTS, SITE } from "@/lib/site";
 
-const TOP_COUNTERS = [
+const TOP_COUNTERS = [  
   { to: 23, suffix: "+", label: "Years of Educational Experience" },
   { to: 100, suffix: "+", label: "Multidisciplinary Programs" },
   { to: 750, suffix: "+", label: "Companies Visited For Placement" },
@@ -245,12 +245,6 @@ export function UUPageContent() {
                 Uttaranchal University, Dehradun. Students who connect with
                 admissiondesk receive admission assistance, scholarship guidance,
                 and zero-cost counselling.
-              </p>
-              <p className="uu-footer-line mt-3 text-[color:var(--gold-soft)]/90">
-                {INDEPENDENCE_DISCLAIMER}
-              </p>
-              <p className="uu-footer-line mt-2 text-[color:var(--gold-soft)]/90">
-                {ADMISSION_DECISION_DISCLAIMER}
               </p>
             </div>
             <div className="md:col-span-5">
