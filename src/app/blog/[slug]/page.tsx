@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
@@ -12,6 +13,10 @@ import {
 type BlogDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+const BLOG_HERO_IMAGE = "/image.png";
+const BLOG_HERO_ALT =
+  "Students reviewing course options during career counselling";
 
 export function generateStaticParams() {
   return getAllBlogs().map((blog) => ({
@@ -79,6 +84,16 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--gold-deep)]">
                   By {blog.author}
                 </p>
+              </div>
+              <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-lg border border-[color:var(--rule-soft)] bg-[color:var(--cream)] shadow-[var(--shadow-card)] md:aspect-[21/9]">
+                <Image
+                  src={BLOG_HERO_IMAGE}
+                  alt={BLOG_HERO_ALT}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 1120px, 100vw"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
           </header>

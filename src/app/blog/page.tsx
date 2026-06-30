@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { formatBlogDate, getAllBlogs, getFeaturedBlog } from "@/lib/blogs";
+
+const BLOG_HERO_IMAGE = "/image.png";
+const BLOG_HERO_ALT =
+  "Students reviewing course options during career counselling";
 
 export const metadata: Metadata = {
   title: "Admission Blog | Course and College Guidance",
@@ -28,17 +33,29 @@ export default function BlogPage() {
             Back to home
           </Link>
 
-          <div className="mt-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div className="mt-8 flex flex-col justify-between gap-6 md:flex-row md:items-start">
             <div>
               <p className="eyebrow">Admissiondesk Blog</p>
               <h1 className="mt-4 font-display text-4xl leading-tight text-[color:var(--forest-deep)] md:text-6xl">
                 Admission guides for students and parents
               </h1>
             </div>
-            <p className="max-w-xl leading-7 text-[color:var(--ink-soft)]">
-              Practical articles on course selection, university comparison,
-              documents, fees, scholarships, and campus fit.
-            </p>
+            <div className="max-w-xl">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-[color:var(--rule-soft)] bg-[color:var(--parchment)] shadow-[var(--shadow-card)]">
+                <Image
+                  src={BLOG_HERO_IMAGE}
+                  alt={BLOG_HERO_ALT}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 576px, 100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+              <p className="mt-5 leading-7 text-[color:var(--ink-soft)]">
+                Practical articles on course selection, university comparison,
+                documents, fees, scholarships, and campus fit.
+              </p>
+            </div>
           </div>
 
           <Link

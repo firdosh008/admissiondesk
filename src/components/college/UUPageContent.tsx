@@ -263,8 +263,12 @@ export function UUPageContent() {
           </div>
           <div className="uu-footer-bar">
             <p>
-              © {new Date().getFullYear()} admissiondesk — Independent education consultancy.
-              This counselling page is operated by admissiondesk, not by the university.
+              <strong>Disclaimer</strong>: We are Authorised partner only. This counselling page is operated by admissiondesk for
+              counselling and application assistance. We are not Uttaranchal University, nor are we its official website.
+            </p>
+            <p>
+              <strong>Data Consent &amp; Usage</strong>: By submitting the form, you authorize the Admission Desk Counselor Team to
+              contact you via call, SMS, WhatsApp or email for admission counselling.
             </p>
             <p>UU: NAAC A+ · UGC · AICTE · BCI · PCI · INC</p>
             <p>GST: {SITE.gstNumber}</p>
